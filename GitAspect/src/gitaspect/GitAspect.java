@@ -15,6 +15,7 @@ public class GitAspect {
      */
     public static void main(String[] args) {
         System.out.println("AHOJ");
+        System.out.println("AHOJ2");
         // TODO code application logic here
     }
 }
