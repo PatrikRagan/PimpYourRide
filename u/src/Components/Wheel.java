@@ -8,10 +8,13 @@ public class Wheel {
 	private Disc disc;
 	private Tire tire;
 	
-//	public Wheel(Disc disc, Tire tire){
-//		this.disc = disc;
-//		this.tire = tire;
-//	}
+	public void setDisc(Wheel.Disc disc){
+		this.disc = disc;
+	}
+	
+	public void setTire(Wheel.Tire tire){
+		this.tire = tire;
+	}
 	
 	public class Disc{
 		
@@ -22,7 +25,7 @@ public class Wheel {
 		private boolean haveHubCup;
 		private DiskBrands diskBrand;
 		
-		public Disc(DiskBrands diskBrand,int diameter, boolean isElectron, boolean haveHubCup){
+		public Disc(int diameter, DiskBrands diskBrand, boolean isElectron, boolean haveHubCup){
 			this.diameter = diameter;
 			this.isElectron = isElectron;
 			this.diskBrand = diskBrand;
@@ -33,11 +36,13 @@ public class Wheel {
 	public class Tire{
 		
 		private int diameter;
+		private int tireWidth;
 		private TireBrands tireBrand;
 		
-		public Tire(int diameter, TireBrands tireBrand){
+		public Tire(int diameter, int tireWidth, TireBrands tireBrand){
 			this.diameter = diameter;
 			this.tireBrand = tireBrand;
+			this.tireWidth = tireWidth;
 		}
 		
 	}
