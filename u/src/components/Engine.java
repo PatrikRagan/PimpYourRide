@@ -1,6 +1,6 @@
-package Components;
+package components;
 
-import Enums.Fuel;
+import enums.Fuel;
 
 public class Engine {
 	
