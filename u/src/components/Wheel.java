@@ -1,7 +1,7 @@
-package Components;
+package components;
 
-import Enums.DiskBrands;
-import Enums.TireBrands;
+import enums.DiskBrands;
+import enums.TireBrands;
 
 public class Wheel {
 

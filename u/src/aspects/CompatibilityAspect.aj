@@ -1,6 +1,6 @@
 package aspects;
 
-import Components.*;
+import components.*;
 
 public aspect CompatibilityAspect {
 	

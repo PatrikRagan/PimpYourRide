@@ -1,6 +1,6 @@
 package pimpYourRide;
 
-import Components.Wheel;
+import components.Wheel;
 
 public class Main {
 	public static void main(String args[]) {
