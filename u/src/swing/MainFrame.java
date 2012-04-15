@@ -1,12 +1,12 @@
 package swing;
 
-import java.awt.Color;
-
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import javax.swing.border.LineBorder;
+import javax.swing.border.EtchedBorder;
 
 import org.dyno.visual.swing.layouts.Bilateral;
 import org.dyno.visual.swing.layouts.Constraints;
@@ -21,6 +21,7 @@ public class MainFrame extends JFrame {
 	private JPanel jPanelMain;
 	private JPanel jPanelChoice;
 	private JPanel jPanelCenter;
+	private JScrollPane jScrollPaneLogger;
 	private static final String PREFERRED_LOOK_AND_FEEL = "javax.swing.plaf.metal.MetalLookAndFeel";
 	public MainFrame() {
 		initComponents();
@@ -31,14 +32,22 @@ public class MainFrame extends JFrame {
 		setLayout(new GroupLayout());
 		add(getJPanelMain(), new Constraints(new Leading(12, 254, 282, 282), new Bilateral(12, 12, 0)));
 		add(getJPanelChoice(), new Constraints(new Trailing(12, 252, 282, 282), new Bilateral(12, 12, 0)));
-		add(getJPanelCenter(), new Constraints(new Bilateral(272, 270, 0), new Bilateral(12, 12, 0)));
+		add(getJPanelCenter(), new Constraints(new Bilateral(272, 270, 0), new Leading(12, 378, 10, 10)));
+		add(getJScrollPane0(), new Constraints(new Bilateral(272, 270, 22), new Bilateral(396, 12, 22)));
 		setSize(900, 560);
+	}
+
+	private JScrollPane getJScrollPane0() {
+		if (jScrollPaneLogger == null) {
+			jScrollPaneLogger = new JScrollPane();
+		}
+		return jScrollPaneLogger;
 	}
 
 	private JPanel getJPanelCenter() {
 		if (jPanelCenter == null) {
 			jPanelCenter = new JPanel();
-			jPanelCenter.setBorder(new LineBorder(Color.black, 1, false));
+			jPanelCenter.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED, null, null));
 			jPanelCenter.setLayout(new GroupLayout());
 		}
 		return jPanelCenter;
@@ -47,7 +56,7 @@ public class MainFrame extends JFrame {
 	private JPanel getJPanelChoice() {
 		if (jPanelChoice == null) {
 			jPanelChoice = new JPanel();
-			jPanelChoice.setBorder(new LineBorder(Color.black, 1, false));
+			jPanelChoice.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED, null, null));
 			jPanelChoice.setLayout(new GroupLayout());
 		}
 		return jPanelChoice;
@@ -56,7 +65,7 @@ public class MainFrame extends JFrame {
 	private JPanel getJPanelMain() {
 		if (jPanelMain == null) {
 			jPanelMain = new JPanel();
-			jPanelMain.setBorder(new LineBorder(Color.black, 1, false));
+			jPanelMain.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED, null, null));
 			jPanelMain.setLayout(new GroupLayout());
 		}
 		return jPanelMain;
