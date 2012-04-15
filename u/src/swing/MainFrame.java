@@ -1,36 +1,65 @@
 package swing;
 
-import javax.swing.JButton;
+import java.awt.Color;
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
 
+import org.dyno.visual.swing.layouts.Bilateral;
 import org.dyno.visual.swing.layouts.Constraints;
 import org.dyno.visual.swing.layouts.GroupLayout;
 import org.dyno.visual.swing.layouts.Leading;
+import org.dyno.visual.swing.layouts.Trailing;
 
 //VS4E -- DO NOT REMOVE THIS LINE!
 public class MainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JButton jButton0;
+	private JPanel jPanelMain;
+	private JPanel jPanelChoice;
+	private JPanel jPanelCenter;
 	private static final String PREFERRED_LOOK_AND_FEEL = "javax.swing.plaf.metal.MetalLookAndFeel";
 	public MainFrame() {
 		initComponents();
 	}
 
 	private void initComponents() {
+		setResizable(false);
 		setLayout(new GroupLayout());
-		add(getJButton0(), new Constraints(new Leading(40, 10, 10), new Leading(542, 10, 10)));
-		setSize(800, 600);
+		add(getJPanelMain(), new Constraints(new Leading(12, 254, 282, 282), new Bilateral(12, 12, 0)));
+		add(getJPanelChoice(), new Constraints(new Trailing(12, 252, 282, 282), new Bilateral(12, 12, 0)));
+		add(getJPanelCenter(), new Constraints(new Bilateral(272, 270, 0), new Bilateral(12, 12, 0)));
+		setSize(900, 560);
 	}
 
-	private JButton getJButton0() {
-		if (jButton0 == null) {
-			jButton0 = new JButton();
-			jButton0.setText("jButton0");
+	private JPanel getJPanelCenter() {
+		if (jPanelCenter == null) {
+			jPanelCenter = new JPanel();
+			jPanelCenter.setBorder(new LineBorder(Color.black, 1, false));
+			jPanelCenter.setLayout(new GroupLayout());
 		}
-		return jButton0;
+		return jPanelCenter;
+	}
+
+	private JPanel getJPanelChoice() {
+		if (jPanelChoice == null) {
+			jPanelChoice = new JPanel();
+			jPanelChoice.setBorder(new LineBorder(Color.black, 1, false));
+			jPanelChoice.setLayout(new GroupLayout());
+		}
+		return jPanelChoice;
+	}
+
+	private JPanel getJPanelMain() {
+		if (jPanelMain == null) {
+			jPanelMain = new JPanel();
+			jPanelMain.setBorder(new LineBorder(Color.black, 1, false));
+			jPanelMain.setLayout(new GroupLayout());
+		}
+		return jPanelMain;
 	}
 
 	private static void installLnF() {
