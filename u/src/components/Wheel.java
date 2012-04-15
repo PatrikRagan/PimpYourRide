@@ -41,35 +41,35 @@ public class Wheel {
 			this.setHaveHubCup(haveHubCup);
 		}
 
-		private int getDiameter() {
+		public int getDiameter() {
 			return diameter;
 		}
 
-		private void setDiameter(int diameter) {
+		public void setDiameter(int diameter) {
 			this.diameter = diameter;
 		}
 
-		private boolean isHaveHubCup() {
+		public boolean isHaveHubCup() {
 			return haveHubCup;
 		}
 
-		private void setHaveHubCup(boolean haveHubCup) {
+		public void setHaveHubCup(boolean haveHubCup) {
 			this.haveHubCup = haveHubCup;
 		}
 
-		private DiskBrands getDiskBrand() {
+		public DiskBrands getDiskBrand() {
 			return diskBrand;
 		}
 
-		private void setDiskBrand(DiskBrands diskBrand) {
+		public void setDiskBrand(DiskBrands diskBrand) {
 			this.diskBrand = diskBrand;
 		}
 
-		private boolean isElectron() {
+		public boolean isElectron() {
 			return isElectron;
 		}
 
-		private void setElectron(boolean isElectron) {
+		public void setElectron(boolean isElectron) {
 			this.isElectron = isElectron;
 		}
 	}
@@ -86,27 +86,27 @@ public class Wheel {
 			this.setTireWidth(tireWidth);
 		}
 
-		private int getDiameter() {
+		public int getDiameter() {
 			return diameter;
 		}
 
-		private void setDiameter(int diameter) {
+		public void setDiameter(int diameter) {
 			this.diameter = diameter;
 		}
 
-		private TireBrands getTireBrand() {
+		public TireBrands getTireBrand() {
 			return tireBrand;
 		}
 
-		private void setTireBrand(TireBrands tireBrand) {
+		public void setTireBrand(TireBrands tireBrand) {
 			this.tireBrand = tireBrand;
 		}
 
-		private int getTireWidth() {
+		public int getTireWidth() {
 			return tireWidth;
 		}
 
-		private void setTireWidth(int tireWidth) {
+		public void setTireWidth(int tireWidth) {
 			this.tireWidth = tireWidth;
 		}
 

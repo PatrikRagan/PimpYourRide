@@ -38,6 +38,7 @@ public class Engine {
 		return power;
 	}
 	
+	//funkcia na výpocet toviveho momentu
 	public int getTorque(){
 		double fuel;
 		int torque;
