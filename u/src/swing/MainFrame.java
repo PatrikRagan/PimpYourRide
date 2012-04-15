@@ -2,7 +2,6 @@ package swing;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -15,7 +14,6 @@ public class MainFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JButton jButton0;
-	private JLabel jLabel0;
 	private static final String PREFERRED_LOOK_AND_FEEL = "javax.swing.plaf.metal.MetalLookAndFeel";
 	public MainFrame() {
 		initComponents();
@@ -24,16 +22,7 @@ public class MainFrame extends JFrame {
 	private void initComponents() {
 		setLayout(new GroupLayout());
 		add(getJButton0(), new Constraints(new Leading(40, 10, 10), new Leading(542, 10, 10)));
-		add(getJLabel0(), new Constraints(new Leading(318, 10, 10), new Leading(373, 10, 10)));
 		setSize(800, 600);
-	}
-
-	private JLabel getJLabel0() {
-		if (jLabel0 == null) {
-			jLabel0 = new JLabel();
-			jLabel0.setText("program");
-		}
-		return jLabel0;
 	}
 
 	private JButton getJButton0() {
