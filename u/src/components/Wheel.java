@@ -1,14 +1,9 @@
 package components;
 
-import java.util.ArrayList;
-
-import components.Wheel.Disc;
-
 import enums.DiskBrands;
 import enums.TireBrands;
 
 public class Wheel {
-	private ArrayList<Integer> diameterList = new ArrayList<Integer>();
 	private Disc disc;
 	private Tire tire;
 
@@ -26,23 +21,6 @@ public class Wheel {
 
 	public Tire getTire() {
 		return this.tire;
-	}
-
-	public ArrayList<Integer> getDiameterList() {
-		return diameterList;
-	}
-
-	public void setDiameterList(ArrayList<Integer> diameterList) {
-		this.diameterList = diameterList;
-	}
-
-	public void addedTireDiameters() {
-		ArrayList<Integer> locaList = getDiameterList();
-		locaList.add(14);
-		locaList.add(15);
-		locaList.add(16);
-		locaList.add(17);
-		locaList.add(19);
 	}
 
 	public class Disc {

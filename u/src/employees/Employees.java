@@ -1,12 +1,11 @@
 package employees;
 
-import java.util.ArrayList;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class Employees {
 
-	private SortedMap<Integer, String> map = new TreeMap<Integer, String>();
+	public SortedMap<Integer, String> map = new TreeMap<Integer, String>();
 
 	public Employees() {
 		addedEmployees();

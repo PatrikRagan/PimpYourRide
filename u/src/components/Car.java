@@ -155,7 +155,15 @@ public class Car {
 	public int topSpeed(){
 		int topSpeed;
 		topSpeed = (int)(((Math.log(this.engine.getPower())/Math.log(2.2))-4)*100);
+		topSpeed = (int)(topSpeed + (this.bodyKit.getDownforce()/2000)*topSpeed);
+		topSpeed = (int)(topSpeed * (this.clutch.getGears()+12)/18);
 		return topSpeed;
+	}
+	
+	public double acceleration(){
+		double acceleration;
+		acceleration = 5;
+		return acceleration;
 	}
 
 }

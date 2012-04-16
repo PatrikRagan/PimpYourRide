@@ -7,6 +7,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.border.EtchedBorder;
 
+import components.ComponentsLists;
+
 public class MainFrame extends JFrame {
 
 	/**
@@ -36,6 +38,15 @@ public class MainFrame extends JFrame {
 		choicePanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		choicePanel.setBounds(644, 0, 250, 543);
 		getContentPane().add(choicePanel);
+		choicePanel.setLayout(null);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(10, 11, 230, 20);
+		choicePanel.add(comboBox);
+		ComponentsLists component = new ComponentsLists();
+		for(int i=0 ; i<component.getEngineList().size(); i++){
+			comboBox.addItem(component.getEngineList().get(i));
+		}
 		
 		JScrollPane logScrollPane = new JScrollPane();
 		logScrollPane.setBounds(250, 400, 394, 143);
