@@ -71,13 +71,6 @@ public class Car {
 		return rearBrakes;
 	}
 
-	public int brakesEffectivity() {
-		double brakeEffectivity = (1.2 * frontBrakes.getEffectivity(wheels
-				.getTire()) + rearBrakes.getEffectivity(wheels.getTire())) / 2;
-		brakeEffectivity = (brakeEffectivity / 3300) * 100;
-		return (int) brakeEffectivity;
-	}
-
 	public void setExhaust(int exhaust) {
 		this.exhaust = exhaust;
 	}
@@ -150,6 +143,19 @@ public class Car {
 	public void removeFromList(Features features) {
 		ArrayList<Features> localList = getList();
 		localList.remove(features);
+	}
+	
+	public int brakesEffectivity() {
+		double brakeEffectivity = (1.2 * frontBrakes.getEffectivity(wheels
+				.getTire()) + rearBrakes.getEffectivity(wheels.getTire())) / 2;
+		brakeEffectivity = (brakeEffectivity / 3300) * 100;
+		return (int) brakeEffectivity;
+	}
+	
+	public int topSpeed(){
+		int topSpeed;
+		topSpeed = (int)(((Math.log(this.engine.getPower())/Math.log(2.2))-4)*100);
+		return topSpeed;
 	}
 
 }
