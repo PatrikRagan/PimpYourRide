@@ -1,12 +1,15 @@
 package components;
 
 import java.awt.Color;
+import java.awt.List;
+import java.util.ArrayList;
+
 import enums.CarRoof;
 import enums.Chasis;
 import enums.Features;
 
 public class Car {
-	
+
 	private Wheel wheels;
 	private Engine engine;
 	private Brakes frontBrakes;
@@ -19,8 +22,12 @@ public class Car {
 	private BodyKit bodyKit;
 	private Features features;
 	private Color carColor;
-	
-	public Car(Wheel wheels,Chasis chasis, Engine engine, int exhaust, Brakes frontBrakes, Brakes rearBrakes, CarRoof roof, Interior interior, Clutch clutch, BodyKit kit, Features features, Color color){
+	private ArrayList<Features> list = new ArrayList<Features>();
+
+	public Car(Wheel wheels, Chasis chasis, Engine engine, int exhaust,
+			Brakes frontBrakes, Brakes rearBrakes, CarRoof roof,
+			Interior interior, Clutch clutch, BodyKit kit, Features features,
+			Color color) {
 		this.setWheels(wheels);
 		this.setEngine(engine);
 		this.setFrontBrakes(frontBrakes);
@@ -66,11 +73,12 @@ public class Car {
 	public Brakes getRearBrakes() {
 		return rearBrakes;
 	}
-	
-	public int brakesEffectivity(){
-		double brakeEffectivity = (1.2*frontBrakes.getEffectivity(wheels.getTire())+rearBrakes.getEffectivity(wheels.getTire()))/2;
-		brakeEffectivity = (brakeEffectivity/3300)*100;
-		return (int)brakeEffectivity;
+
+	public int brakesEffectivity() {
+		double brakeEffectivity = (1.2 * frontBrakes.getEffectivity(wheels
+				.getTire()) + rearBrakes.getEffectivity(wheels.getTire())) / 2;
+		brakeEffectivity = (brakeEffectivity / 3300) * 100;
+		return (int) brakeEffectivity;
 	}
 
 	public void setExhaust(int exhaust) {
@@ -136,5 +144,23 @@ public class Car {
 	public Color getCarColor() {
 		return carColor;
 	}
-	
+
+	public ArrayList<Features> getList() {
+		return list;
+	}
+
+	public void setList(ArrayList<Features> list) {
+		this.list = list;
+	}
+
+	public void addToList(Features feature) {
+		ArrayList<Features> localList = getList();
+		localList.add(feature);
+	}
+
+	public void removeFromList(Features features) {
+		ArrayList<Features> localList = getList();
+		localList.remove(features);
+	}
+
 }
