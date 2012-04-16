@@ -1,7 +1,6 @@
 package components;
 
 import java.awt.Color;
-import java.awt.List;
 import java.util.ArrayList;
 
 import enums.CarRoof;
@@ -20,13 +19,12 @@ public class Car {
 	private Interior interior;
 	private Clutch clutch;
 	private BodyKit bodyKit;
-	private Features features;
 	private Color carColor;
 	private ArrayList<Features> list = new ArrayList<Features>();
 
 	public Car(Wheel wheels, Chasis chasis, Engine engine, int exhaust,
 			Brakes frontBrakes, Brakes rearBrakes, CarRoof roof,
-			Interior interior, Clutch clutch, BodyKit kit, Features features,
+			Interior interior, Clutch clutch, BodyKit kit,
 			Color color) {
 		this.setWheels(wheels);
 		this.setEngine(engine);
@@ -38,7 +36,6 @@ public class Car {
 		this.setInterior(interior);
 		this.setClutch(clutch);
 		this.setBodyKit(kit);
-		this.setFeatures(features);
 		this.setCarColor(color);
 	}
 
@@ -127,14 +124,6 @@ public class Car {
 
 	public BodyKit getBodyKit() {
 		return bodyKit;
-	}
-
-	public void setFeatures(Features features) {
-		this.features = features;
-	}
-
-	public Features getFeatures() {
-		return features;
 	}
 
 	public void setCarColor(Color carColor) {
