@@ -86,7 +86,13 @@ public class MainFrame extends JFrame {
 		textPane.setBounds(10, 73, 190, 143);
 		leftPanel.add(textPane);
 		
+		//Obskuzna funkcia tlacitka INSTALL
 		JButton btnInstal = new JButton("Instal");
+		btnInstal.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		btnInstal.setBounds(10, 289, 80, 23);
 		leftPanel.add(btnInstal);
 		
