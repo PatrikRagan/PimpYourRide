@@ -25,7 +25,7 @@ public class Car {
 	public Car(Wheel wheels, Chasis chasis, Engine engine, int exhaust,
 			Brakes frontBrakes, Brakes rearBrakes, CarRoof roof,
 			Interior interior, Clutch clutch, BodyKit kit,
-			Color color) {
+			Color color, ArrayList<Features> features) {
 		this.setWheels(wheels);
 		this.setEngine(engine);
 		this.setFrontBrakes(frontBrakes);
@@ -37,6 +37,7 @@ public class Car {
 		this.setClutch(clutch);
 		this.setBodyKit(kit);
 		this.setCarColor(color);
+		this.list = features;
 	}
 
 	public void setWheels(Wheel wheels) {

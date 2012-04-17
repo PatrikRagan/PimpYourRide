@@ -11,6 +11,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 import components.*;
 import components.Interior.Seats;
@@ -28,6 +29,15 @@ public class MainFrame extends JFrame {
 	private JPasswordField passField;
 	private String loggerText = "";
 	private DefaultMutableTreeNode node;
+	private JTree treeComponents;
+
+	public JTree getTreeComponents() {
+		return treeComponents;
+	}
+
+	public void setTreeComponents(JTree treeComponents) {
+		this.treeComponents = treeComponents;
+	}
 
 	public DefaultMutableTreeNode getNode() {
 		return node;
@@ -217,7 +227,7 @@ public class MainFrame extends JFrame {
 		DefaultMutableTreeNode features = new DefaultMutableTreeNode("Features");
 		node.add(features);
 		
-		JTree treeComponents = new JTree(node);
+		treeComponents = new JTree(node);
 		scrollPane_1.setViewportView(treeComponents);
 		
 		JPanel carPanel = new JPanel();
@@ -271,12 +281,14 @@ public class MainFrame extends JFrame {
 					Interior interior = new Interior(Color.LIGHT_GRAY, Materials.ALCANTARA);
 					Seats seats = interior.new Seats(TypeOfSeats.CLASSIC, Materials.GENUINELEATHER, false, false);
 					interior.setSeats(seats);
-					
 					Clutch clutch = new Clutch(5, false);
 					BodyKit body = new BodyKit(10, 30);
+					ArrayList<Features> features = new ArrayList<Features>();
+					features.add(Features.DVD);
+					features.add(Features.AUDIO);
 					
 					Car car = new Car(wheels, Chasis.NORMAL, engine, 50, front, rear,
-							CarRoof.HARDTOP, interior, clutch, body, Color.BLACK);
+							CarRoof.HARDTOP, interior, clutch, body, Color.BLACK, features);
 					//End creating car
 					
 				} catch (Exception e) {

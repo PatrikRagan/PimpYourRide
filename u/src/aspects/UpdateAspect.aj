@@ -1,6 +1,7 @@
 package aspects;
 
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 import components.Car;
 
@@ -17,6 +18,7 @@ public aspect UpdateAspect {
 	after(Car car): execution(Car.new(..)) && target(car){
 		System.out.println(thisJoinPoint.getClass().getName());
 		this.components = this.frame.getNode();
+		
 		DefaultMutableTreeNode list;
 		list = components.getFirstLeaf();
 		
@@ -106,6 +108,14 @@ public aspect UpdateAspect {
 				list.setUserObject(string + ".........YES");
 			else
 				list.setUserObject(string + ".........NO");
+		}
+		else UpdateFeatures(car, list);
+	}
+	
+	private void UpdateFeatures(Car car, DefaultMutableTreeNode list){
+		DefaultTreeModel model = (DefaultTreeModel)frame.getTreeComponents().getModel();
+		for(int i=0; i<car.getList().size(); i++){
+			list.add(new DefaultMutableTreeNode(car.getList().get(i)));
 		}
 	}
 
