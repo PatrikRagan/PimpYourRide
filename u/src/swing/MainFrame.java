@@ -215,7 +215,7 @@ public class MainFrame extends JFrame {
 		node.add(features);
 		
 		JTree treeComponents = new JTree(node);
-		scrollPane_1.setColumnHeaderView(treeComponents);
+		scrollPane_1.setViewportView(treeComponents);
 		
 		JPanel carPanel = new JPanel();
 		carPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
