@@ -23,10 +23,14 @@ public aspect UpdateAspect {
 		list = components.getFirstLeaf();
 		
 		for(int i=0; i<components.getLeafCount(); i++){
-			String string = list.getUserObject().toString();
-			UpdateTree(string, list, car);
-			System.out.println(string);
-			list = list.getNextLeaf();
+			try{
+				String string = list.getUserObject().toString();
+				UpdateTree(string, list, car);
+				System.out.println(string);
+				list = list.getNextLeaf();
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
 		}	
 	}
 	
@@ -109,11 +113,11 @@ public aspect UpdateAspect {
 			else
 				list.setUserObject(string + ".........NO");
 		}
-		else UpdateFeatures(car, list);
+		else  UpdateFeatures(car, list);
 	}
 	
 	private void UpdateFeatures(Car car, DefaultMutableTreeNode list){
-		DefaultTreeModel model = (DefaultTreeModel)frame.getTreeComponents().getModel();
+		//DefaultTreeModel model = (DefaultTreeModel)frame.getTreeComponents().getModel();
 		for(int i=0; i<car.getList().size(); i++){
 			list.add(new DefaultMutableTreeNode(car.getList().get(i)));
 		}
