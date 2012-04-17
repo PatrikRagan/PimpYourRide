@@ -163,7 +163,18 @@ public class Car {
 	
 	public double acceleration(){
 		double acceleration;
-		acceleration = 5;
+		double nitro = 1;
+		double gear = 1;
+		
+		if(list.contains(Features.NITRO1))
+			nitro = 1.1;
+		if(list.contains(Features.NITRO2))
+			nitro = 1.25;
+		if(list.contains(Features.NITRO3))
+			nitro = 1.4;
+		if(this.getClutch().isManual())
+			gear = 1.2;
+		acceleration = (((1500/topSpeed())/nitro)*gear)/(8/(4+this.getClutch().getGears()));
 		return acceleration;
 	}
 
