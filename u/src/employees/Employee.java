@@ -14,7 +14,7 @@ public class Employee {
 		this.name = name;
 		this.surname = surname;
 		this.job = job;
-		this.nick = name.substring(0, 0)+surname.substring(0,0)+iterator++;
+		this.nick = name.substring(0, 1)+surname.substring(0,1)+iterator++;
 		pass = "123";
 		System.out.println(nick+"\n"+pass);
 	}

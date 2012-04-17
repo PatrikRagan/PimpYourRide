@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 
 import components.*;
 import components.Interior.Seats;
+import employees.Employees;
 import enums.*;
 
 
@@ -45,6 +46,8 @@ public class MainFrame extends JFrame {
 		setResizable(false);
 		setLocation(10,10);
 		getContentPane().setLayout(new BorderLayout(0, 0));
+		
+		Employees.makeEmployees();
 		
 		JPanel bcgPanel = new JPanel();
 		bcgPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -242,12 +245,10 @@ public class MainFrame extends JFrame {
 	}
 	
 	private void instalComponent(){
-				
+		System.out.println("INSTALLED");
 	}
 	
-	public void instalAllowed(){
-		
-	}
+	
 	
 	
 	/**

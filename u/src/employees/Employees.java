@@ -9,10 +9,13 @@ public class Employees {
 
 	public static final ArrayList<Employee> employees = new ArrayList<Employee>();
 
-	public Employees() {
-		employees.add(new Employee("Alojz", "Vesel7", Jobs.INTERIORER));
+	
+	
+	public static void makeEmployees(){
+		employees.add(new Employee("Alojz", "Vesely", Jobs.INTERIORER));
 		employees.add(new Employee("Adam", "Moravèík", Jobs.MECHANIC));
-		employees.add(new Employee("František", "Èerný", Jobs.MECHANIC));
+		employees.add(new Employee("František", "Cerný", Jobs.MECHANIC));
+		
 	}
 
 	public ArrayList<Employee> getEmployees() {
