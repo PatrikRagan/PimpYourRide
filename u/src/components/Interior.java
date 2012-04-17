@@ -4,7 +4,7 @@ import java.awt.*;
 import enums.Materials;
 import enums.TypeOfSeats;
 
-public class Interior {
+public class Interior implements IComponent{
 	
 	private Color interiorColor;
 	private Materials interiorMaterial;
@@ -40,7 +40,7 @@ public class Interior {
 		return seats;
 	}
 
-	public class Seats{
+	public class Seats implements IComponent {
 		private TypeOfSeats seats;
 		private boolean haveHeatedSeats;
 		private boolean haveMassageSeats;

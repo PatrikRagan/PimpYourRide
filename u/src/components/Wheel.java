@@ -2,7 +2,7 @@ package components;
 
 import enums.TireBrands;
 
-public class Wheel {
+public class Wheel implements IComponent{
 	private Disc disc;
 	private Tire tire;
 
@@ -22,7 +22,7 @@ public class Wheel {
 		return this.tire;
 	}
 
-	public class Disc {
+	public class Disc implements IComponent{
 
 		private int diameter;
 		// typ disku - true = elektron/false = plechovy
@@ -61,7 +61,7 @@ public class Wheel {
 		}
 	}
 
-	public class Tire {
+	public class Tire implements IComponent{
 
 		private int diameter;
 		private int tireWidth;

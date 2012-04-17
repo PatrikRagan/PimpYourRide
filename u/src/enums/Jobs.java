@@ -2,6 +2,6 @@ package enums;
 
 public enum Jobs {
 
-	MECHANIC, INTERIORER
+	MECHANIC, INTERIORER, BODYWORKER
 	
 }

@@ -1,6 +1,6 @@
 package components;
 
-public class Brakes {
+public class Brakes implements IComponent{
 	
 	private int diameter;
 	public int getDiameter() {
