@@ -4,7 +4,7 @@ import swing.MainFrame;
 
 public aspect Logger {
 
-	/*OGGING:	- Select from combo box {2}
+	/*LOGGING:	- Select from combo box {2}
 				- Install new component
 				- bad login
 				- not Enough money

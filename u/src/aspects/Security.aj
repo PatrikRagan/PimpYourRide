@@ -1,17 +1,14 @@
 package aspects;
 
+import swing.MainFrame;
+
 import components.BodyKit;
-import components.Brakes;
-import components.Engine;
 import components.IComponent;
 import components.Interior;
-import components.Transmission;
-import components.Wheel;
 
 import employees.Employee;
 import employees.Employees;
 import enums.Jobs;
-import swing.MainFrame;
 
 public aspect Security {
 	/*

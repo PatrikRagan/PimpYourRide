@@ -21,7 +21,7 @@ public class Car {
 	private BodyKit bodyKit;
 	private Color carColor;
 	private int budget;
-	//TODO bude budget v konstruktore?
+	//TODO bude budget v konstruktore? #MK> ano bude :)
 	private ArrayList<Features> list = new ArrayList<Features>();
 
 	public Car(Wheel wheels, Chasis chasis, Engine engine, int exhaust,
