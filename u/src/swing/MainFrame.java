@@ -54,7 +54,7 @@ public class MainFrame extends JFrame {
 		 final JTextArea logArea = new JTextArea(20, 20);
 		JScrollPane scrollPane = new JScrollPane(logArea);
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		scrollPane.setBounds(230, 276, 350, 70);
+		scrollPane.setBounds(230, 276, 350, 87);
 		bcgPanel.add(scrollPane);
 //		bcgPanel.add(logArea);
        
