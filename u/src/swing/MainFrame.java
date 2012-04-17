@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import components.*;
 import components.Interior.Seats;
@@ -31,7 +32,7 @@ public class MainFrame extends JFrame {
 	private String loggerText = "";
 	private DefaultMutableTreeNode node;
 	private JTree treeComponents;
-
+	final ComponentsLists componentsList = new ComponentsLists();
 	final JTextArea logArea = new JTextArea(20, 20);
 
 	public JTree getTreeComponents() {
@@ -90,23 +91,29 @@ public class MainFrame extends JFrame {
 		// ae.getAdjustable().setValue(ae.getAdjustable().getMaximum());
 		// }
 		// });
+		final JComboBox componentComboBox = new JComboBox();
+		componentComboBox.setBounds(10, 42, 190, 20);
+		leftPanel.add(componentComboBox);
 
 		compType.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+			
+				if (compType.getSelectedItem().equals("ENGINE")) {
+					  Iterator iterator = componentsList.engineComponentMap.keySet().iterator();
+					  while (iterator.hasNext()) {
+						  String key = (String) iterator.next();
+						  componentComboBox.addItem(key);
+					  }
+				}
 				addLog(compType.getSelectedItem().toString() + " was selected"
 						+ "\n");
 
 			}
 		});
 		compType.setModel(new DefaultComboBoxModel(new String[] { "Strecha",
-				"Podvozok", "Motor" }));
+				"Podvozok", "ENGINE" }));
 		compType.setBounds(10, 11, 190, 20);
 		leftPanel.add(compType);
-
-		JComboBox component = new JComboBox();
-		component.setBounds(10, 42, 190, 20);
-		leftPanel.add(component);
 
 		JTextPane textPane = new JTextPane();
 		textPane.setBounds(10, 73, 190, 143);
@@ -338,6 +345,7 @@ public class MainFrame extends JFrame {
 	public void addLog(String text) {
 		this.loggerText += text;
 		logArea.setText(loggerText);
+
 	}
 
 }
