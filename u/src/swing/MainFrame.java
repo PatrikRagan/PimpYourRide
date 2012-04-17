@@ -35,7 +35,7 @@ public class MainFrame extends JFrame {
 	final ComponentsLists componentsList = new ComponentsLists();
 	final JTextArea logArea = new JTextArea(20, 20);
 	final JComboBox componentComboBox = new JComboBox();
-	final JComboBox compType = new JComboBox();
+	final JComboBox compTypeComboBox = new JComboBox();
 
 	public JTree getTreeComponents() {
 		return treeComponents;
@@ -76,13 +76,16 @@ public class MainFrame extends JFrame {
 		bcgPanel.add(leftPanel);
 		leftPanel.setLayout(null);
 
-		
-
 		JScrollPane scrollPane = new JScrollPane(logArea);
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED,
 				null, null));
 		scrollPane.setBounds(230, 276, 350, 87);
 		bcgPanel.add(scrollPane);
+		componentComboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				componentComboBox.getSelectedItem();
+			}
+		});
 		// bcgPanel.add(logArea);
 
 		// scrollpane.getVerticalScrollBar().addAdjustmentListener(new
@@ -93,29 +96,38 @@ public class MainFrame extends JFrame {
 		// ae.getAdjustable().setValue(ae.getAdjustable().getMaximum());
 		// }
 		// });
-		
+
 		componentComboBox.setBounds(10, 42, 190, 20);
 		leftPanel.add(componentComboBox);
 
-		compType.addActionListener(new ActionListener() {
+		compTypeComboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
-				if (compType.getSelectedItem().equals("ENGINE")) {
-					  Iterator iterator = componentsList.engineComponentMap.keySet().iterator();
-					  while (iterator.hasNext()) {
-						  String key = (String) iterator.next();
-						  componentComboBox.addItem(key);
-					  }
+
+				if (compTypeComboBox.getSelectedItem().equals("ENGINE")) {
+					componentComboBox.removeAllItems();
+					Iterator iterator = componentsList.engineComponentMap
+							.keySet().iterator();
+					while (iterator.hasNext()) {
+						String key = (String) iterator.next();
+						componentComboBox.addItem(key);
+					}
+				}else if (compTypeComboBox.getSelectedItem().equals("BRAKES")) {
+					componentComboBox.removeAllItems();
+					Iterator iterator = componentsList.brakesComponentMap
+							.keySet().iterator();
+					while (iterator.hasNext()) {
+						String key = (String) iterator.next();
+						componentComboBox.addItem(key);
+					}
 				}
-				addLog(compType.getSelectedItem().toString() + " was selected"
+				addLog(compTypeComboBox.getSelectedItem().toString() + " was selected"
 						+ "\n");
 
 			}
 		});
-		compType.setModel(new DefaultComboBoxModel(new String[] { "Strecha",
-				"Podvozok", "ENGINE" }));
-		compType.setBounds(10, 11, 190, 20);
-		leftPanel.add(compType);
+		compTypeComboBox.setModel(new DefaultComboBoxModel(new String[] {  "ENGINE" ,"BRAKES"}));
+		compTypeComboBox.setBounds(10, 11, 190, 20);
+		leftPanel.add(compTypeComboBox);
 
 		JTextPane textPane = new JTextPane();
 		textPane.setBounds(10, 73, 190, 143);
@@ -125,7 +137,7 @@ public class MainFrame extends JFrame {
 		JButton btnInstal = new JButton("Instal");
 		btnInstal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				instalComponent();
+				instalComponent(null);
 			}
 		});
 
@@ -158,7 +170,7 @@ public class MainFrame extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
-					instalComponent();
+					instalComponent(null);
 				}
 			}
 		});
@@ -292,8 +304,9 @@ public class MainFrame extends JFrame {
 
 	}
 
-	private void instalComponent() {
-		addLog(compType.getSelectedItem().toString() + " instaled type: "+componentComboBox.getSelectedItem().toString() + "\n");
+	private void instalComponent(IComponent component) {
+		addLog(compTypeComboBox.getSelectedItem().toString() + " instaled type: "
+				+ componentComboBox.getSelectedItem().toString() + "\n");
 	}
 
 	/**
@@ -308,18 +321,19 @@ public class MainFrame extends JFrame {
 
 					// Create car
 					Wheel wheels = new Wheel();
-					wheels.setTire(wheels.new Tire(18, 220, TireBrands.DUNLOP));
-					wheels.setDisc(wheels.new Disc(18, true, false));
-					Engine engine = new Engine(2000, 4, true, Fuel.DIESEL);
-					Brakes front = new Brakes(30, true);
-					Brakes rear = new Brakes(26, false);
+					wheels.setTire(wheels.new Tire(18, 220, TireBrands.DUNLOP,
+							100));
+					wheels.setDisc(wheels.new Disc(18, true, false, 100));
+					Engine engine = new Engine(2000, 4, true, Fuel.DIESEL, 100);
+					Brakes front = new Brakes(30, true, 100);
+					Brakes rear = new Brakes(26, false, 100);
 					Interior interior = new Interior(Color.LIGHT_GRAY,
-							Materials.ALCANTARA);
+							Materials.ALCANTARA, 100);
 					Seats seats = interior.new Seats(TypeOfSeats.CLASSIC,
 							Materials.GENUINELEATHER, false, false);
 					interior.setSeats(seats);
 					Transmission clutch = new Transmission(5, false);
-					BodyKit body = new BodyKit(10, 30);
+					BodyKit body = new BodyKit(10, 30, 100);
 					ArrayList<Features> features = new ArrayList<Features>();
 					features.add(Features.DVD);
 					features.add(Features.AUDIO);

@@ -1,20 +1,23 @@
 package components;
+
 import java.awt.*;
 
 import enums.Materials;
 import enums.TypeOfSeats;
 
-public class Interior {
-	
+public class Interior implements IComponent {
+
 	private Color interiorColor;
 	private Materials interiorMaterial;
 	private Seats seats;
-	
-	public Interior(Color col, Materials mat){
+	private int price;
+
+	public Interior(Color col, Materials mat, int price) {
 		this.setInteriorColor(col);
 		this.setInteriorMaterial(mat);
+		this.price = price;
 	}
-	
+
 	public void setInteriorColor(Color interiorColor) {
 		this.interiorColor = interiorColor;
 	}
@@ -39,13 +42,22 @@ public class Interior {
 		return seats;
 	}
 
-	public class Seats{
+	private int getPrice() {
+		return price;
+	}
+
+	private void setPrice(int price) {
+		this.price = price;
+	}
+
+	public class Seats implements IComponent {
 		private TypeOfSeats seats;
 		private boolean haveHeatedSeats;
 		private boolean haveMassageSeats;
 		private Materials seatsMaterial;
-		
-		public Seats(TypeOfSeats seats, Materials seatMat, boolean heated, boolean massage){
+
+		public Seats(TypeOfSeats seats, Materials seatMat, boolean heated,
+				boolean massage) {
 			this.setSeats(seats);
 			this.setSeatsMaterial(seatMat);
 			this.setHaveHeatedSeats(heated);

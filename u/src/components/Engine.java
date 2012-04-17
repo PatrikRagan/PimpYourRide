@@ -2,7 +2,7 @@ package components;
 
 import enums.Fuel;
 
-public class Engine {
+public class Engine implements IComponent{
 	
 	private int cubature;
 	private int price;

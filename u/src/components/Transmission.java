@@ -1,6 +1,6 @@
 package components;
 
-public class Transmission {
+public class Transmission implements IComponent{
 	
 	private int gears;
 	private boolean isManual;

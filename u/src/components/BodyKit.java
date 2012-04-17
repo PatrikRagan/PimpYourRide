@@ -1,6 +1,8 @@
 package components;
 
-public class BodyKit {
+
+public class BodyKit implements IComponent{
+	
 
 	private int style;
 	private int downforce;

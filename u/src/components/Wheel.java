@@ -2,7 +2,7 @@ package components;
 
 import enums.TireBrands;
 
-public class Wheel {
+public class Wheel implements IComponent {
 	private Disc disc;
 	private Tire tire;
 
@@ -22,15 +22,17 @@ public class Wheel {
 		return this.tire;
 	}
 
-	public class Disc {
+	public class Disc implements IComponent {
 
 		private int diameter;
+		protected int price;
 		// typ disku - true = elektron/false = plechovy
 		private boolean isElectron;
 		// haveHubCup - puklica - moze mat, len ak to nie je elektron
 		private boolean haveHubCup;
 
-		public Disc(int diameter, boolean isElectron, boolean haveHubCup) {
+		public Disc(int diameter, boolean isElectron, boolean haveHubCup,
+				int price) {
 			this.setDiameter(diameter);
 			this.setElectron(isElectron);
 			this.setHaveHubCup(haveHubCup);
@@ -59,18 +61,28 @@ public class Wheel {
 		public void setElectron(boolean isElectron) {
 			this.isElectron = isElectron;
 		}
+
+		protected int getPrice() {
+			return price;
+		}
+
+		protected void setPrice(int price) {
+			this.price = price;
+		}
 	}
 
-	public class Tire {
+	public class Tire implements IComponent {
 
 		private int diameter;
 		private int tireWidth;
+		protected int price;
 		private TireBrands tireBrand;
 
-		public Tire(int diameter, int tireWidth, TireBrands tireBrand) {
+		public Tire(int diameter, int tireWidth, TireBrands tireBrand, int price) {
 			this.setDiameter(diameter);
 			this.setTireBrand(tireBrand);
 			this.setTireWidth(tireWidth);
+			this.price = price;
 		}
 
 		public int getDiameter() {
@@ -95,6 +107,14 @@ public class Wheel {
 
 		public void setTireWidth(int tireWidth) {
 			this.tireWidth = tireWidth;
+		}
+
+		protected int getPrice() {
+			return price;
+		}
+
+		protected void setPrice(int price) {
+			this.price = price;
 		}
 
 	}
