@@ -13,6 +13,10 @@ import swing.MainFrame;
 public class Main {
 	public static Car car;
 
+	public static Car getInstance() {
+		return car;
+	}
+
 	/**
 	 * Launch the application.
 	 */
