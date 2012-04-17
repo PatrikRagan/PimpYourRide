@@ -7,7 +7,11 @@ public class ComponentsLists {
 	public ArrayList<String> engineList = new ArrayList<String>();
 	public ArrayList<String> brakeList = new ArrayList<String>();
 	public ArrayList<String> bodyKitList = new ArrayList<String>();
+	public ArrayList<String> discList = new ArrayList<String>();
 	public ComponentsLists(){
+		
+		//TODO:prekontrolovat vsetky hodnoty listov v spojeni so vzorcami;
+		//Engine List
 		this.engineList.add("1100 3 0 GASOLINE");
 		this.engineList.add("1300 4 0 GASOLINE");
 		this.engineList.add("1500 4 0 GASOLINE");
@@ -37,6 +41,7 @@ public class ComponentsLists {
 		this.engineList.add("3000 12 1 DIESEL");
 		this.engineList.add("4000 12 1 DIESEL");
 		this.engineList.add("5000 12 1 DIESEL");
+		//Brake List
 		this.brakeList.add("28 0");//28-50
 		this.brakeList.add("30 0");
 		this.brakeList.add("30 1");
@@ -46,6 +51,7 @@ public class ComponentsLists {
 		this.brakeList.add("45 0");
 		this.brakeList.add("50 0");
 		this.brakeList.add("50 1");
+		//BODY KIT
 		//V pøíruèce jsem se doèetl, že doporuèená hodnota je 990-2200 mBaru. //guess this is right
 		this.bodyKitList.add("1 0.9");
 		this.bodyKitList.add("1 1.3");
@@ -57,7 +63,9 @@ public class ComponentsLists {
 		this.bodyKitList.add("2 2.1");
 		this.bodyKitList.add("3 1.8");
 		this.bodyKitList.add("3 2.2");
-		//
+		//Disc 
+		//TODO:skontrolovat list pre DISC;
+		this.discList.add("14  ");
 	}
 	
 	
