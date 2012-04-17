@@ -199,26 +199,16 @@ public class MainFrame extends JFrame {
 		node.add(interior);
 		DefaultMutableTreeNode interiorColor = new DefaultMutableTreeNode("color");
 		DefaultMutableTreeNode interiorMat = new DefaultMutableTreeNode("material");
-		DefaultMutableTreeNode seats = new DefaultMutableTreeNode("seats type");
-		DefaultMutableTreeNode seatsMat = new DefaultMutableTreeNode("seats material");
-		DefaultMutableTreeNode seatsHeated = new DefaultMutableTreeNode("heated seats");
-		DefaultMutableTreeNode seatsMassage = new DefaultMutableTreeNode("massage seats");
-		DefaultMutableTreeNode Radio = new DefaultMutableTreeNode("radio");
-		DefaultMutableTreeNode GPS = new DefaultMutableTreeNode("GPS");
-		DefaultMutableTreeNode DVD = new DefaultMutableTreeNode("DVD");
-		DefaultMutableTreeNode Audio = new DefaultMutableTreeNode("audio");
-		DefaultMutableTreeNode Cruise = new DefaultMutableTreeNode("cruise");
+		DefaultMutableTreeNode seats = new DefaultMutableTreeNode("seat type");
+		DefaultMutableTreeNode seatsMat = new DefaultMutableTreeNode("seat material");
+		DefaultMutableTreeNode seatsHeated = new DefaultMutableTreeNode("heated seat");
+		DefaultMutableTreeNode seatsMassage = new DefaultMutableTreeNode("massage seat");
 		interior.add(interiorColor);
 		interior.add(interiorMat);
 		interior.add(seats);
 		interior.add(seatsMat);
 		interior.add(seatsHeated);
 		interior.add(seatsMassage);
-		interior.add(Radio);
-		interior.add(GPS);
-		interior.add(DVD);
-		interior.add(Audio);
-		interior.add(Cruise);
 		
 		//Features
 		DefaultMutableTreeNode features = new DefaultMutableTreeNode("Features");
@@ -274,8 +264,7 @@ public class MainFrame extends JFrame {
 					Engine engine = new Engine(2000,4,true,Fuel.DIESEL);
 					Brakes front = new Brakes(30, true);
 					Brakes rear = new Brakes(26, false);
-					Interior interior = new Interior(Color.LIGHT_GRAY, Materials.ALCANTARA,
-							true, false, false, false, true);
+					Interior interior = new Interior(Color.LIGHT_GRAY, Materials.ALCANTARA);
 					Seats seats = interior.new Seats(TypeOfSeats.CLASSIC, Materials.GENUINELEATHER, false, false);
 					interior.setSeats(seats);
 					

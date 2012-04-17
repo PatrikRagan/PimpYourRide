@@ -9,21 +9,11 @@ public class Interior {
 	private Color interiorColor;
 	private Materials interiorMaterial;
 	private Seats seats;
-	private boolean haveRadio;
-	private boolean haveGPS;
-	private boolean haveDVD;
-	private boolean haveCruise;
-	private boolean haveAudioSystem;
 	
-	public Interior(Color col, Materials mat, boolean radio, boolean GPS, boolean DVD, boolean cruise, boolean audio){
+	public Interior(Color col, Materials mat){
 		this.setInteriorColor(col);
 		this.setInteriorMaterial(mat);
 		this.setSeats(seats);
-		this.setHaveRadio(radio);
-		this.setHaveGPS(GPS);
-		this.setHaveDVD(DVD);
-		this.setHaveCruise(cruise);
-		this.setHaveAudioSystem(audio);
 	}
 	
 	public void setInteriorColor(Color interiorColor) {
@@ -48,46 +38,6 @@ public class Interior {
 
 	public Seats getSeats() {
 		return seats;
-	}
-
-	public void setHaveRadio(boolean haveRadio) {
-		this.haveRadio = haveRadio;
-	}
-
-	public boolean isHaveRadio() {
-		return haveRadio;
-	}
-
-	public void setHaveGPS(boolean haveGPS) {
-		this.haveGPS = haveGPS;
-	}
-
-	public boolean isHaveGPS() {
-		return haveGPS;
-	}
-
-	public void setHaveDVD(boolean haveDVD) {
-		this.haveDVD = haveDVD;
-	}
-
-	public boolean isHaveDVD() {
-		return haveDVD;
-	}
-
-	public void setHaveCruise(boolean haveCruise) {
-		this.haveCruise = haveCruise;
-	}
-
-	public boolean isHaveCruise() {
-		return haveCruise;
-	}
-
-	public void setHaveAudioSystem(boolean haveAudioSystem) {
-		this.haveAudioSystem = haveAudioSystem;
-	}
-
-	public boolean isHaveAudioSystem() {
-		return haveAudioSystem;
 	}
 
 	public class Seats{

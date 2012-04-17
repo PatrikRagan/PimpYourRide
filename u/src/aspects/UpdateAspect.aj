@@ -6,7 +6,7 @@ import components.Car;
 
 import swing.MainFrame;
 
-public aspect JTreeUpdateAspect {
+public aspect UpdateAspect {
 	private MainFrame frame;
 	private DefaultMutableTreeNode components;
 	
@@ -22,13 +22,13 @@ public aspect JTreeUpdateAspect {
 		
 		for(int i=0; i<components.getLeafCount(); i++){
 			String string = list.getUserObject().toString();
-			UpdateList(string, list, car);
+			UpdateTree(string, list, car);
 			System.out.println(string);
 			list = list.getNextLeaf();
 		}	
 	}
 	
-	public void UpdateList(String string, DefaultMutableTreeNode list, Car car){
+	public void UpdateTree(String string, DefaultMutableTreeNode list, Car car){
 		if(string.equals("cubature")){
 			list.setUserObject(string + "......" + car.getEngine().getCubature());
 		}
@@ -89,19 +89,19 @@ public aspect JTreeUpdateAspect {
 		else if(string.equals("material")){
 			list.setUserObject(string + "........." + car.getInterior().getInteriorMaterial());
 		}
-		else if(string.equals("seats type")){
+		else if(string.equals("seat type")){
 			list.setUserObject(string + "........." + car.getInterior().getSeats().getSeats());
 		}
-		else if(string.equals("seats material")){
+		else if(string.equals("seat material")){
 			list.setUserObject(string + "........." + car.getInterior().getSeats().getSeatsMaterial());
 		}
-		else if(string.equals("heated seats")){
+		else if(string.equals("heated seat")){
 			if(car.getInterior().getSeats().isHaveHeatedSeats())
 				list.setUserObject(string + ".........YES");
 			else
 				list.setUserObject(string + ".........NO");
 		}
-		else if(string.equals("massage seats")){
+		else if(string.equals("massage seat")){
 			if(car.getInterior().getSeats().isHaveMassageSeats())
 				list.setUserObject(string + ".........YES");
 			else
