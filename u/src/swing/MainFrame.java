@@ -23,8 +23,8 @@ public class MainFrame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private JPasswordField passwordField;
+	private JTextField nameField;
+	private JPasswordField passField;
 	private String loggerText = "";
 	private DefaultMutableTreeNode node;
 
@@ -106,18 +106,18 @@ public class MainFrame extends JFrame {
 		btnInstal.setBounds(10, 289, 80, 23);
 		leftPanel.add(btnInstal);
 		
-		textField = new JTextField();
-		textField.setBounds(48, 227, 152, 20);
-		leftPanel.add(textField);
-		textField.setColumns(10);
+		nameField = new JTextField();
+		nameField.setBounds(48, 227, 152, 20);
+		leftPanel.add(nameField);
+		nameField.setColumns(10);
 		
 		JLabel lblName = new JLabel("Name");
 		lblName.setBounds(10, 230, 46, 14);
 		leftPanel.add(lblName);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(48, 258, 152, 20);
-		leftPanel.add(passwordField);
+		passField = new JPasswordField();
+		passField.setBounds(48, 258, 152, 20);
+		leftPanel.add(passField);
 		
 		JLabel lblPass = new JLabel("Pass");
 		lblPass.setBounds(10, 261, 46, 14);
@@ -280,5 +280,13 @@ public class MainFrame extends JFrame {
 				}
 			}
 		});
+	}
+
+	public JTextField getNameField() {
+		return nameField;
+	}
+
+	public JPasswordField getPassField() {
+		return passField;
 	}
 }
