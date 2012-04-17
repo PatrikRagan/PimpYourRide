@@ -1,5 +1,6 @@
 package swing;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.*;
@@ -10,6 +11,10 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import components.*;
+import components.Interior.Seats;
+import enums.*;
 
 
 public class MainFrame extends JFrame {
@@ -121,7 +126,7 @@ public class MainFrame extends JFrame {
 		scrollPane_1.setBounds(0, 30, 194, 322);
 		rightPanel.add(scrollPane_1);
 		
-this.node = new DefaultMutableTreeNode("Components");
+		this.node = new DefaultMutableTreeNode("Components");
 		
 		//Engine
 		DefaultMutableTreeNode engine = new DefaultMutableTreeNode("Engine");
@@ -235,6 +240,26 @@ this.node = new DefaultMutableTreeNode("Components");
 				try {
 					MainFrame frame = new MainFrame();
 					frame.setVisible(true);
+					
+					//Create car
+					Wheel wheels = new Wheel();
+					wheels.setTire(wheels.new Tire(18, 220, TireBrands.DUNLOP));
+					wheels.setDisc(wheels.new Disc(18, DiskBrands.ENZO, true, false));
+					Engine engine = new Engine(2000,4,true,Fuel.DIESEL);
+					Brakes front = new Brakes(30, true);
+					Brakes rear = new Brakes(26, false);
+					Interior interior = new Interior(Color.LIGHT_GRAY, Materials.ALCANTARA,
+							true, false, false, false, true);
+					Seats seats = interior.new Seats(TypeOfSeats.CLASSIC, Materials.GENUINELEATHER, false, false);
+					interior.setSeats(seats);
+					
+					Clutch clutch = new Clutch(5, false);
+					BodyKit body = new BodyKit(10, 30);
+					
+					Car car = new Car(wheels, Chasis.NORMAL, engine, 50, front, rear,
+							CarRoof.HARDTOP, interior, clutch, body, Color.BLACK);
+					//End creating car
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
