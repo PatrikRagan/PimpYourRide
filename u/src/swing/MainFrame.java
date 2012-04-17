@@ -202,11 +202,7 @@ public class MainFrame extends JFrame {
 //						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
 						car.setEngine(value);
 					}
-					
-					
-					
-					
-					
+
 					instalComponent(new Transmission(5, false));
 				}
 			}
