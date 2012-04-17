@@ -15,6 +15,7 @@ public class ComponentsLists {
 	public ArrayList<String> bodyKitList = new ArrayList<String>();
 	public ArrayList<String> discList = new ArrayList<String>();
 	public SortedMap<String, Engine> engineComponentMap = new TreeMap<String, Engine>();
+	public SortedMap<String, Brakes> brakesComponentMap = new TreeMap<String, Brakes>();
 	public ArrayList<Engine> engineComponentList = new ArrayList<Engine>();
 
 	public ComponentsLists() {
@@ -76,15 +77,23 @@ public class ComponentsLists {
 //		this.engineList.add("4000 12 1 DIESEL");
 //		this.engineList.add("5000 12 1 DIESEL");
 		// Brake List 28-50
-		this.brakeList.add("28 0");
-		this.brakeList.add("30 0");
-		this.brakeList.add("30 1");
-		this.brakeList.add("35 0");
-		this.brakeList.add("40 0");
-		this.brakeList.add("40 1");
-		this.brakeList.add("45 0");
-		this.brakeList.add("50 0");
-		this.brakeList.add("50 1");
+		this.brakesComponentMap.put("28 0", new Brakes(28, false));
+		this.brakesComponentMap.put("28 0", new Brakes(30, false));
+		this.brakesComponentMap.put("28 0", new Brakes(35, true));
+		this.brakesComponentMap.put("28 0", new Brakes(40, false));
+		this.brakesComponentMap.put("28 0", new Brakes(40, true));
+		this.brakesComponentMap.put("28 0", new Brakes(45, false));
+		this.brakesComponentMap.put("28 0", new Brakes(50, false));
+		this.brakesComponentMap.put("28 0", new Brakes(50, true));
+//		this.brakeList.add("28 0");
+//		this.brakeList.add("30 0");
+//		this.brakeList.add("30 1");
+//		this.brakeList.add("35 0");
+//		this.brakeList.add("40 0");
+//		this.brakeList.add("40 1");
+//		this.brakeList.add("45 0");
+//		this.brakeList.add("50 0");
+//		this.brakeList.add("50 1");
 		// BODY KIT
 		// V pøíruèce jsem se doèetl, že doporuèená hodnota je 990-2200 mBaru.
 		// //guess this is right

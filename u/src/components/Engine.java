@@ -5,6 +5,7 @@ import enums.Fuel;
 public class Engine {
 	
 	private int cubature;
+	private int price;
 	public int getCubature() {
 		return cubature;
 	}
@@ -41,11 +42,12 @@ public class Engine {
 	private boolean isTurbo;
 	private Fuel fuelType;
 	
-	public Engine(int cubature, int cylinders, boolean isTurbo, Fuel fuelType){
+	public Engine(int cubature, int cylinders, boolean isTurbo, Fuel fuelType, int price){
 		this.cubature = cubature;
 		this.cylinders = cylinders;
 		this.isTurbo = isTurbo;
 		this.fuelType = fuelType;
+		this.price = price;
 	}
 	
 	//funkcia na výpoèet výkonu motora
@@ -86,6 +88,14 @@ public class Engine {
 		
 		torque = (int)(getPower()*fuel);
 		return torque;
+	}
+
+	private int getPrice() {
+		return price;
+	}
+
+	private void setPrice(int price) {
+		this.price = price;
 	}
 
 }

@@ -20,6 +20,8 @@ public class Car {
 	private Transmission clutch;
 	private BodyKit bodyKit;
 	private Color carColor;
+	private int budget;
+	//TODO bude budget v konstruktore?
 	private ArrayList<Features> list = new ArrayList<Features>();
 
 	public Car(Wheel wheels, Chasis chasis, Engine engine, int exhaust,

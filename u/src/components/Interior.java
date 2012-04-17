@@ -13,7 +13,6 @@ public class Interior {
 	public Interior(Color col, Materials mat){
 		this.setInteriorColor(col);
 		this.setInteriorMaterial(mat);
-		this.setSeats(seats);
 	}
 	
 	public void setInteriorColor(Color interiorColor) {
