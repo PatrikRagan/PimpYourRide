@@ -5,8 +5,8 @@ import java.awt.*;
 import enums.Materials;
 import enums.TypeOfSeats;
 
-public class Interior implements IComponent {
 
+public class Interior implements IComponent{
 	private Color interiorColor;
 	private Materials interiorMaterial;
 	private Seats seats;
@@ -42,6 +42,7 @@ public class Interior implements IComponent {
 		return seats;
 	}
 
+
 	private int getPrice() {
 		return price;
 	}
@@ -49,6 +50,7 @@ public class Interior implements IComponent {
 	private void setPrice(int price) {
 		this.price = price;
 	}
+
 
 	public class Seats implements IComponent {
 		private TypeOfSeats seats;
