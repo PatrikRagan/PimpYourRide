@@ -35,6 +35,7 @@ public class MainFrame extends JFrame {
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel bcgPanel = new JPanel();
+		bcgPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		getContentPane().add(bcgPanel, BorderLayout.CENTER);
 		bcgPanel.setLayout(null);
 		
@@ -44,20 +45,27 @@ public class MainFrame extends JFrame {
 		bcgPanel.add(leftPanel);
 		leftPanel.setLayout(null);
 		
-		JPanel loggerPanel = new JPanel();
-		loggerPanel.setBounds(230, 273, 350, 90);
-		bcgPanel.add(loggerPanel);
-		loggerPanel.setLayout(new BorderLayout(0, 0));
-		
-		final TextArea loggerField = new TextArea();
-		loggerPanel.add(loggerField, BorderLayout.CENTER);
-		
 		final JComboBox compType = new JComboBox();
 		
+		 final JTextArea logArea = new JTextArea(20, 20);
+		JScrollPane scrollPane = new JScrollPane(logArea);
+		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		scrollPane.setBounds(230, 276, 350, 70);
+		bcgPanel.add(scrollPane);
+//		bcgPanel.add(logArea);
+       
+//       scrollpane.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener()
+//       {
+//       public void adjustmentValueChanged(AdjustmentEvent ae)
+//       {
+//       ae.getAdjustable().setValue(ae.getAdjustable().getMaximum());
+//       }
+//       });
+       
 		compType.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				loggerText += compType.getSelectedItem().toString()+" was selected" +"\n" ;
-				loggerField.setText(loggerText);
+				logArea.setText(loggerText);
 				
 			}
 		});
@@ -121,6 +129,16 @@ public class MainFrame extends JFrame {
 		lblNewLabel.setBounds(10, 11, 94, 20);
 		carPanel.add(lblNewLabel);
 		
+
+//    	compType.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				loggerText += compType.getSelectedItem().toString()+" was selected" +"\n" ;
+//				logArea.setText(loggerText);
+//				logArea.setText(loggerText);
+//				
+//			}
+//		});
+
 		
 	}
 	
