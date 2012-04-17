@@ -1,8 +1,6 @@
 package aspects;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
-
 import components.Car;
 
 import swing.MainFrame;
@@ -22,7 +20,8 @@ public aspect UpdateAspect {
 		DefaultMutableTreeNode list;
 		list = components.getFirstLeaf();
 		
-		for(int i=0; i<components.getLeafCount(); i++){
+		int loops = components.getLeafCount();
+		for(int i=0; i<loops; i++){
 			try{
 				String string = list.getUserObject().toString();
 				UpdateTree(string, list, car);
@@ -113,14 +112,22 @@ public aspect UpdateAspect {
 			else
 				list.setUserObject(string + ".........NO");
 		}
-		else  UpdateFeatures(car, list);
+		else UpdateFeatures(car, list);
 	}
 	
 	private void UpdateFeatures(Car car, DefaultMutableTreeNode list){
-		//DefaultTreeModel model = (DefaultTreeModel)frame.getTreeComponents().getModel();
-		for(int i=0; i<car.getList().size(); i++){
-			list.add(new DefaultMutableTreeNode(car.getList().get(i)));
+		if (list.getParent().toString().equals("Features")){
+			for(int i=0; i<car.getList().size(); i++){
+				DefaultMutableTreeNode add = (DefaultMutableTreeNode)list.getParent();
+				add.add(new DefaultMutableTreeNode(car.getList().get(i)));
+			}
 		}
+		else if(list.toString().equals("Features")){
+			for(int i=0; i<car.getList().size(); i++){
+				list.add(new DefaultMutableTreeNode(car.getList().get(i)));
+			}
+		}
+		//DefaultTreeModel model = (DefaultTreeModel)frame.getTreeComponents().getModel();
 	}
 
 }
