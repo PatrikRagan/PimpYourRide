@@ -242,7 +242,10 @@ public class MainFrame extends JFrame {
 	}
 	
 	private void instalComponent(){
-		
+				
+	}
+	
+	public void instalAllowed(){
 		
 	}
 	

@@ -1,29 +1,31 @@
 package employees;
 
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.awt.List;
+import java.util.ArrayList;
 
 import enums.Jobs;
 
 public class Employees {
 
-	public SortedMap<Integer, Employee> map = new TreeMap<Integer, Employee>();
+	public static final ArrayList<Employee> employees = new ArrayList<Employee>();
 
 	public Employees() {
-		addedEmployees();
+		employees.add(new Employee("Alojz", "Vesel7", Jobs.INTERIORER));
+		employees.add(new Employee("Adam", "Moravèík", Jobs.MECHANIC));
+		employees.add(new Employee("František", "Èerný", Jobs.MECHANIC));
 	}
 
-	public void addedEmployees() {
-		map.put(1, new Employee("Alojz", "Vesel7", Jobs.INTERIORER));// engine,clutch
-		map.put(2, new Employee("Adam", "Moravèík", Jobs.MECHANIC));// wheel,brakes,chasis,body kit
-		map.put(3, new Employee("František" , "Èerný", Jobs.MECHANIC));// features,interior,carRoof
+	public ArrayList<Employee> getEmployees() {
+		return employees;
 	}
 
-	SortedMap<Integer, Employee> getMap() {
-		return map;
+	public static Employee getEmployee(String nick) {
+		for (Employee emp : employees) {
+			if (emp.getNick().equals(nick)) {
+				return emp;
+			}
+		}
+		return null;
 	}
 
-	void setMap(SortedMap<Integer, Employee> map) {
-		this.map = map;
-	}
 }
