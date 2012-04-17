@@ -3,25 +3,27 @@ package employees;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import enums.Jobs;
+
 public class Employees {
 
-	public SortedMap<Integer, String> map = new TreeMap<Integer, String>();
+	public SortedMap<Integer, Employee> map = new TreeMap<Integer, Employee>();
 
 	public Employees() {
 		addedEmployees();
 	}
 
 	public void addedEmployees() {
-		map.put(1, "Alojz Veselý");// engine,clutch
-		map.put(2, "Adam Moravèík");// wheel,brakes,chasis,body kit
-		map.put(3, "František Èerný");// features,interior,carRoof
+		map.put(1, new Employee("Alojz", "Vesel7", Jobs.INERIORER));// engine,clutch
+		map.put(2, new Employee("Adam", "Moravèík", Jobs.MECHANIC));// wheel,brakes,chasis,body kit
+		map.put(3, new Employee("František" , "Èerný", Jobs.MECHANIC));// features,interior,carRoof
 	}
 
-	SortedMap<Integer, String> getMap() {
+	SortedMap<Integer, Employee> getMap() {
 		return map;
 	}
 
-	void setMap(SortedMap<Integer, String> map) {
+	void setMap(SortedMap<Integer, Employee> map) {
 		this.map = map;
 	}
 }

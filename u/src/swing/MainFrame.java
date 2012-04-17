@@ -90,9 +90,11 @@ public class MainFrame extends JFrame {
 		JButton btnInstal = new JButton("Instal");
 		btnInstal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				instalComponent();
 			}
 		});
+		
+		
 		btnInstal.setBounds(10, 289, 80, 23);
 		leftPanel.add(btnInstal);
 		
@@ -236,6 +238,12 @@ public class MainFrame extends JFrame {
 
 		
 	}
+	
+	private void instalComponent(){
+		
+		
+	}
+	
 	
 	/**
 	 * Launch the application.
