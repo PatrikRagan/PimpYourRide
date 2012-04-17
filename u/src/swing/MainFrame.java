@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
+import java.awt.ScrollPane;
+import java.awt.TextArea;
 
 
 public class MainFrame extends JFrame {
@@ -47,7 +49,7 @@ public class MainFrame extends JFrame {
 		bcgPanel.add(loggerPanel);
 		loggerPanel.setLayout(new BorderLayout(0, 0));
 		
-		final JTextPane loggerField = new JTextPane();
+		final TextArea loggerField = new TextArea();
 		loggerPanel.add(loggerField, BorderLayout.CENTER);
 		
 		final JComboBox compType = new JComboBox();
@@ -56,6 +58,7 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				loggerText += compType.getSelectedItem().toString()+" was selected" +"\n" ;
 				loggerField.setText(loggerText);
+				
 			}
 		});
 		compType.setModel(new DefaultComboBoxModel(new String[] {"Strecha", "Podvozok", "Motor"}));
