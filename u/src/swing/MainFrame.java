@@ -360,5 +360,4 @@ public class MainFrame extends JFrame {
 		logArea.setText(loggerText);
 
 	}
-
 }
