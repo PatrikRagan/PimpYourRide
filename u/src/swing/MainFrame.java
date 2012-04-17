@@ -28,6 +28,14 @@ public class MainFrame extends JFrame {
 	private String loggerText = "";
 	private DefaultMutableTreeNode node;
 
+	public DefaultMutableTreeNode getNode() {
+		return node;
+	}
+
+	public void setNode(DefaultMutableTreeNode node) {
+		this.node = node;
+	}
+
 	/**
 	 * Create the frame.
 	 */
@@ -151,9 +159,9 @@ public class MainFrame extends JFrame {
 		//Wheels
 		DefaultMutableTreeNode wheel = new DefaultMutableTreeNode("Wheels");
 		node.add(wheel);
-		DefaultMutableTreeNode tire = new DefaultMutableTreeNode("     tire:");
-		DefaultMutableTreeNode disc = new DefaultMutableTreeNode("      disc:");
-		DefaultMutableTreeNode chasis = new DefaultMutableTreeNode("   chasis:");
+		DefaultMutableTreeNode tire = new DefaultMutableTreeNode("tire");
+		DefaultMutableTreeNode disc = new DefaultMutableTreeNode("disc");
+		DefaultMutableTreeNode chasis = new DefaultMutableTreeNode("chasis");
 		wheel.add(tire);
 		wheel.add(disc);
 		wheel.add(chasis);
@@ -161,41 +169,45 @@ public class MainFrame extends JFrame {
 		//Brakes
 		DefaultMutableTreeNode brakes = new DefaultMutableTreeNode("Brakes");
 		node.add(brakes);
-		DefaultMutableTreeNode diameter = new DefaultMutableTreeNode(" diameter:");
-		DefaultMutableTreeNode isDisc = new DefaultMutableTreeNode("disc brake:");
-		brakes.add(diameter);
-		brakes.add(isDisc);
+		DefaultMutableTreeNode fdiameter = new DefaultMutableTreeNode("f-diameter");
+		DefaultMutableTreeNode fisDisc = new DefaultMutableTreeNode("f-brake type");
+		DefaultMutableTreeNode rdiameter = new DefaultMutableTreeNode("r-diameter");
+		DefaultMutableTreeNode risDisc = new DefaultMutableTreeNode("r-brake type");
+		brakes.add(fdiameter);
+		brakes.add(fisDisc);
+		brakes.add(rdiameter);
+		brakes.add(risDisc);
 		
 		//Clutch
 		DefaultMutableTreeNode clutch = new DefaultMutableTreeNode("Clutch");
 		node.add(clutch);
-		DefaultMutableTreeNode gears = new DefaultMutableTreeNode("    gears:");
-		DefaultMutableTreeNode clutchType = new DefaultMutableTreeNode("     type:");
+		DefaultMutableTreeNode gears = new DefaultMutableTreeNode("gears");
+		DefaultMutableTreeNode clutchType = new DefaultMutableTreeNode("type");
 		clutch.add(gears);
 		clutch.add(clutchType);
 		
 		//BodyKit
 		DefaultMutableTreeNode body = new DefaultMutableTreeNode("Bodyshell");
 		node.add(body);
-		DefaultMutableTreeNode downforce = new DefaultMutableTreeNode("downforce:");
-		DefaultMutableTreeNode carRoof = new DefaultMutableTreeNode("     roof:");
+		DefaultMutableTreeNode downforce = new DefaultMutableTreeNode("downforce");
+		DefaultMutableTreeNode carRoof = new DefaultMutableTreeNode("roof");
 		body.add(downforce);
 		body.add(carRoof);
 		
 		//Interior
 		DefaultMutableTreeNode interior = new DefaultMutableTreeNode("Interior");
 		node.add(interior);
-		DefaultMutableTreeNode interiorColor = new DefaultMutableTreeNode("    color:");
-		DefaultMutableTreeNode interiorMat = new DefaultMutableTreeNode(" material:");
-		DefaultMutableTreeNode seats = new DefaultMutableTreeNode("seats type:");
-		DefaultMutableTreeNode seatsMat = new DefaultMutableTreeNode("seats material:");
-		DefaultMutableTreeNode seatsHeated = new DefaultMutableTreeNode("heated seats:");
+		DefaultMutableTreeNode interiorColor = new DefaultMutableTreeNode("color");
+		DefaultMutableTreeNode interiorMat = new DefaultMutableTreeNode("material");
+		DefaultMutableTreeNode seats = new DefaultMutableTreeNode("seats type");
+		DefaultMutableTreeNode seatsMat = new DefaultMutableTreeNode("seats material");
+		DefaultMutableTreeNode seatsHeated = new DefaultMutableTreeNode("heated seats");
 		DefaultMutableTreeNode seatsMassage = new DefaultMutableTreeNode("massage seats");
-		DefaultMutableTreeNode Radio = new DefaultMutableTreeNode("    radio:");
-		DefaultMutableTreeNode GPS = new DefaultMutableTreeNode("      GPS:");
-		DefaultMutableTreeNode DVD = new DefaultMutableTreeNode("      DVD:");
-		DefaultMutableTreeNode Audio = new DefaultMutableTreeNode("    audio:");
-		DefaultMutableTreeNode Cruise = new DefaultMutableTreeNode("   cruise:");
+		DefaultMutableTreeNode Radio = new DefaultMutableTreeNode("radio");
+		DefaultMutableTreeNode GPS = new DefaultMutableTreeNode("GPS");
+		DefaultMutableTreeNode DVD = new DefaultMutableTreeNode("DVD");
+		DefaultMutableTreeNode Audio = new DefaultMutableTreeNode("audio");
+		DefaultMutableTreeNode Cruise = new DefaultMutableTreeNode("cruise");
 		interior.add(interiorColor);
 		interior.add(interiorMat);
 		interior.add(seats);

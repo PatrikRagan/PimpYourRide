@@ -5,6 +5,38 @@ import enums.Fuel;
 public class Engine {
 	
 	private int cubature;
+	public int getCubature() {
+		return cubature;
+	}
+
+	public void setCubature(int cubature) {
+		this.cubature = cubature;
+	}
+
+	public int getCylinders() {
+		return cylinders;
+	}
+
+	public void setCylinders(int cylinders) {
+		this.cylinders = cylinders;
+	}
+
+	public boolean isTurbo() {
+		return isTurbo;
+	}
+
+	public void setTurbo(boolean isTurbo) {
+		this.isTurbo = isTurbo;
+	}
+
+	public Fuel getFuelType() {
+		return fuelType;
+	}
+
+	public void setFuelType(Fuel fuelType) {
+		this.fuelType = fuelType;
+	}
+
 	private int cylinders;
 	private boolean isTurbo;
 	private Fuel fuelType;

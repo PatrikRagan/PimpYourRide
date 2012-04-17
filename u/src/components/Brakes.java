@@ -3,6 +3,22 @@ package components;
 public class Brakes {
 	
 	private int diameter;
+	public int getDiameter() {
+		return diameter;
+	}
+
+	public void setDiameter(int diameter) {
+		this.diameter = diameter;
+	}
+
+	public boolean isDiscBrake() {
+		return isDiscBrake;
+	}
+
+	public void setDiscBrake(boolean isDiscBrake) {
+		this.isDiscBrake = isDiscBrake;
+	}
+
 	private boolean isDiscBrake;
 	
 	public Brakes(int diameter, boolean isDiscBrake){
