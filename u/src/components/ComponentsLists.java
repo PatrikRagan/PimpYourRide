@@ -17,6 +17,7 @@ public class ComponentsLists {
 	public SortedMap<String, Engine> engineComponentMap = new TreeMap<String, Engine>();
 	public SortedMap<String, Brakes> brakesComponentMap = new TreeMap<String, Brakes>();
 	public ArrayList<Engine> engineComponentList = new ArrayList<Engine>();
+	
 
 	public ComponentsLists() {
 		//TODO: nahodit riadne ceny;
