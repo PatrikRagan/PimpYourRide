@@ -15,7 +15,7 @@ public class Interior {
 	private boolean haveCruise;
 	private boolean haveAudioSystem;
 	
-	public Interior(Color col, Materials mat, Seats seats, boolean radio, boolean GPS, boolean DVD, boolean cruise, boolean audio){
+	public Interior(Color col, Materials mat, boolean radio, boolean GPS, boolean DVD, boolean cruise, boolean audio){
 		this.setInteriorColor(col);
 		this.setInteriorMaterial(mat);
 		this.setSeats(seats);

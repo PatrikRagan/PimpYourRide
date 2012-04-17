@@ -1,17 +1,20 @@
 package swing;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
 import javax.swing.border.EtchedBorder;
+import javax.swing.tree.DefaultMutableTreeNode;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
-import java.awt.ScrollPane;
-import java.awt.TextArea;
+
+import components.*;
+import components.Interior.Seats;
+import enums.*;
 
 
 public class MainFrame extends JFrame {
@@ -23,13 +26,14 @@ public class MainFrame extends JFrame {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private String loggerText = "";
+	private DefaultMutableTreeNode node;
 
 	/**
 	 * Create the frame.
 	 */
 	public MainFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 750, 400);
+		setBounds(100, 100, 800, 400);
 		setResizable(false);
 		setLocation(10,10);
 		getContentPane().setLayout(new BorderLayout(0, 0));
@@ -109,7 +113,7 @@ public class MainFrame extends JFrame {
 		
 		JPanel rightPanel = new JPanel();
 		rightPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		rightPanel.setBounds(590, 11, 144, 352);
+		rightPanel.setBounds(590, 11, 195, 352);
 		bcgPanel.add(rightPanel);
 		rightPanel.setLayout(null);
 		
@@ -117,6 +121,91 @@ public class MainFrame extends JFrame {
 		lblCarComponents.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCarComponents.setBounds(10, 11, 124, 14);
 		rightPanel.add(lblCarComponents);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(0, 30, 194, 322);
+		rightPanel.add(scrollPane_1);
+		
+		this.node = new DefaultMutableTreeNode("Components");
+		
+		//Engine
+		DefaultMutableTreeNode engine = new DefaultMutableTreeNode("Engine");
+		node.add(engine);
+		DefaultMutableTreeNode cubature = new DefaultMutableTreeNode("cubature");
+		DefaultMutableTreeNode cylinders = new DefaultMutableTreeNode("cylinders");
+		DefaultMutableTreeNode turbo = new DefaultMutableTreeNode("turbo");
+		DefaultMutableTreeNode fuel = new DefaultMutableTreeNode("fuel");
+		engine.add(cubature);
+		engine.add(cylinders);
+		engine.add(turbo);
+		engine.add(fuel);
+		
+		//Wheels
+		DefaultMutableTreeNode wheel = new DefaultMutableTreeNode("Wheels");
+		node.add(wheel);
+		DefaultMutableTreeNode tire = new DefaultMutableTreeNode("     tire:");
+		DefaultMutableTreeNode disc = new DefaultMutableTreeNode("      disc:");
+		DefaultMutableTreeNode chasis = new DefaultMutableTreeNode("   chasis:");
+		wheel.add(tire);
+		wheel.add(disc);
+		wheel.add(chasis);
+		
+		//Brakes
+		DefaultMutableTreeNode brakes = new DefaultMutableTreeNode("Brakes");
+		node.add(brakes);
+		DefaultMutableTreeNode diameter = new DefaultMutableTreeNode(" diameter:");
+		DefaultMutableTreeNode isDisc = new DefaultMutableTreeNode("disc brake:");
+		brakes.add(diameter);
+		brakes.add(isDisc);
+		
+		//Clutch
+		DefaultMutableTreeNode clutch = new DefaultMutableTreeNode("Clutch");
+		node.add(clutch);
+		DefaultMutableTreeNode gears = new DefaultMutableTreeNode("    gears:");
+		DefaultMutableTreeNode clutchType = new DefaultMutableTreeNode("     type:");
+		clutch.add(gears);
+		clutch.add(clutchType);
+		
+		//BodyKit
+		DefaultMutableTreeNode body = new DefaultMutableTreeNode("Bodyshell");
+		node.add(body);
+		DefaultMutableTreeNode downforce = new DefaultMutableTreeNode("downforce:");
+		DefaultMutableTreeNode carRoof = new DefaultMutableTreeNode("     roof:");
+		body.add(downforce);
+		body.add(carRoof);
+		
+		//Interior
+		DefaultMutableTreeNode interior = new DefaultMutableTreeNode("Interior");
+		node.add(interior);
+		DefaultMutableTreeNode interiorColor = new DefaultMutableTreeNode("    color:");
+		DefaultMutableTreeNode interiorMat = new DefaultMutableTreeNode(" material:");
+		DefaultMutableTreeNode seats = new DefaultMutableTreeNode("seats type:");
+		DefaultMutableTreeNode seatsMat = new DefaultMutableTreeNode("seats material:");
+		DefaultMutableTreeNode seatsHeated = new DefaultMutableTreeNode("heated seats:");
+		DefaultMutableTreeNode seatsMassage = new DefaultMutableTreeNode("massage seats");
+		DefaultMutableTreeNode Radio = new DefaultMutableTreeNode("    radio:");
+		DefaultMutableTreeNode GPS = new DefaultMutableTreeNode("      GPS:");
+		DefaultMutableTreeNode DVD = new DefaultMutableTreeNode("      DVD:");
+		DefaultMutableTreeNode Audio = new DefaultMutableTreeNode("    audio:");
+		DefaultMutableTreeNode Cruise = new DefaultMutableTreeNode("   cruise:");
+		interior.add(interiorColor);
+		interior.add(interiorMat);
+		interior.add(seats);
+		interior.add(seatsMat);
+		interior.add(seatsHeated);
+		interior.add(seatsMassage);
+		interior.add(Radio);
+		interior.add(GPS);
+		interior.add(DVD);
+		interior.add(Audio);
+		interior.add(Cruise);
+		
+		//Features
+		DefaultMutableTreeNode features = new DefaultMutableTreeNode("Features");
+		node.add(features);
+		
+		JTree treeComponents = new JTree(node);
+		scrollPane_1.setColumnHeaderView(treeComponents);
 		
 		JPanel carPanel = new JPanel();
 		carPanel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -151,6 +240,26 @@ public class MainFrame extends JFrame {
 				try {
 					MainFrame frame = new MainFrame();
 					frame.setVisible(true);
+					
+					//Create car
+					Wheel wheels = new Wheel();
+					wheels.setTire(wheels.new Tire(18, 220, TireBrands.DUNLOP));
+					wheels.setDisc(wheels.new Disc(18, DiskBrands.ENZO, true, false));
+					Engine engine = new Engine(2000,4,true,Fuel.DIESEL);
+					Brakes front = new Brakes(30, true);
+					Brakes rear = new Brakes(26, false);
+					Interior interior = new Interior(Color.LIGHT_GRAY, Materials.ALCANTARA,
+							true, false, false, false, true);
+					Seats seats = interior.new Seats(TypeOfSeats.CLASSIC, Materials.GENUINELEATHER, false, false);
+					interior.setSeats(seats);
+					
+					Clutch clutch = new Clutch(5, false);
+					BodyKit body = new BodyKit(10, 30);
+					
+					Car car = new Car(wheels, Chasis.NORMAL, engine, 50, front, rear,
+							CarRoof.HARDTOP, interior, clutch, body, Color.BLACK);
+					//End creating car
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
