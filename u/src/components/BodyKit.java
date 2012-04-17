@@ -1,9 +1,10 @@
 package components;
 
-public class BodyKit {
+public class BodyKit{
 	
 	private int style;
 	private int downforce;
+	
 	
 	public BodyKit(int style, int downforce){
 		this.setStyle(style);

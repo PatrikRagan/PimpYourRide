@@ -1,11 +1,11 @@
 package components;
 
-public class Clutch {
+public class Transmission {
 	
 	private int gears;
 	private boolean isManual;
 	
-	public Clutch(int gears, boolean isManual){
+	public Transmission(int gears, boolean isManual){
 		this.setGears(gears);
 		this.setManual(isManual);
 	}

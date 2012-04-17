@@ -34,6 +34,8 @@ public class MainFrame extends JFrame {
 	private JTree treeComponents;
 	final ComponentsLists componentsList = new ComponentsLists();
 	final JTextArea logArea = new JTextArea(20, 20);
+	final JComboBox componentComboBox = new JComboBox();
+	final JComboBox compType = new JComboBox();
 
 	public JTree getTreeComponents() {
 		return treeComponents;
@@ -74,7 +76,7 @@ public class MainFrame extends JFrame {
 		bcgPanel.add(leftPanel);
 		leftPanel.setLayout(null);
 
-		final JComboBox compType = new JComboBox();
+		
 
 		JScrollPane scrollPane = new JScrollPane(logArea);
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED,
@@ -91,7 +93,7 @@ public class MainFrame extends JFrame {
 		// ae.getAdjustable().setValue(ae.getAdjustable().getMaximum());
 		// }
 		// });
-		final JComboBox componentComboBox = new JComboBox();
+		
 		componentComboBox.setBounds(10, 42, 190, 20);
 		leftPanel.add(componentComboBox);
 
@@ -291,7 +293,7 @@ public class MainFrame extends JFrame {
 	}
 
 	private void instalComponent() {
-		addLog("INSTALLED\n");
+		addLog(compType.getSelectedItem().toString() + " instaled type: "+componentComboBox.getSelectedItem().toString() + "\n");
 	}
 
 	/**
@@ -316,7 +318,7 @@ public class MainFrame extends JFrame {
 					Seats seats = interior.new Seats(TypeOfSeats.CLASSIC,
 							Materials.GENUINELEATHER, false, false);
 					interior.setSeats(seats);
-					Clutch clutch = new Clutch(5, false);
+					Transmission clutch = new Transmission(5, false);
 					BodyKit body = new BodyKit(10, 30);
 					ArrayList<Features> features = new ArrayList<Features>();
 					features.add(Features.DVD);

@@ -17,14 +17,14 @@ public class Car {
 	private Chasis chasis;
 	private CarRoof roof;
 	private Interior interior;
-	private Clutch clutch;
+	private Transmission clutch;
 	private BodyKit bodyKit;
 	private Color carColor;
 	private ArrayList<Features> list = new ArrayList<Features>();
 
 	public Car(Wheel wheels, Chasis chasis, Engine engine, int exhaust,
 			Brakes frontBrakes, Brakes rearBrakes, CarRoof roof,
-			Interior interior, Clutch clutch, BodyKit kit,
+			Interior interior, Transmission clutch, BodyKit kit,
 			Color color, ArrayList<Features> features) {
 		this.setWheels(wheels);
 		this.setEngine(engine);
@@ -104,11 +104,11 @@ public class Car {
 		return interior;
 	}
 
-	public void setClutch(Clutch clutch) {
+	public void setClutch(Transmission clutch) {
 		this.clutch = clutch;
 	}
 
-	public Clutch getClutch() {
+	public Transmission getClutch() {
 		return clutch;
 	}
 
