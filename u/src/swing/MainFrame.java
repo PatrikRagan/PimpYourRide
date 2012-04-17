@@ -22,7 +22,7 @@ import employees.Employees;
 import enums.*;
 
 public class MainFrame extends JFrame {
-
+	public static Car car;
 	/**
 	 * 
 	 */
@@ -140,6 +140,20 @@ public class MainFrame extends JFrame {
 
 				instalComponent(new Transmission(5, false));
 
+				//code here vytahuje objekt s udajmi o instalovanom komponente
+				Object key = componentComboBox.getSelectedItem();
+				System.out.println(">KEY>"+key);//kontrolny vypis KEY
+				ComponentsLists komponentList = new ComponentsLists();
+				if(komponentList.brakesComponentMap.containsKey(key)){
+					Brakes value = komponentList.brakesComponentMap.get(key);
+					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+					car.setFrontBrakes(value);
+					car.setRearBrakes(value);
+				}else if (komponentList.engineComponentMap.containsKey(key)){
+					Engine value = komponentList.engineComponentMap.get(key);
+					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+					car.setEngine(value);
+				}
 			}
 		});
 
@@ -172,7 +186,24 @@ public class MainFrame extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
-
+					
+					//code here vytahuje objekt s udajmi o instalovanom komponente
+					Object key = componentComboBox.getSelectedItem();
+					System.out.println(">KEY>"+key);//kontrolny vypis KEY
+					ComponentsLists komponentList = new ComponentsLists();
+					if(komponentList.brakesComponentMap.containsKey(key)){
+						Brakes value = komponentList.brakesComponentMap.get(key);
+						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+						car.setFrontBrakes(value);
+						car.setRearBrakes(value);
+					}else if (komponentList.engineComponentMap.containsKey(key)){
+						Engine value = komponentList.engineComponentMap.get(key);
+						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+						car.setEngine(value);
+					}
+					
+					
+					
 					instalComponent(new Transmission(5, false));
 				}
 			}
@@ -342,7 +373,7 @@ public class MainFrame extends JFrame {
 					features.add(Features.DVD);
 					features.add(Features.AUDIO);
 
-					Car car = new Car(wheels, Chasis.NORMAL, engine, 50, front,
+				 car = new Car(wheels, Chasis.NORMAL, engine, 50, front,
 							rear, CarRoof.HARDTOP, interior, clutch, body,
 							Color.BLACK, features);
 					// End creating car
