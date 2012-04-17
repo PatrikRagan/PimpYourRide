@@ -1,6 +1,11 @@
 package components;
 
 import java.util.ArrayList;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+import employees.Employee;
+import enums.Fuel;
 
 public class ComponentsLists {
 	// deprecated diameterList
@@ -9,41 +14,68 @@ public class ComponentsLists {
 	public ArrayList<String> brakeList = new ArrayList<String>();
 	public ArrayList<String> bodyKitList = new ArrayList<String>();
 	public ArrayList<String> discList = new ArrayList<String>();
+	public SortedMap<String, Engine> engineComponentMap = new TreeMap<String, Engine>();
+	public ArrayList<Engine> engineComponentList = new ArrayList<Engine>();
 
 	public ComponentsLists() {
 
 		// TODO:prekontrolovat vsetky hodnoty listov v spojeni so vzorcami;
 		// Engine List
-		this.engineList.add("1100 3 0 GASOLINE");
-		this.engineList.add("1300 4 0 GASOLINE");
-		this.engineList.add("1500 4 0 GASOLINE");
-		this.engineList.add("1500 6 0 GASOLINE");
-		this.engineList.add("1700 6 0 GASOLINE");
-		this.engineList.add("1900 6 0 GASOLINE");
-		this.engineList.add("2000 6 0 GASOLINE");
-		this.engineList.add("1100 3 1 GASOLINE");
-		this.engineList.add("1300 4 1 GASOLINE");
-		this.engineList.add("1500 4 1 GASOLINE");
-		this.engineList.add("1500 6 1 GASOLINE");
-		this.engineList.add("1700 6 1 GASOLINE");
-		this.engineList.add("1900 6 1 GASOLINE");
-		this.engineList.add("2000 6 1 GASOLINE");
-		this.engineList.add("1100 3 0 LPG");
-		this.engineList.add("1300 4 0 LPG");
-		this.engineList.add("1500 4 0 LPG");
-		this.engineList.add("1500 6 0 LPG");
-		this.engineList.add("1700 6 0 LPG");
-		this.engineList.add("1500 6 0 DIESEL");
-		this.engineList.add("1500 6 1 DIESEL");
-		this.engineList.add("1700 6 1 DIESEL");
-		this.engineList.add("1900 6 1 DIESEL");
-		this.engineList.add("2000 6 0 DIESEL");
-		this.engineList.add("2000 6 1 DIESEL");
-		this.engineList.add("2500 6 1 DIESEL");
-		this.engineList.add("3000 12 1 DIESEL");
-		this.engineList.add("4000 12 1 DIESEL");
-		this.engineList.add("5000 12 1 DIESEL");
-		// Brake List  28-50
+		this.engineComponentMap.put("1100 3 0 GASOLINE",new Engine(1100, 3, false, Fuel.GASOLINE));
+		this.engineComponentMap.put("1300 4 0 GASOLINE",new Engine(1300, 4, false, Fuel.GASOLINE));
+		this.engineComponentMap.put("1500 4 0 GASOLINE",new Engine(1500, 4, false, Fuel.GASOLINE));
+		this.engineComponentMap.put("1500 6 0 GASOLINE",new Engine(1500, 6, false, Fuel.GASOLINE));
+		this.engineComponentMap.put("1700 6 0 GASOLINE",new Engine(1700, 6, false, Fuel.GASOLINE));
+		this.engineComponentMap.put("2000 6 0 GASOLINE",new Engine(2000, 6, false, Fuel.GASOLINE));
+		this.engineComponentMap.put("1100 3 1 GASOLINE",new Engine(1100, 3, true, Fuel.GASOLINE));
+		this.engineComponentMap.put("1300 4 1 GASOLINE",new Engine(1300, 4, true, Fuel.GASOLINE));
+		this.engineComponentMap.put("1500 4 1 GASOLINE",new Engine(1500, 4, true, Fuel.GASOLINE));
+		this.engineComponentMap.put("1700 4 1 GASOLINE",new Engine(1700, 4, true, Fuel.GASOLINE));
+		this.engineComponentMap.put("2000 4 1 GASOLINE",new Engine(2000, 4, true, Fuel.GASOLINE));
+//		this.engineList.add("1100 3 0 GASOLINE");
+//		this.engineList.add("1300 4 0 GASOLINE");
+//		this.engineList.add("1500 4 0 GASOLINE");
+//		this.engineList.add("1500 6 0 GASOLINE");
+//		this.engineList.add("1700 6 0 GASOLINE");
+////		this.engineList.add("1900 6 0 GASOLINE");
+//		this.engineList.add("2000 6 0 GASOLINE");
+//		this.engineList.add("1100 3 1 GASOLINE");
+//		this.engineList.add("1300 4 1 GASOLINE");
+//		this.engineList.add("1500 4 1 GASOLINE");
+//		this.engineList.add("1500 6 1 GASOLINE");
+//		this.engineList.add("1700 6 1 GASOLINE");
+////		this.engineList.add("1900 6 1 GASOLINE");
+//		this.engineList.add("2000 6 1 GASOLINE");
+		this.engineComponentMap.put("1100 3 0 LPG",new Engine(1100, 3, false, Fuel.LPG));
+		this.engineComponentMap.put("1300 4 0 LPG",new Engine(1300, 4, false, Fuel.LPG));
+		this.engineComponentMap.put("1500 4 0 LPG",new Engine(1500, 4, false, Fuel.LPG));
+		this.engineComponentMap.put("1500 6 0 LPG",new Engine(1500, 6, false, Fuel.LPG));
+		this.engineComponentMap.put("1700 6 0 LPG",new Engine(1700, 6, false, Fuel.LPG));
+		this.engineComponentMap.put("2000 6 0 LPG",new Engine(2000, 6, false, Fuel.LPG));
+//		this.engineList.add("1100 3 0 LPG");
+//		this.engineList.add("1300 4 0 LPG");
+//		this.engineList.add("1500 4 0 LPG");
+//		this.engineList.add("1500 6 0 LPG");
+//		this.engineList.add("1700 6 0 LPG");
+		this.engineComponentMap.put("1500 6 0 DIESEL",new Engine(1500, 6, false, Fuel.DIESEL));
+		this.engineComponentMap.put("1500 6 1 DIESEL",new Engine(1500, 6, true, Fuel.DIESEL));
+		this.engineComponentMap.put("1700 6 0 DIESEL",new Engine(1700, 6, false, Fuel.DIESEL));
+		this.engineComponentMap.put("2000 6 0 DIESEL",new Engine(2000, 6, false, Fuel.DIESEL));
+		this.engineComponentMap.put("2500 6 0 DIESEL",new Engine(2500, 6, false, Fuel.DIESEL));
+		this.engineComponentMap.put("3000 6 0 DIESEL",new Engine(3000, 6, false, Fuel.DIESEL));
+		this.engineComponentMap.put("4000 6 0 DIESEL",new Engine(4000, 6, false, Fuel.DIESEL));
+		this.engineComponentMap.put("5000 6 0 DIESEL",new Engine(5000, 6, false, Fuel.DIESEL));
+//		this.engineList.add("1500 6 0 DIESEL");
+//		this.engineList.add("1500 6 1 DIESEL");
+//		this.engineList.add("1700 6 1 DIESEL");
+////		this.engineList.add("1900 6 1 DIESEL");
+////		this.engineList.add("2000 6 0 DIESEL");
+//		this.engineList.add("2000 6 1 DIESEL");
+//		this.engineList.add("2500 6 1 DIESEL");
+//		this.engineList.add("3000 12 1 DIESEL");
+//		this.engineList.add("4000 12 1 DIESEL");
+//		this.engineList.add("5000 12 1 DIESEL");
+		// Brake List 28-50
 		this.brakeList.add("28 0");
 		this.brakeList.add("30 0");
 		this.brakeList.add("30 1");
