@@ -244,7 +244,7 @@ public class MainFrame extends JFrame {
 					//Create car
 					Wheel wheels = new Wheel();
 					wheels.setTire(wheels.new Tire(18, 220, TireBrands.DUNLOP));
-					wheels.setDisc(wheels.new Disc(18, DiskBrands.ENZO, true, false));
+					wheels.setDisc(wheels.new Disc(18, true, false));
 					Engine engine = new Engine(2000,4,true,Fuel.DIESEL);
 					Brakes front = new Brakes(30, true);
 					Brakes rear = new Brakes(26, false);
