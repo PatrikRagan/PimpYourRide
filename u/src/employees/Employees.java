@@ -14,7 +14,7 @@ public class Employees {
 	public static void makeEmployees(){
 		employees.add(new Employee("Alojz", "Vesely", Jobs.INTERIORER));
 		employees.add(new Employee("Adam", "Moravèík", Jobs.MECHANIC));
-		employees.add(new Employee("František", "Cerný", Jobs.MECHANIC));
+		employees.add(new Employee("František", "Cerný", Jobs.BODYWORKER));
 		
 	}
 
