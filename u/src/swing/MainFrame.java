@@ -30,6 +30,8 @@ public class MainFrame extends JFrame {
 	private String loggerText = "";
 	private DefaultMutableTreeNode node;
 	private JTree treeComponents;
+	
+	final JTextArea logArea = new JTextArea(20, 20);
 
 	public JTree getTreeComponents() {
 		return treeComponents;
@@ -72,7 +74,7 @@ public class MainFrame extends JFrame {
 		
 		final JComboBox compType = new JComboBox();
 		
-		 final JTextArea logArea = new JTextArea(20, 20);
+		 
 		JScrollPane scrollPane = new JScrollPane(logArea);
 		scrollPane.setViewportBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		scrollPane.setBounds(230, 276, 350, 87);
@@ -89,8 +91,8 @@ public class MainFrame extends JFrame {
        
 		compType.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				loggerText += compType.getSelectedItem().toString()+" was selected" +"\n" ;
-				logArea.setText(loggerText);
+				
+				addLog(compType.getSelectedItem().toString()+" was selected" +"\n");
 				
 			}
 		});
@@ -255,7 +257,7 @@ public class MainFrame extends JFrame {
 	}
 	
 	private void instalComponent(){
-		System.out.println("INSTALLED");
+		addLog("INSTALLED");
 	}
 	
 	
@@ -305,4 +307,11 @@ public class MainFrame extends JFrame {
 	public JPasswordField getPassField() {
 		return passField;
 	}
+	
+	public void addLog(String text){
+		this.loggerText += text;
+		logArea.setText(loggerText);
+	}
+
+	
 }
