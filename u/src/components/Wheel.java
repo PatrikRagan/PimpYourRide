@@ -1,6 +1,5 @@
 package components;
 
-import enums.DiskBrands;
 import enums.TireBrands;
 
 public class Wheel {
@@ -30,13 +29,10 @@ public class Wheel {
 		private boolean isElectron;
 		// haveHubCup - puklica - moze mat, len ak to nie je elektron
 		private boolean haveHubCup;
-		private DiskBrands diskBrand;
 
-		public Disc(int diameter, DiskBrands diskBrand, boolean isElectron,
-				boolean haveHubCup) {
+		public Disc(int diameter, boolean isElectron, boolean haveHubCup) {
 			this.setDiameter(diameter);
 			this.setElectron(isElectron);
-			this.setDiskBrand(diskBrand);
 			this.setHaveHubCup(haveHubCup);
 		}
 
@@ -54,14 +50,6 @@ public class Wheel {
 
 		public void setHaveHubCup(boolean haveHubCup) {
 			this.haveHubCup = haveHubCup;
-		}
-
-		public DiskBrands getDiskBrand() {
-			return diskBrand;
-		}
-
-		public void setDiskBrand(DiskBrands diskBrand) {
-			this.diskBrand = diskBrand;
 		}
 
 		public boolean isElectron() {
