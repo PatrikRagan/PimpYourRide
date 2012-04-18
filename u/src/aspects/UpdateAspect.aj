@@ -56,32 +56,38 @@ public aspect UpdateAspect {
 		else if(string.contains("fuel")){
 			list.setUserObject("fuel................" + car.getEngine().getFuelType());
 		}
-		else if(string.contains("tire")){
-			list.setUserObject("tire......");
+		else if(string.contains("tire <->")){
+			list.setUserObject("tire <->......" + car.getWheels().getTire().getDiameter());
 		}
-		else if(string.contains("disc")){
-			list.setUserObject("disc......");
+		else if(string.contains("tire width")){
+			list.setUserObject("tire width......" + car.getWheels().getTire().getTireWidth());
+		}
+		else if(string.contains("disc <->")){
+			list.setUserObject("disc <->......" + car.getWheels().getDisc().getDiameter());
+		}
+		else if(string.contains("disc type")){
+			if(car.getWheels().getDisc().isElectron())
+				list.setUserObject("disc type......ALLOY");
+			else
+				list.setUserObject("disc type......METAL");
+		}
+		else if(string.contains("hubCup")){
+			if(car.getWheels().getDisc().isHaveHubCup())
+				list.setUserObject("hubCup......YES");
+			else
+				list.setUserObject("hubCup......NO");
 		}
 		else if(string.contains("chasis")){
 			list.setUserObject("chasis.........." + car.getChasis());
 		}
-		else if(string.contains("f-diameter")){
-			list.setUserObject("f-diameter........." + car.getBrakes().getDiameter());
+		else if(string.contains("diameter")){
+			list.setUserObject("diameter........." + car.getBrakes().getDiameter());
 		}
-		else if(string.contains("f-brake type")){
+		else if(string.contains("brake type")){
 			if(car.getBrakes().isDiscBrake())
-				list.setUserObject("f-brake type.......DISC");
+				list.setUserObject("brake type.......DISC");
 			else
 				list.setUserObject("f-brake type.......DRUM");
-		}
-		else if(string.contains("r-diameter")){
-			list.setUserObject("r-diameter........." + car.getBrakes().getDiameter());
-		}
-		else if(string.contains("r-brake type")){
-			if(car.getBrakes().isDiscBrake())
-				list.setUserObject("r-brake type.......DISC");
-			else
-				list.setUserObject("r-brake type.......DRUM");
 		}
 		else if(string.contains("gears")){
 			list.setUserObject("gears........." + car.getClutch().getGears());
