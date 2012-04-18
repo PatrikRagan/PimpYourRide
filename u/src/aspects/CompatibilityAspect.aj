@@ -1,6 +1,7 @@
 package aspects;
 
 import javax.swing.JOptionPane;
+import swing.MainFrame;
 
 import components.*;
 
@@ -8,7 +9,7 @@ public aspect CompatibilityAspect {
 	private Car car;
 	
 	//pointcut rear(Brakes brake): execution(void Car.setRearBrakes(Brakes)) && args(brake);
-	pointcut front(Brakes brake): execution(void Car.setBrakes(Brakes)) && args(brake);
+	pointcut front(Brakes brake): call(void Car.setBrakes(Brakes)) && args(brake) && within(MainFrame);
 	
 	after(Car car): execution(Car.new(..)) && target(car){
 		this.car = car;
@@ -25,7 +26,7 @@ public aspect CompatibilityAspect {
 		}
 	}
 	
-	before(Wheel.Disc disc): execution(void Wheel.setDisc(..)) && args(disc){
+	before(Wheel.Disc disc): call(void Wheel.setDisc(..)) && args(disc) && within(MainFrame){
 		try{
 			if(disc.getDiameter()*2.54 < car.getBrakes().getDiameter()){
 				JOptionPane.showMessageDialog(null, "Disc too small - big brakes");
@@ -36,7 +37,7 @@ public aspect CompatibilityAspect {
 		}
 	}
 	
-	before(Wheel.Tire tire): execution(void Wheel.setTire(..)) && args(tire){
+	before(Wheel.Tire tire): call(void Wheel.setTire(..)) && args(tire) && within(MainFrame){
 		try{
 			if(tire.getDiameter() != car.getWheels().getDisc().getDiameter()){
 				JOptionPane.showMessageDialog(null, "Tire doesn't fit disc");
