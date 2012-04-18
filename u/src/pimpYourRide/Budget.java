@@ -1,5 +1,6 @@
 package pimpYourRide;
 
+import swing.MainFrame;
 import components.BodyKit;
 import components.Brakes;
 import components.Car;
@@ -30,6 +31,7 @@ public class Budget {
 		Budget.setBudget(Budget.getBudget() + (old / 4));
 		Budget.setBudget(Budget.getBudget() - novy);
 		System.out.println("budget : " + Budget.getBudget());
+		MainFrame.addTextToBudgetField(budget+"");
 	}
 
 	// TODO:budgets

@@ -12,6 +12,7 @@ public aspect Shop {
 		} else {
 			System.out.println("Komponent zakupeny");
 			proceed(old, never);
+			
 		}
 
 	}

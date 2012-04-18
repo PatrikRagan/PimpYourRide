@@ -42,6 +42,7 @@ public class MainFrame extends JFrame {
 	private JTextField textFieldBrakes;
 	private JTextField textFieldHandling;
 	private JTextField textFieldStyle;
+	private static JTextField budgetField;
 	
 	public JTextField getTextFieldAcceleration() {
 		return textFieldAcceleration;
@@ -321,6 +322,20 @@ public class MainFrame extends JFrame {
 		JLabel lblPass = new JLabel("Pass");
 		lblPass.setBounds(10, 261, 46, 14);
 		leftPanel.add(lblPass);
+		
+		setBudgetField(new JTextField());
+		getBudgetField().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		getBudgetField().setBounds(100, 321, 86, 20);
+		leftPanel.add(getBudgetField());
+		getBudgetField().setColumns(10);
+		
+		JLabel lblBudgetfield = new JLabel("Budget");
+		lblBudgetfield.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblBudgetfield.setBounds(20, 323, 61, 14);
+		leftPanel.add(lblBudgetfield);
 
 		JPanel rightPanel = new JPanel();
 		rightPanel
@@ -558,5 +573,16 @@ public class MainFrame extends JFrame {
 		this.loggerText += text;
 		logArea.setText(loggerText);
 
+	}
+
+	public static JTextField getBudgetField() {
+		return budgetField;
+	}
+
+	public void setBudgetField(JTextField budgetField) {
+		this.budgetField = budgetField;
+	}
+	public static void  addTextToBudgetField(String text) {
+		MainFrame.getBudgetField().setText(text);
 	}
 }

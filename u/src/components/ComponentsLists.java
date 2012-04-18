@@ -161,10 +161,10 @@ public class ComponentsLists {
 		
 		this.transmissionComponentMap.put("5 1 200", new Transmission(5, true, 200));
 		this.transmissionComponentMap.put("5 0 200", new Transmission(5, false, 200));
-		this.transmissionComponentMap.put("6 1 300", new Transmission(5, true, 300));
-		this.transmissionComponentMap.put("6 0 300", new Transmission(5, false, 300));
-		this.transmissionComponentMap.put("7 1 400", new Transmission(5, true, 400));
-		this.transmissionComponentMap.put("7 0 400", new Transmission(5, false, 400));
+		this.transmissionComponentMap.put("6 1 300", new Transmission(6, true, 300));
+		this.transmissionComponentMap.put("6 0 300", new Transmission(6, false, 300));
+		this.transmissionComponentMap.put("7 1 400", new Transmission(7, true, 400));
+		this.transmissionComponentMap.put("7 0 400", new Transmission(7, false, 400));
 		
 		// this.discList.add("14 1 0");
 		// this.discList.add("15 1 0");

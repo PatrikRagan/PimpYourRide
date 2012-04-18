@@ -50,8 +50,7 @@ public class Main {
 							Color.BLACK, features);
 					// End creating car
 					new Budget(4000);
-					System.out.println(Budget.getBudget());
-					Budget.setBudget(Budget.getBudget() - 1000);
+					MainFrame.addTextToBudgetField(Budget.getBudget()+"");
 					startTimeOfProgram = System.currentTimeMillis() / 1000;
 					System.out.println(Budget.getBudget());
 				} catch (Exception e) {
