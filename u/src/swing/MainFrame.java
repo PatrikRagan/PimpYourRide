@@ -191,7 +191,7 @@ public class MainFrame extends JFrame {
 
 			}
 		});
-		compTypeComboBox.setModel(new DefaultComboBoxModel(new String[] {  "ENGINE" ,"BRAKES ", "BODY_KIT", "TRANSMISSION", "TIRE", "DISC"}));
+		compTypeComboBox.setModel(new DefaultComboBoxModel(new String[] {  "ENGINE" ,"BRAKES", "BODY_KIT", "TRANSMISSION", "TIRE", "DISC"}));
 		compTypeComboBox.setBounds(10, 11, 190, 20);
 		leftPanel.add(compTypeComboBox);
 

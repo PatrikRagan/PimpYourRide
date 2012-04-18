@@ -2,7 +2,6 @@ package aspects;
 
 import pimpYourRide.Main;
 import pimpYourRide.SerializeCar;
-import components.Car;
 import components.IComponent;
 
 public aspect PersistenceAspect {
@@ -27,6 +26,5 @@ public aspect PersistenceAspect {
 		System.out.println("Komponent ulozeny do suboru po "+((int)timeAmount)+" sekundach od posledneho.");
 		Main.startTimeOfProgram = timeEnd;
 	}
-	// after(Car car): (execution(Car.new(..)) && target(car)) ||
-	// (execution(void Car.*(..)) && target(car)){
+
 }
