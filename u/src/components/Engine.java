@@ -90,11 +90,11 @@ public class Engine implements IComponent{
 		return torque;
 	}
 
-	private int getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	private void setPrice(int price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import javax.swing.border.EtchedBorder;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import pimpYourRide.Budget;
 import pimpYourRide.Main;
 
 import java.awt.Font;
@@ -349,11 +350,14 @@ public class MainFrame extends JFrame {
 		
 		if (component instanceof Engine){
 			car.setEngine((Engine)component);
+			
 		} else if (component instanceof Brakes){
 			car.setFrontBrakes((Brakes)component);
 			car.setRearBrakes((Brakes)component);
+			
 		}
-		
+		//dovolil som si to dat sem
+		Budget.actualizeBudget(component);
 		addLog(compTypeComboBox.getSelectedItem().toString() + " instaled type: "+componentComboBox.getSelectedItem().toString() + "\n");
 
 	}
