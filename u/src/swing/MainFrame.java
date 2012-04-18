@@ -549,9 +549,11 @@ public class MainFrame extends JFrame {
 			
 		}else if (component instanceof Wheel.Tire){
 			car.getWheels().setTire((Tire) component);
+			car.setWheels(car.getWheels());
 			
 		}else if (component instanceof Wheel.Disc){
 			car.getWheels().setDisc((Disc) component);
+			car.setWheels(car.getWheels());
 		}
 		//dovolil som si to dat sem
 		Budget.actualizeBudget(component);

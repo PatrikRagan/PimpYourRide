@@ -146,7 +146,7 @@ public class Car implements Serializable{
 	}
 	
 	public double acceleration(){
-		double acceleration;
+		double accel;
 		double nitro = 1;
 		double gear = 1;
 		
@@ -158,8 +158,9 @@ public class Car implements Serializable{
 			nitro = 1.4;
 		if(this.getTransmission().isManual())
 			gear = 1.2;
-		acceleration = (((1500/topSpeed())/nitro)*gear)/(8/(4+this.getTransmission().getGears()));
-		return acceleration;
+		accel = (double)(1500/(double)topSpeed()/(double)nitro*(double)gear*
+				((double)4+(double)this.getTransmission().getGears())/(double)8);
+		return (double)accel;
 	}
 
 	public void setBrakes(Brakes brakes) {

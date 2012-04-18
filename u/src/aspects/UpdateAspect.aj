@@ -3,7 +3,11 @@ package aspects;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
+import pimpYourRide.Main;
+
 import components.Car;
+import components.IComponent;
+import components.*;
 
 import swing.MainFrame;
 
@@ -15,9 +19,17 @@ public aspect UpdateAspect {
 		this.frame = frame;
 	}
 	
+	after(Car car): (execution(Car.new(..)) && target(car)){
+		frame.getTextFieldPower().setText(Integer.toString(car.getEngine().getPower()));
+		frame.getTextFieldTorque().setText(Integer.toString(car.getEngine().getTorque()));
+		frame.getTextFieldTopSpeed().setText(Integer.toString(car.topSpeed()));
+		frame.getTextFieldAcceleration().setText(Double.toString(car.acceleration()).substring(0, 4));
+		frame.getTextFieldBrakes().setText(Integer.toString(car.brakesEffectivity()));
+	}
+	
+	
 	after(Car car): (execution(Car.new(..)) && target(car)) || (execution(void Car.*(..)) && target(car)){
 		//Updating Car properties (Car Info panel)
-//		frame.getTextFieldPower().setText(Integer.toString(car.getEngine().getPower()));
 		
 		this.components = this.frame.getNode();
 		
@@ -37,6 +49,14 @@ public aspect UpdateAspect {
 		}
 		DefaultTreeModel model = (DefaultTreeModel)frame.getTreeComponents().getModel();
 		model.reload();
+	}
+	
+	after(IComponent component): execution(void MainFrame.instalComponent(..)) && args(component){		
+		frame.getTextFieldPower().setText(Integer.toString(Main.car.getEngine().getPower()));
+		frame.getTextFieldTorque().setText(Integer.toString(Main.car.getEngine().getTorque()));
+		frame.getTextFieldTopSpeed().setText(Integer.toString(Main.car.topSpeed()));
+		frame.getTextFieldAcceleration().setText(Double.toString(Main.car.acceleration()).substring(0, 4));
+		frame.getTextFieldBrakes().setText(Integer.toString(Main.car.brakesEffectivity()));
 	}
 	
 //	after(Car car): execution(void Car.*(..)) && target(car){
@@ -147,7 +167,6 @@ public aspect UpdateAspect {
 				list.add(new DefaultMutableTreeNode(car.getList().get(i)));
 			}
 		}
-		//DefaultTreeModel model = (DefaultTreeModel)frame.getTreeComponents().getModel();
 	}
 
 }

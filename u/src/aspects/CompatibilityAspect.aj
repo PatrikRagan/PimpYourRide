@@ -46,27 +46,5 @@ public aspect CompatibilityAspect {
 			//
 		}
 	}
-	
-	before(boolean isElectron): execution(void setElectron(boolean)) && args(isElectron){
-		try{
-			if(isElectron && car.getWheels().getDisc().isHaveHubCup()){
-				JOptionPane.showMessageDialog(null, "Electron cannot have hubcup");
-				isElectron = false;
-			}
-		}catch(NullPointerException e){
-			//
-		}
-	}
-	
-	before(boolean haveHubCup): execution(void setHaveHubCup(boolean)) && args(haveHubCup){
-		try{
-			if(haveHubCup && car.getWheels().getDisc().isElectron()){
-				JOptionPane.showMessageDialog(null, "Electron cannot have hubcup");
-				haveHubCup = false;
-			}
-		}catch(NullPointerException e){
-			//
-		}
-	}
 
 }
