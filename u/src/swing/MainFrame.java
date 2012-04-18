@@ -34,68 +34,40 @@ public class MainFrame extends JFrame {
 	final JComboBox componentComboBox = new JComboBox();
 	final JComboBox compTypeComboBox = new JComboBox();
 	private JTextField textFieldAcceleration;
-	public JTextField getTextFieldAcceleration() {
-		return textFieldAcceleration;
-	}
-
-	public void setTextFieldAcceleration(JTextField textFieldAcceleration) {
-		this.textFieldAcceleration = textFieldAcceleration;
-	}
-
-	public JTextField getTextFieldTopSpeed() {
-		return textFieldTopSpeed;
-	}
-
-	public void setTextFieldTopSpeed(JTextField textFieldTopSpeed) {
-		this.textFieldTopSpeed = textFieldTopSpeed;
-	}
-
-	public JTextField getTextFieldTorque() {
-		return textFieldTorque;
-	}
-
-	public void setTextFieldTorque(JTextField textFieldTorque) {
-		this.textFieldTorque = textFieldTorque;
-	}
-
-	public JTextField getTextFieldPower() {
-		return textFieldPower;
-	}
-
-	public void setTextFieldPower(JTextField textFieldPower) {
-		this.textFieldPower = textFieldPower;
-	}
-
-	public JTextField getTextFieldBrakes() {
-		return textFieldBrakes;
-	}
-
-	public void setTextFieldBrakes(JTextField textFieldBrakes) {
-		this.textFieldBrakes = textFieldBrakes;
-	}
-
-	public JTextField getTextFieldHandling() {
-		return textFieldHandling;
-	}
-
-	public void setTextFieldHandling(JTextField textFieldHandling) {
-		this.textFieldHandling = textFieldHandling;
-	}
-
-	public JTextField getTextFieldStyle() {
-		return textFieldStyle;
-	}
-
-	public void setTextFieldStyle(JTextField textFieldStyle) {
-		this.textFieldStyle = textFieldStyle;
-	}
-
 	private JTextField textFieldTopSpeed;
 	private JTextField textFieldTorque;
 	private JTextField textFieldPower;
 	private JTextField textFieldBrakes;
 	private JTextField textFieldHandling;
 	private JTextField textFieldStyle;
+	
+	public JTextField getTextFieldAcceleration() {
+		return textFieldAcceleration;
+	}
+
+	public JTextField getTextFieldTopSpeed() {
+		return textFieldTopSpeed;
+	}
+
+	public JTextField getTextFieldTorque() {
+		return textFieldTorque;
+	}
+
+	public JTextField getTextFieldPower() {
+		return textFieldPower;
+	}
+
+	public JTextField getTextFieldBrakes() {
+		return textFieldBrakes;
+	}
+
+	public JTextField getTextFieldHandling() {
+		return textFieldHandling;
+	}
+
+	public JTextField getTextFieldStyle() {
+		return textFieldStyle;
+	}
 
 	public JTree getTreeComponents() {
 		return treeComponents;
