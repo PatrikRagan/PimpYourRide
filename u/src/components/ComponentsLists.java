@@ -12,6 +12,8 @@ import enums.Features;
 import enums.Fuel;
 
 public class ComponentsLists {
+	
+	
 	// deprecated diameterList
 	// public ArrayList<Integer> diameterList = new ArrayList<Integer>();
 	// public ArrayList<String> engineList = new ArrayList<String>();
@@ -204,5 +206,7 @@ public class ComponentsLists {
 	// locaList.add(17);
 	// locaList.add(19);
 	// }
+	
+
 
 }

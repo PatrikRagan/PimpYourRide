@@ -24,7 +24,7 @@ import employees.Employees;
 import enums.Features;
 
 public class MainFrame extends JFrame {
-//	public static Car car;
+	// public static Car car;
 	/**
 	 * 
 	 */
@@ -34,8 +34,8 @@ public class MainFrame extends JFrame {
 	private String loggerText = "";
 	private DefaultMutableTreeNode node;
 	private JTree treeComponents;
-	final ComponentsLists componentsList = new ComponentsLists();
-	final JTextArea logArea = new JTextArea(20, 20);
+	private final ComponentsLists componentsList = new ComponentsLists();
+	private final JTextArea logArea = new JTextArea(20, 20);
 	final JComboBox componentComboBox = new JComboBox();
 	final JComboBox compTypeComboBox = new JComboBox();
 	private JTextField textFieldAcceleration;
@@ -46,7 +46,7 @@ public class MainFrame extends JFrame {
 	private JTextField textFieldHandling;
 	private JTextField textFieldStyle;
 	private JTextField budgetField;
-	
+
 	public JTextField getTextFieldAcceleration() {
 		return textFieldAcceleration;
 	}
@@ -149,7 +149,7 @@ public class MainFrame extends JFrame {
 						String key = (String) iterator.next();
 						componentComboBox.addItem(key);
 					}
-				}else if (compTypeComboBox.getSelectedItem().equals("BRAKES")) {
+				} else if (compTypeComboBox.getSelectedItem().equals("BRAKES")) {
 					componentComboBox.removeAllItems();
 					Iterator iterator = componentsList.brakesComponentMap
 							.keySet().iterator();
@@ -157,7 +157,8 @@ public class MainFrame extends JFrame {
 						String key = (String) iterator.next();
 						componentComboBox.addItem(key);
 					}
-				}else if (compTypeComboBox.getSelectedItem().equals("BODY_KIT")) {
+				} else if (compTypeComboBox.getSelectedItem()
+						.equals("BODY_KIT")) {
 					componentComboBox.removeAllItems();
 					Iterator iterator = componentsList.bodyKitComponentMap
 							.keySet().iterator();
@@ -165,7 +166,8 @@ public class MainFrame extends JFrame {
 						String key = (String) iterator.next();
 						componentComboBox.addItem(key);
 					}
-				}else if (compTypeComboBox.getSelectedItem().equals("TRANSMISSION")) {
+				} else if (compTypeComboBox.getSelectedItem().equals(
+						"TRANSMISSION")) {
 					componentComboBox.removeAllItems();
 					Iterator iterator = componentsList.transmissionComponentMap
 							.keySet().iterator();
@@ -173,7 +175,7 @@ public class MainFrame extends JFrame {
 						String key = (String) iterator.next();
 						componentComboBox.addItem(key);
 					}
-				}else if (compTypeComboBox.getSelectedItem().equals("TIRE")) {
+				} else if (compTypeComboBox.getSelectedItem().equals("TIRE")) {
 					componentComboBox.removeAllItems();
 					Iterator iterator = componentsList.tireComponentMap
 							.keySet().iterator();
@@ -181,7 +183,7 @@ public class MainFrame extends JFrame {
 						String key = (String) iterator.next();
 						componentComboBox.addItem(key);
 					}
-				}else if (compTypeComboBox.getSelectedItem().equals("DISC")) {
+				} else if (compTypeComboBox.getSelectedItem().equals("DISC")) {
 					componentComboBox.removeAllItems();
 					Iterator iterator = componentsList.discComponentMap
 							.keySet().iterator();
@@ -189,17 +191,21 @@ public class MainFrame extends JFrame {
 						String key = (String) iterator.next();
 						componentComboBox.addItem(key);
 					}
-				}else if (compTypeComboBox.getSelectedItem().equals("FEATURES")) {
+				} else if (compTypeComboBox.getSelectedItem()
+						.equals("FEATURES")) {
 					componentComboBox.removeAllItems();
-					for(int i=0; i<componentsList.featuresList.size(); i++)
-						componentComboBox.addItem(componentsList.featuresList.get(i).toString());
+					for (int i = 0; i < componentsList.featuresList.size(); i++)
+						componentComboBox.addItem(componentsList.featuresList
+								.get(i).toString());
 				}
-				addLog(compTypeComboBox.getSelectedItem().toString() + " was selected"
-						+ "\n");
+				addLog(compTypeComboBox.getSelectedItem().toString()
+						+ " was selected" + "\n");
 
 			}
 		});
-		compTypeComboBox.setModel(new DefaultComboBoxModel(new String[] {  "ENGINE" ,"BRAKES", "BODY_KIT", "TRANSMISSION", "TIRE", "DISC", "FEATURES"}));
+		compTypeComboBox.setModel(new DefaultComboBoxModel(new String[] {
+				"ENGINE", "BRAKES", "BODY_KIT", "TRANSMISSION", "TIRE", "DISC",
+				"FEATURES" }));
 		compTypeComboBox.setBounds(10, 11, 190, 20);
 		leftPanel.add(compTypeComboBox);
 
@@ -211,63 +217,61 @@ public class MainFrame extends JFrame {
 		JButton btnInstal = new JButton("Instal");
 		btnInstal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if (componentComboBox.getItemCount() > 0) {
+					// code here vytahuje objekt s udajmi o instalovanom
+					// komponente
+					Object key = componentComboBox.getSelectedItem();
+					int index = componentComboBox.getSelectedIndex();
+					System.out.println(">KEY>" + key);// kontrolny vypis KEY
 
-				
-
-				//code here vytahuje objekt s udajmi o instalovanom komponente
-				Object key = componentComboBox.getSelectedItem();
-				int index = componentComboBox.getSelectedIndex();
-				System.out.println(">KEY>"+key);//kontrolny vypis KEY
-				ComponentsLists komponentList = new ComponentsLists();
-				if(komponentList.brakesComponentMap.containsKey(key)){
-					Brakes value = komponentList.brakesComponentMap.get(key);
-					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-					instalComponent(value);
-//					Main.getInstance().setFrontBrakes(value);
-//					Main.getInstance().setRearBrakes(value);
-				}else if (komponentList.engineComponentMap.containsKey(key)){
-					Engine value = komponentList.engineComponentMap.get(key);
-					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//					Main.getInstance().setEngine(value);
-					instalComponent(value);
-				}else if (komponentList.bodyKitComponentMap.containsKey(key)){
-					BodyKit value = komponentList.bodyKitComponentMap.get(key);
-					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//					Main.getInstance().setEngine(value);
-					instalComponent(value);
-				}else if (komponentList.transmissionComponentMap.containsKey(key)){
-					Transmission value = komponentList.transmissionComponentMap.get(key);
-					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//					Main.getInstance().setEngine(value);
-					instalComponent(value);
-				}else if (komponentList.tireComponentMap.containsKey(key)){
-					Tire value = komponentList.tireComponentMap.get(key);
-					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//					Main.getInstance().setEngine(value);
-					instalComponent(value);
-				}else if (komponentList.discComponentMap.containsKey(key)){
-					Disc value = komponentList.discComponentMap.get(key);
-					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//					Main.getInstance().setEngine(value);
-					instalComponent(value);
-				}else for(int i=0; i<komponentList.featuresList.size(); i++){
-					if(komponentList.featuresList.get(i).toString().equals(key)){
-						ArrayList<Features> featuresList = new ArrayList<Features>();
-						featuresList = Main.car.getList();
-						if(featuresList.contains(komponentList.featuresList.get(i))){
-							int reply = JOptionPane.showConfirmDialog(null, "Component already added, delete component ?", null, JOptionPane.YES_NO_OPTION);
-							if(reply == JOptionPane.YES_OPTION){
-								featuresList.remove(komponentList.featuresList.get(i));
-								Main.car.setList(featuresList);
-							}
-						}
-						else{
-							featuresList.add(komponentList.featuresList.get(i));
-							Main.car.setList(featuresList);
-						}
+					if (componentsList.brakesComponentMap.containsKey(key)) {
+						Brakes value = componentsList.brakesComponentMap
+								.get(key);
+						System.out.println(">VALUE>" + value);// kontrolny vypis
+																// VALUE
+						instalComponent(value);
+						// Main.getInstance().setFrontBrakes(value);
+						// Main.getInstance().setRearBrakes(value);
+					} else if (componentsList.engineComponentMap
+							.containsKey(key)) {
+						Engine value = componentsList.engineComponentMap
+								.get(key);
+						System.out.println(">VALUE>" + value);// kontrolny vypis
+																// VALUE
+						// Main.getInstance().setEngine(value);
+						instalComponent(value);
+					} else if (componentsList.bodyKitComponentMap
+							.containsKey(key)) {
+						BodyKit value = componentsList.bodyKitComponentMap
+								.get(key);
+						System.out.println(">VALUE>" + value);// kontrolny vypis
+																// VALUE
+						// Main.getInstance().setEngine(value);
+						instalComponent(value);
+					} else if (componentsList.transmissionComponentMap
+							.containsKey(key)) {
+						Transmission value = componentsList.transmissionComponentMap
+								.get(key);
+						System.out.println(">VALUE>" + value);// kontrolny vypis
+																// VALUE
+						// Main.getInstance().setEngine(value);
+						instalComponent(value);
+					} else if (componentsList.tireComponentMap.containsKey(key)) {
+						Tire value = componentsList.tireComponentMap.get(key);
+						System.out.println(">VALUE>" + value);// kontrolny vypis
+																// VALUE
+						// Main.getInstance().setEngine(value);
+						instalComponent(value);
+					} else if (componentsList.discComponentMap.containsKey(key)) {
+						Disc value = componentsList.discComponentMap.get(key);
+						System.out.println(">VALUE>" + value);// kontrolny vypis
+																// VALUE
+						// Main.getInstance().setEngine(value);
+						instalComponent(value);
+					} else {
+						instalComponent(null);
 					}
 				}
-				
 			}
 		});
 
@@ -300,64 +304,77 @@ public class MainFrame extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {
-					
+					if (componentComboBox.getItemCount() > 0) {
+						// code here vytahuje objekt s udajmi o instalovanom
+						// komponente
+						Object key = componentComboBox.getSelectedItem();
+						int index = componentComboBox.getSelectedIndex();
+						System.out.println("SELECTED STRING: "
+								+ componentComboBox.getSelectedItem()
+										.toString());
+						// System.out.println(">KEY>"+key);//kontrolny vypis KEY
+						ComponentsLists komponentList = new ComponentsLists();
 
-					//code here vytahuje objekt s udajmi o instalovanom komponente
-					Object key = componentComboBox.getSelectedItem();
-					int index = componentComboBox.getSelectedIndex();
-//					System.out.println(">KEY>"+key);//kontrolny vypis KEY
-					ComponentsLists komponentList = new ComponentsLists();
-					if(komponentList.brakesComponentMap.containsKey(key)){
-						Brakes value = komponentList.brakesComponentMap.get(key);
-//						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//						Main.getInstance().setFrontBrakes(value);
-//						Main.getInstance().setRearBrakes(value);
-						instalComponent(value);
-					}else if (komponentList.engineComponentMap.containsKey(key)){
-						Engine value = komponentList.engineComponentMap.get(key);
-//						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//						Main.getInstance().setEngine(value);
-						instalComponent(value);
-					}else if (komponentList.bodyKitComponentMap.containsKey(key)){
-						BodyKit value = komponentList.bodyKitComponentMap.get(key);
-						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//						Main.getInstance().setEngine(value);
-						instalComponent(value);
-					}else if (komponentList.transmissionComponentMap.containsKey(key)){
-						Transmission value = komponentList.transmissionComponentMap.get(key);
-						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//						Main.getInstance().setEngine(value);
-						instalComponent(value);
-					}else if (komponentList.tireComponentMap.containsKey(key)){
-						Tire value = komponentList.tireComponentMap.get(key);
-						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//						Main.getInstance().setEngine(value);
-						instalComponent(value);
-					}else if (komponentList.discComponentMap.containsKey(key)){
-						Disc value = komponentList.discComponentMap.get(key);
-						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-//						Main.getInstance().setEngine(value);
-						instalComponent(value);
-					}else for(int i=0; i<komponentList.featuresList.size(); i++){
-						if(komponentList.featuresList.get(i).toString().equals(key)){
-							ArrayList<Features> featuresList = new ArrayList<Features>();
-							featuresList = Main.car.getList();
-							if(featuresList.contains(komponentList.featuresList.get(i))){
-								int reply = JOptionPane.showConfirmDialog(null, "Component already added, delete component ?", null, JOptionPane.YES_NO_OPTION);
-								if(reply == JOptionPane.YES_OPTION){
-									featuresList.remove(komponentList.featuresList.get(i));
-									Main.car.setList(featuresList);
-								}
-							}
-							else{
-								featuresList.add(komponentList.featuresList.get(i));
-								Main.car.setList(featuresList);
-							}
-							
+						System.out.println("ITEM COUNT: "
+								+ componentComboBox.getItemCount());
+						if (komponentList.brakesComponentMap.containsKey(key)) {
+							Brakes value = komponentList.brakesComponentMap
+									.get(key);
+							// System.out.println(">VALUE>"+value);//kontrolny
+							// vypis
+							// VALUE
+							// Main.getInstance().setFrontBrakes(value);
+							// Main.getInstance().setRearBrakes(value);
+							instalComponent(value);
+						} else if (komponentList.engineComponentMap
+								.containsKey(key)) {
+							Engine value = komponentList.engineComponentMap
+									.get(key);
+							// System.out.println(">VALUE>"+value);//kontrolny
+							// vypis
+							// VALUE
+							// Main.getInstance().setEngine(value);
+							instalComponent(value);
+						} else if (komponentList.bodyKitComponentMap
+								.containsKey(key)) {
+							BodyKit value = komponentList.bodyKitComponentMap
+									.get(key);
+							System.out.println(">VALUE>" + value);// kontrolny
+																	// vypis
+																	// VALUE
+							// Main.getInstance().setEngine(value);
+							instalComponent(value);
+						} else if (komponentList.transmissionComponentMap
+								.containsKey(key)) {
+							Transmission value = komponentList.transmissionComponentMap
+									.get(key);
+							System.out.println(">VALUE>" + value);// kontrolny
+																	// vypis
+																	// VALUE
+							// Main.getInstance().setEngine(value);
+							instalComponent(value);
+						} else if (komponentList.tireComponentMap
+								.containsKey(key)) {
+							Tire value = komponentList.tireComponentMap
+									.get(key);
+							System.out.println(">VALUE>" + value);// kontrolny
+																	// vypis
+																	// VALUE
+							// Main.getInstance().setEngine(value);
+							instalComponent(value);
+						} else if (komponentList.discComponentMap
+								.containsKey(key)) {
+							Disc value = komponentList.discComponentMap
+									.get(key);
+							System.out.println(">VALUE>" + value);// kontrolny
+																	// vypis
+																	// VALUE
+							// Main.getInstance().setEngine(value);
+							instalComponent(value);
+						} else {
+							instalComponent(null);
 						}
 					}
-
-	
 				}
 			}
 		});
@@ -365,8 +382,8 @@ public class MainFrame extends JFrame {
 		JLabel lblPass = new JLabel("Pass");
 		lblPass.setBounds(10, 261, 46, 14);
 		leftPanel.add(lblPass);
-		
-		budgetField =(new JTextField());
+
+		budgetField = (new JTextField());
 		budgetField.setEditable(false);
 		getBudgetField().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -375,7 +392,7 @@ public class MainFrame extends JFrame {
 		getBudgetField().setBounds(100, 321, 86, 20);
 		leftPanel.add(getBudgetField());
 		getBudgetField().setColumns(10);
-		
+
 		JLabel lblBudgetfield = new JLabel("Budget");
 		lblBudgetfield.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblBudgetfield.setBounds(20, 323, 61, 14);
@@ -416,9 +433,11 @@ public class MainFrame extends JFrame {
 		DefaultMutableTreeNode wheel = new DefaultMutableTreeNode("Wheels");
 		node.add(wheel);
 		DefaultMutableTreeNode tire = new DefaultMutableTreeNode("tire <->");
-		DefaultMutableTreeNode tireWidth = new DefaultMutableTreeNode("tire width");
+		DefaultMutableTreeNode tireWidth = new DefaultMutableTreeNode(
+				"tire width");
 		DefaultMutableTreeNode disc = new DefaultMutableTreeNode("disc <->");
-		DefaultMutableTreeNode discElectron = new DefaultMutableTreeNode("disc type");
+		DefaultMutableTreeNode discElectron = new DefaultMutableTreeNode(
+				"disc type");
 		DefaultMutableTreeNode discHubCup = new DefaultMutableTreeNode("hubCup");
 		DefaultMutableTreeNode chasis = new DefaultMutableTreeNode("chasis");
 		wheel.add(tire);
@@ -440,14 +459,16 @@ public class MainFrame extends JFrame {
 		DefaultMutableTreeNode clutch = new DefaultMutableTreeNode("Clutch");
 		node.add(clutch);
 		DefaultMutableTreeNode gears = new DefaultMutableTreeNode("gears");
-		DefaultMutableTreeNode clutchType = new DefaultMutableTreeNode("clutch type");
+		DefaultMutableTreeNode clutchType = new DefaultMutableTreeNode(
+				"clutch type");
 		clutch.add(gears);
 		clutch.add(clutchType);
 
 		// BodyKit
 		DefaultMutableTreeNode body = new DefaultMutableTreeNode("Bodyshell");
 		node.add(body);
-		DefaultMutableTreeNode downforce = new DefaultMutableTreeNode("downforce");
+		DefaultMutableTreeNode downforce = new DefaultMutableTreeNode(
+				"downforce");
 		DefaultMutableTreeNode carRoof = new DefaultMutableTreeNode("roof");
 		body.add(downforce);
 		body.add(carRoof);
@@ -455,12 +476,17 @@ public class MainFrame extends JFrame {
 		// Interior
 		DefaultMutableTreeNode interior = new DefaultMutableTreeNode("Interior");
 		node.add(interior);
-		DefaultMutableTreeNode interiorColor = new DefaultMutableTreeNode("color");
-		DefaultMutableTreeNode interiorMat = new DefaultMutableTreeNode("i-material");
+		DefaultMutableTreeNode interiorColor = new DefaultMutableTreeNode(
+				"color");
+		DefaultMutableTreeNode interiorMat = new DefaultMutableTreeNode(
+				"i-material");
 		DefaultMutableTreeNode seats = new DefaultMutableTreeNode("seat type");
-		DefaultMutableTreeNode seatsMat = new DefaultMutableTreeNode("seat material");
-		DefaultMutableTreeNode seatsHeated = new DefaultMutableTreeNode("heated seat");
-		DefaultMutableTreeNode seatsMassage = new DefaultMutableTreeNode("massage seat");
+		DefaultMutableTreeNode seatsMat = new DefaultMutableTreeNode(
+				"seat material");
+		DefaultMutableTreeNode seatsHeated = new DefaultMutableTreeNode(
+				"heated seat");
+		DefaultMutableTreeNode seatsMassage = new DefaultMutableTreeNode(
+				"massage seat");
 		interior.add(interiorColor);
 		interior.add(interiorMat);
 		interior.add(seats);
@@ -485,78 +511,78 @@ public class MainFrame extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel.setBounds(10, 11, 94, 20);
 		carPanel.add(lblNewLabel);
-		
+
 		JLabel lblPower = new JLabel("Power");
 		lblPower.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblPower.setBounds(20, 40, 50, 14);
 		carPanel.add(lblPower);
-		
+
 		JLabel lblTorque = new JLabel("Torque");
 		lblTorque.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblTorque.setBounds(20, 70, 50, 14);
 		carPanel.add(lblTorque);
-		
+
 		JLabel lblTopSpeed = new JLabel("Top Speed");
 		lblTopSpeed.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblTopSpeed.setBounds(20, 100, 70, 14);
 		carPanel.add(lblTopSpeed);
-		
+
 		JLabel lblAcceleration = new JLabel("Acceleration");
 		lblAcceleration.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblAcceleration.setBounds(20, 130, 80, 14);
 		carPanel.add(lblAcceleration);
-		
+
 		JLabel lblBrakes = new JLabel("Brakes");
 		lblBrakes.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblBrakes.setBounds(20, 160, 46, 14);
 		carPanel.add(lblBrakes);
-		
+
 		JLabel lblHandling = new JLabel("Handling");
 		lblHandling.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblHandling.setBounds(20, 190, 60, 14);
 		carPanel.add(lblHandling);
-		
+
 		JLabel lblStyle = new JLabel("Style");
 		lblStyle.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblStyle.setBounds(20, 220, 46, 14);
 		carPanel.add(lblStyle);
-		
+
 		textFieldAcceleration = new JTextField();
 		textFieldAcceleration.setBounds(110, 128, 86, 20);
 		carPanel.add(textFieldAcceleration);
 		textFieldAcceleration.setColumns(10);
 		textFieldAcceleration.setEditable(false);
-		
+
 		textFieldTopSpeed = new JTextField();
 		textFieldTopSpeed.setBounds(110, 98, 86, 20);
 		carPanel.add(textFieldTopSpeed);
 		textFieldTopSpeed.setColumns(10);
 		textFieldTopSpeed.setEditable(false);
-		
+
 		textFieldTorque = new JTextField();
 		textFieldTorque.setBounds(110, 68, 86, 20);
 		carPanel.add(textFieldTorque);
 		textFieldTorque.setColumns(10);
 		textFieldTorque.setEditable(false);
-		
+
 		textFieldPower = new JTextField();
 		textFieldPower.setBounds(110, 38, 86, 20);
 		carPanel.add(textFieldPower);
 		textFieldPower.setColumns(10);
 		textFieldPower.setEditable(false);
-		
+
 		textFieldBrakes = new JTextField();
 		textFieldBrakes.setBounds(110, 158, 86, 20);
 		carPanel.add(textFieldBrakes);
 		textFieldBrakes.setColumns(10);
 		textFieldBrakes.setEditable(false);
-		
+
 		textFieldHandling = new JTextField();
 		textFieldHandling.setBounds(110, 188, 86, 20);
 		carPanel.add(textFieldHandling);
 		textFieldHandling.setColumns(10);
 		textFieldHandling.setEditable(false);
-		
+
 		textFieldStyle = new JTextField();
 		textFieldStyle.setBounds(110, 218, 86, 20);
 		carPanel.add(textFieldStyle);
@@ -576,36 +602,64 @@ public class MainFrame extends JFrame {
 	}
 
 	private void instalComponent(IComponent component) {
+		System.out.println("TRY TO INSTAL: " + component);
+		Object key = componentComboBox.getSelectedItem();
 
 		Car car = Main.getInstance();
-		
-		if (component instanceof Engine){
-			car.setEngine((Engine)component);
-			
-		} else if (component instanceof Brakes){
-			car.setBrakes((Brakes)component);
-			
-		}else if (component instanceof BodyKit){
-			car.setBodyKit((BodyKit) component);
-			
-		}else if (component instanceof Transmission){
-			car.setTransmission((Transmission) component);
-			
-		}else if (component instanceof Wheel.Tire){
-			car.getWheels().setTire((Tire) component);
-			car.setWheels(car.getWheels());
-			
-		}else if (component instanceof Wheel.Disc){
-			car.getWheels().setDisc((Disc) component);
-			car.setWheels(car.getWheels());
+		if (component != null) {
+			if (component instanceof Engine) {
+				car.setEngine((Engine) component);
+
+			} else if (component instanceof Brakes) {
+				car.setBrakes((Brakes) component);
+
+			} else if (component instanceof BodyKit) {
+				car.setBodyKit((BodyKit) component);
+
+			} else if (component instanceof Transmission) {
+				car.setTransmission((Transmission) component);
+
+			} else if (component instanceof Wheel.Tire) {
+				car.getWheels().setTire((Tire) component);
+				car.setWheels(car.getWheels());
+
+			} else if (component instanceof Wheel.Disc) {
+				car.getWheels().setDisc((Disc) component);
+				car.setWheels(car.getWheels());
+			}
+		} else {
+			for (int i = 0; i < componentsList.featuresList.size(); i++) {
+				if (componentsList.featuresList.get(i).toString().equals(key)) {
+					ArrayList<Features> featuresList = Main.car.getList();
+
+					if (featuresList.contains(componentsList.featuresList
+							.get(i))) {
+						int reply = JOptionPane.showConfirmDialog(null,
+								"Component already added, delete component ?",
+								null, JOptionPane.YES_NO_OPTION);
+						if (reply == JOptionPane.YES_OPTION) {
+							featuresList.remove(componentsList.featuresList
+									.get(i));
+							Main.car.setList(featuresList);
+						}
+					} else {
+						featuresList.add(componentsList.featuresList.get(i));
+						Main.car.setList(featuresList);
+					}
+
+				}
+			}
+
 		}
-		//dovolil som si to dat sem
+
+		// dovolil som si to dat sem
+		// MK> Dobre si dal
 		Budget.actualizeBudget(component);
-		addLog(compTypeComboBox.getSelectedItem().toString() + " instaled type: "+componentComboBox.getSelectedItem().toString() + "\n");
+		addLog(compTypeComboBox.getSelectedItem().toString()
+				+ " instaled type: "
+				+ componentComboBox.getSelectedItem().toString() + "\n");
 
 	}
-
-
 
 	public JTextField getNameField() {
 		return nameField;

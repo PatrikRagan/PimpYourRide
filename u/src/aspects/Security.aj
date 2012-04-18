@@ -20,12 +20,12 @@ public aspect Security {
 	void around(MainFrame frame, IComponent component): execution(* MainFrame.instalComponent(..)) && target(frame) && args(component){
 
 		Employee emp = Employees.getEmployee(frame.getNameField().getText());
-		if (emp != null) {
+		if (emp != null && component != null) {
 			if (frame.getPassField().getText().equals(emp.getPass())) {
 				if ((emp.getJob().equals(Jobs.INTERIORER) && component instanceof Interior)
 						|| (emp.getJob().equals(Jobs.BODYWORKER) && component instanceof BodyKit)
 						|| (emp.getJob().equals(Jobs.MECHANIC) && (!(component instanceof Interior) && !(component instanceof BodyKit)))) {
-					System.out.println("component: " + component);
+					System.out.println("componentA: " + component);
 					System.out.println("worker: " + emp.getJob());
 					proceed(frame, component);
 				} else {
@@ -34,6 +34,13 @@ public aspect Security {
 			} else {
 				frame.addLog("BAD LOGIN\n");
 			}
+		} else if (emp != null && component == null){
+			
+			System.out.println("componentB: " + component);
+			System.out.println("worker: " + emp.getJob());
+			
+			proceed(frame, component);
 		}
+		
 	}
 }
