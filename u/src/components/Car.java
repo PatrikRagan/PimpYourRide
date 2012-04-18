@@ -1,13 +1,14 @@
 package components;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import enums.CarRoof;
 import enums.Chasis;
 import enums.Features;
 
-public class Car {
+public class Car implements Serializable{
 
 	private Wheel wheels;
 	private Engine engine;

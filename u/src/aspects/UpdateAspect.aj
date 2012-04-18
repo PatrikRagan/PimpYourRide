@@ -93,10 +93,10 @@ public aspect UpdateAspect {
 				list.setUserObject("f-brake type.......DRUM");
 		}
 		else if(string.contains("gears")){
-			list.setUserObject("gears........." + car.getClutch().getGears());
+			list.setUserObject("gears........." + car.getTransmission().getGears());
 		}
 		else if(string.contains("clutch type")){
-			if(car.getClutch().isManual())
+			if(car.getTransmission().isManual())
 				list.setUserObject("clutch type.....MANUAL");
 			else
 				list.setUserObject("clutch type.....AUTO");

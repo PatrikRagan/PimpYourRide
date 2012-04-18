@@ -1,6 +1,8 @@
 package components;
 
-public interface IComponent {
+import java.io.Serializable;
+
+public interface IComponent extends Serializable{
 
 
 }

@@ -12,7 +12,7 @@ import swing.MainFrame;
 
 public class Main {
 	public static Car car;
-
+	public static long startTimeOfProgram;
 
 	public static Car getInstance() {
 		return car;
@@ -30,7 +30,7 @@ public class Main {
 
 					// Create car
 					Wheel wheels = new Wheel();
-					wheels.setTire(wheels.new Tire(18, 220,100));
+					wheels.setTire(wheels.new Tire(18, 220, 100));
 					wheels.setDisc(wheels.new Disc(18, true, false, 100));
 					Engine engine = new Engine(2000, 4, true, Fuel.DIESEL, 100);
 					Brakes brakes = new Brakes(30, true, 100);
@@ -51,7 +51,8 @@ public class Main {
 					// End creating car
 					new Budget(4000);
 					System.out.println(Budget.getBudget());
-					Budget.setBudget(Budget.getBudget()-1000);
+					Budget.setBudget(Budget.getBudget() - 1000);
+					startTimeOfProgram = System.currentTimeMillis() / 1000;
 					System.out.println(Budget.getBudget());
 				} catch (Exception e) {
 					System.out.println(e.getMessage());

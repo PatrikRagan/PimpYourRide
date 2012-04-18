@@ -25,7 +25,7 @@ public class Budget {
 		Budget.setBudget(Budget.getBudget() - novy);
 		System.out.println("budget : "+Budget.getBudget());
 	}
-
+//TODO:budgets
 	public static void actualizeBudget(IComponent component) {
 		Car car = Main.getInstance();
 		if (component instanceof Engine) {
