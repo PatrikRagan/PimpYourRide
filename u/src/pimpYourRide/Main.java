@@ -25,6 +25,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					new Budget(4000);
 					MainFrame frame = new MainFrame();
 					frame.setVisible(true);
 
@@ -49,7 +50,7 @@ public class Main {
 							CarRoof.HARDTOP, interior, clutch, body,
 							Color.BLACK, features);
 					// End creating car
-					new Budget(4000);
+
 					startTimeOfProgram = System.currentTimeMillis() / 1000;
 					System.out.println(Budget.getBudget());
 				} catch (Exception e) {

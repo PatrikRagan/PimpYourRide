@@ -9,6 +9,7 @@ public aspect Shop {
 
 	after(MainFrame frame): execution(MainFrame.new(..)) && target(frame){
 		this.frame = frame;
+		frame.getBudgetField().setText(Budget.getBudget()+"");
 	}
 	
 	void around(Integer old, Integer never) : control(old,never){
@@ -23,7 +24,4 @@ public aspect Shop {
 
 	}
 
-//	after(Integer old, Integer never) : control(old,never){
-//
-//	}
 }

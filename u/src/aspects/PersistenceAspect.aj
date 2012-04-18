@@ -10,8 +10,7 @@ public aspect PersistenceAspect {
 	long timeEnd;
 	public int calledCount = 0;
 
-	// TODO: pocitadlo volani a cas ktory uplinie medzi volaniami
-	// TODO: pred volanim metodz zmeny Car zavola serializeNow
+	// TODO: nesom si isty ci je to dobre
 	pointcut control(IComponent component) : call(* instalComponent(..)) && args(component);
 
 	before(IComponent component) : control(component){
