@@ -16,6 +16,9 @@ public aspect UpdateAspect {
 	}
 	
 	after(Car car): (execution(Car.new(..)) && target(car)) || (execution(void Car.*(..)) && target(car)){
+		//Updating Car properties (Car Info panel)
+//		frame.getTextFieldPower().setText(Integer.toString(car.getEngine().getPower()));
+		
 		this.components = this.frame.getNode();
 		
 		DefaultMutableTreeNode list;
