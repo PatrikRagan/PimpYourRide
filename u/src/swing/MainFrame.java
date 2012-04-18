@@ -33,6 +33,69 @@ public class MainFrame extends JFrame {
 	final JTextArea logArea = new JTextArea(20, 20);
 	final JComboBox componentComboBox = new JComboBox();
 	final JComboBox compTypeComboBox = new JComboBox();
+	private JTextField textFieldAcceleration;
+	public JTextField getTextFieldAcceleration() {
+		return textFieldAcceleration;
+	}
+
+	public void setTextFieldAcceleration(JTextField textFieldAcceleration) {
+		this.textFieldAcceleration = textFieldAcceleration;
+	}
+
+	public JTextField getTextFieldTopSpeed() {
+		return textFieldTopSpeed;
+	}
+
+	public void setTextFieldTopSpeed(JTextField textFieldTopSpeed) {
+		this.textFieldTopSpeed = textFieldTopSpeed;
+	}
+
+	public JTextField getTextFieldTorque() {
+		return textFieldTorque;
+	}
+
+	public void setTextFieldTorque(JTextField textFieldTorque) {
+		this.textFieldTorque = textFieldTorque;
+	}
+
+	public JTextField getTextFieldPower() {
+		return textFieldPower;
+	}
+
+	public void setTextFieldPower(JTextField textFieldPower) {
+		this.textFieldPower = textFieldPower;
+	}
+
+	public JTextField getTextFieldBrakes() {
+		return textFieldBrakes;
+	}
+
+	public void setTextFieldBrakes(JTextField textFieldBrakes) {
+		this.textFieldBrakes = textFieldBrakes;
+	}
+
+	public JTextField getTextFieldHandling() {
+		return textFieldHandling;
+	}
+
+	public void setTextFieldHandling(JTextField textFieldHandling) {
+		this.textFieldHandling = textFieldHandling;
+	}
+
+	public JTextField getTextFieldStyle() {
+		return textFieldStyle;
+	}
+
+	public void setTextFieldStyle(JTextField textFieldStyle) {
+		this.textFieldStyle = textFieldStyle;
+	}
+
+	private JTextField textFieldTopSpeed;
+	private JTextField textFieldTorque;
+	private JTextField textFieldPower;
+	private JTextField textFieldBrakes;
+	private JTextField textFieldHandling;
+	private JTextField textFieldStyle;
 
 	public JTree getTreeComponents() {
 		return treeComponents;
@@ -272,7 +335,7 @@ public class MainFrame extends JFrame {
 		DefaultMutableTreeNode clutch = new DefaultMutableTreeNode("Clutch");
 		node.add(clutch);
 		DefaultMutableTreeNode gears = new DefaultMutableTreeNode("gears");
-		DefaultMutableTreeNode clutchType = new DefaultMutableTreeNode("type");
+		DefaultMutableTreeNode clutchType = new DefaultMutableTreeNode("clutch type");
 		clutch.add(gears);
 		clutch.add(clutchType);
 
@@ -317,6 +380,83 @@ public class MainFrame extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel.setBounds(10, 11, 94, 20);
 		carPanel.add(lblNewLabel);
+		
+		JLabel lblPower = new JLabel("Power");
+		lblPower.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblPower.setBounds(20, 40, 50, 14);
+		carPanel.add(lblPower);
+		
+		JLabel lblTorque = new JLabel("Torque");
+		lblTorque.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblTorque.setBounds(20, 70, 50, 14);
+		carPanel.add(lblTorque);
+		
+		JLabel lblTopSpeed = new JLabel("Top Speed");
+		lblTopSpeed.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblTopSpeed.setBounds(20, 100, 70, 14);
+		carPanel.add(lblTopSpeed);
+		
+		JLabel lblAcceleration = new JLabel("Acceleration");
+		lblAcceleration.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblAcceleration.setBounds(20, 130, 80, 14);
+		carPanel.add(lblAcceleration);
+		
+		JLabel lblBrakes = new JLabel("Brakes");
+		lblBrakes.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblBrakes.setBounds(20, 160, 46, 14);
+		carPanel.add(lblBrakes);
+		
+		JLabel lblHandling = new JLabel("Handling");
+		lblHandling.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblHandling.setBounds(20, 190, 60, 14);
+		carPanel.add(lblHandling);
+		
+		JLabel lblStyle = new JLabel("Style");
+		lblStyle.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblStyle.setBounds(20, 220, 46, 14);
+		carPanel.add(lblStyle);
+		
+		textFieldAcceleration = new JTextField();
+		textFieldAcceleration.setBounds(110, 128, 86, 20);
+		carPanel.add(textFieldAcceleration);
+		textFieldAcceleration.setColumns(10);
+		textFieldAcceleration.setEditable(false);
+		
+		textFieldTopSpeed = new JTextField();
+		textFieldTopSpeed.setBounds(110, 98, 86, 20);
+		carPanel.add(textFieldTopSpeed);
+		textFieldTopSpeed.setColumns(10);
+		textFieldTopSpeed.setEditable(false);
+		
+		textFieldTorque = new JTextField();
+		textFieldTorque.setBounds(110, 68, 86, 20);
+		carPanel.add(textFieldTorque);
+		textFieldTorque.setColumns(10);
+		textFieldTorque.setEditable(false);
+		
+		textFieldPower = new JTextField();
+		textFieldPower.setBounds(110, 38, 86, 20);
+		carPanel.add(textFieldPower);
+		textFieldPower.setColumns(10);
+		textFieldPower.setEditable(false);
+		
+		textFieldBrakes = new JTextField();
+		textFieldBrakes.setBounds(110, 158, 86, 20);
+		carPanel.add(textFieldBrakes);
+		textFieldBrakes.setColumns(10);
+		textFieldBrakes.setEditable(false);
+		
+		textFieldHandling = new JTextField();
+		textFieldHandling.setBounds(110, 188, 86, 20);
+		carPanel.add(textFieldHandling);
+		textFieldHandling.setColumns(10);
+		textFieldHandling.setEditable(false);
+		
+		textFieldStyle = new JTextField();
+		textFieldStyle.setBounds(110, 218, 86, 20);
+		carPanel.add(textFieldStyle);
+		textFieldStyle.setColumns(10);
+		textFieldStyle.setEditable(false);
 
 		// compType.addActionListener(new ActionListener() {
 		// public void actionPerformed(ActionEvent arg0) {

@@ -39,7 +39,7 @@ public class Main {
 					Seats seats = interior.new Seats(TypeOfSeats.CLASSIC,
 							Materials.GENUINELEATHER, false, false);
 					interior.setSeats(seats);
-					Transmission clutch = new Transmission(5, false);
+					Transmission clutch = new Transmission(5, false, 300);
 					BodyKit body = new BodyKit(10, 30, 100);
 					ArrayList<Features> features = new ArrayList<Features>();
 					features.add(Features.DVD);

@@ -92,11 +92,11 @@ public aspect UpdateAspect {
 		else if(string.contains("gears")){
 			list.setUserObject("gears........." + car.getClutch().getGears());
 		}
-		else if(string.contains("type")){
+		else if(string.contains("clutch type")){
 			if(car.getClutch().isManual())
-				list.setUserObject("type............MANUAL");
+				list.setUserObject("clutch type.....MANUAL");
 			else
-				list.setUserObject("type............AUTO");
+				list.setUserObject("clutch type.....AUTO");
 		}
 		else if(string.contains("downforce")){
 			list.setUserObject("downforce......" + car.getBodyKit().getDownforce());
