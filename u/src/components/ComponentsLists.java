@@ -66,7 +66,7 @@ public class ComponentsLists {
 		this.engineComponentMap.put("2500 6 0 DIESEL",new Engine(2500, 6, false, Fuel.DIESEL,100));
 		this.engineComponentMap.put("3000 6 0 DIESEL",new Engine(3000, 6, false, Fuel.DIESEL,100));
 		this.engineComponentMap.put("4000 6 0 DIESEL",new Engine(4000, 6, false, Fuel.DIESEL,100));
-		this.engineComponentMap.put("5000 6 0 DIESEL",new Engine(5000, 6, false, Fuel.DIESEL,100));
+		this.engineComponentMap.put("5000 6 0 DIESEL",new Engine(5000, 6, false, Fuel.DIESEL,5000));
 //		this.engineList.add("1500 6 0 DIESEL");
 //		this.engineList.add("1500 6 1 DIESEL");
 //		this.engineList.add("1700 6 1 DIESEL");

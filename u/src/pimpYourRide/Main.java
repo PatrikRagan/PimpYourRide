@@ -53,6 +53,8 @@ public class Main {
 					// End creating car
 					new Budget(4000);
 					System.out.println(Budget.getBudget());
+					Budget.setBudget(Budget.getBudget()-1000);
+					System.out.println(Budget.getBudget());
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 					e.printStackTrace();
