@@ -51,7 +51,7 @@ public aspect UpdateAspect {
 		model.reload();
 	}
 	
-	after(IComponent component): execution(void MainFrame.instalComponent(..)) && args(component){		
+	after(): execution(void MainFrame.instalComponent(..)) || execution(void Car.setList(..)){		
 		frame.getTextFieldPower().setText(Integer.toString(Main.car.getEngine().getPower()));
 		frame.getTextFieldTorque().setText(Integer.toString(Main.car.getEngine().getTorque()));
 		frame.getTextFieldTopSpeed().setText(Integer.toString(Main.car.topSpeed()));
