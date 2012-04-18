@@ -8,6 +8,7 @@ import components.Wheel.Disc;
 import components.Wheel.Tire;
 
 import employees.Employee;
+import enums.Features;
 import enums.Fuel;
 
 public class ComponentsLists {
@@ -23,6 +24,7 @@ public class ComponentsLists {
 	public SortedMap<String, Disc> discComponentMap = new TreeMap<String, Disc>();
 	public SortedMap<String, Tire> tireComponentMap = new TreeMap<String, Tire>();
 	public SortedMap<String, Transmission> transmissionComponentMap = new TreeMap<String, Transmission>();
+	public ArrayList<Features> featuresList = new ArrayList<Features>();
 
 	// public ArrayList<Engine> engineComponentList = new ArrayList<Engine>();
 
@@ -165,6 +167,18 @@ public class ComponentsLists {
 		this.transmissionComponentMap.put("6 0 300", new Transmission(6, false, 300));
 		this.transmissionComponentMap.put("7 1 400", new Transmission(7, true, 400));
 		this.transmissionComponentMap.put("7 0 400", new Transmission(7, false, 400));
+		
+		this.featuresList.add(Features.AUDIO);
+		this.featuresList.add(Features.BACKLIGHTCHASIS);
+		this.featuresList.add(Features.CRUISE);
+		this.featuresList.add(Features.DVD);
+		this.featuresList.add(Features.GPS);
+		this.featuresList.add(Features.NITRO1);
+		this.featuresList.add(Features.NITRO2);
+		this.featuresList.add(Features.NITRO3);
+		this.featuresList.add(Features.RADIO);
+		this.featuresList.add(Features.TINTEDGLASS);
+		
 		
 		// this.discList.add("14 1 0");
 		// this.discList.add("15 1 0");

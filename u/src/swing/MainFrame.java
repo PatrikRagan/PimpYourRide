@@ -1,6 +1,7 @@
 package swing;
 
 import javax.swing.*;
+
 import java.awt.BorderLayout;
 import javax.swing.border.EtchedBorder;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -13,12 +14,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import components.*;
 import components.Wheel.Disc;
 import components.Wheel.Tire;
 import employees.Employees;
+import enums.Features;
 
 public class MainFrame extends JFrame {
 //	public static Car car;
@@ -186,13 +189,17 @@ public class MainFrame extends JFrame {
 						String key = (String) iterator.next();
 						componentComboBox.addItem(key);
 					}
+				}else if (compTypeComboBox.getSelectedItem().equals("FEATURES")) {
+					componentComboBox.removeAllItems();
+					for(int i=0; i<componentsList.featuresList.size(); i++)
+						componentComboBox.addItem(componentsList.featuresList.get(i).toString());
 				}
 				addLog(compTypeComboBox.getSelectedItem().toString() + " was selected"
 						+ "\n");
 
 			}
 		});
-		compTypeComboBox.setModel(new DefaultComboBoxModel(new String[] {  "ENGINE" ,"BRAKES", "BODY_KIT", "TRANSMISSION", "TIRE", "DISC"}));
+		compTypeComboBox.setModel(new DefaultComboBoxModel(new String[] {  "ENGINE" ,"BRAKES", "BODY_KIT", "TRANSMISSION", "TIRE", "DISC", "FEATURES"}));
 		compTypeComboBox.setBounds(10, 11, 190, 20);
 		leftPanel.add(compTypeComboBox);
 
@@ -209,6 +216,7 @@ public class MainFrame extends JFrame {
 
 				//code here vytahuje objekt s udajmi o instalovanom komponente
 				Object key = componentComboBox.getSelectedItem();
+				int index = componentComboBox.getSelectedIndex();
 				System.out.println(">KEY>"+key);//kontrolny vypis KEY
 				ComponentsLists komponentList = new ComponentsLists();
 				if(komponentList.brakesComponentMap.containsKey(key)){
@@ -242,7 +250,24 @@ public class MainFrame extends JFrame {
 					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
 //					Main.getInstance().setEngine(value);
 					instalComponent(value);
+				}else for(int i=0; i<komponentList.featuresList.size(); i++){
+					if(komponentList.featuresList.get(i).toString().equals(key)){
+						ArrayList<Features> featuresList = new ArrayList<Features>();
+						featuresList = Main.car.getList();
+						if(featuresList.contains(komponentList.featuresList.get(i))){
+							int reply = JOptionPane.showConfirmDialog(null, "Component already added, delete component ?", null, JOptionPane.YES_NO_OPTION);
+							if(reply == JOptionPane.YES_OPTION){
+								featuresList.remove(komponentList.featuresList.get(i));
+								Main.car.setList(featuresList);
+							}
+						}
+						else{
+							featuresList.add(komponentList.featuresList.get(i));
+							Main.car.setList(featuresList);
+						}
+					}
 				}
+				
 			}
 		});
 
@@ -279,6 +304,7 @@ public class MainFrame extends JFrame {
 
 					//code here vytahuje objekt s udajmi o instalovanom komponente
 					Object key = componentComboBox.getSelectedItem();
+					int index = componentComboBox.getSelectedIndex();
 //					System.out.println(">KEY>"+key);//kontrolny vypis KEY
 					ComponentsLists komponentList = new ComponentsLists();
 					if(komponentList.brakesComponentMap.containsKey(key)){
@@ -312,6 +338,23 @@ public class MainFrame extends JFrame {
 						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
 //						Main.getInstance().setEngine(value);
 						instalComponent(value);
+					}else for(int i=0; i<komponentList.featuresList.size(); i++){
+						if(komponentList.featuresList.get(i).toString().equals(key)){
+							ArrayList<Features> featuresList = new ArrayList<Features>();
+							featuresList = Main.car.getList();
+							if(featuresList.contains(komponentList.featuresList.get(i))){
+								int reply = JOptionPane.showConfirmDialog(null, "Component already added, delete component ?", null, JOptionPane.YES_NO_OPTION);
+								if(reply == JOptionPane.YES_OPTION){
+									featuresList.remove(komponentList.featuresList.get(i));
+									Main.car.setList(featuresList);
+								}
+							}
+							else{
+								featuresList.add(komponentList.featuresList.get(i));
+								Main.car.setList(featuresList);
+							}
+							
+						}
 					}
 
 	
