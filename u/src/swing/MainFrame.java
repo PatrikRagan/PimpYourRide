@@ -42,7 +42,7 @@ public class MainFrame extends JFrame {
 	private JTextField textFieldBrakes;
 	private JTextField textFieldHandling;
 	private JTextField textFieldStyle;
-	private static JTextField budgetField;
+	private JTextField budgetField;
 	
 	public JTextField getTextFieldAcceleration() {
 		return textFieldAcceleration;
@@ -323,7 +323,7 @@ public class MainFrame extends JFrame {
 		lblPass.setBounds(10, 261, 46, 14);
 		leftPanel.add(lblPass);
 		
-		setBudgetField(new JTextField());
+		budgetField =(new JTextField());
 		getBudgetField().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -577,14 +577,8 @@ public class MainFrame extends JFrame {
 
 	}
 
-	public static JTextField getBudgetField() {
+	public JTextField getBudgetField() {
 		return budgetField;
 	}
 
-	public void setBudgetField(JTextField budgetField) {
-		this.budgetField = budgetField;
-	}
-	public static void  addTextToBudgetField(String text) {
-		MainFrame.getBudgetField().setText(text);
-	}
 }
