@@ -324,6 +324,7 @@ public class MainFrame extends JFrame {
 		leftPanel.add(lblPass);
 		
 		budgetField =(new JTextField());
+		budgetField.setEditable(false);
 		getBudgetField().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
