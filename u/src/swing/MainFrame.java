@@ -149,12 +149,14 @@ public class MainFrame extends JFrame {
 				if(komponentList.brakesComponentMap.containsKey(key)){
 					Brakes value = komponentList.brakesComponentMap.get(key);
 					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-					Main.getInstance().setFrontBrakes(value);
-					Main.getInstance().setRearBrakes(value);
+					instalComponent(value);
+//					Main.getInstance().setFrontBrakes(value);
+//					Main.getInstance().setRearBrakes(value);
 				}else if (komponentList.engineComponentMap.containsKey(key)){
 					Engine value = komponentList.engineComponentMap.get(key);
 					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-					Main.getInstance().setEngine(value);
+//					Main.getInstance().setEngine(value);
+					instalComponent(value);
 				}
 			}
 		});
@@ -197,12 +199,14 @@ public class MainFrame extends JFrame {
 					if(komponentList.brakesComponentMap.containsKey(key)){
 						Brakes value = komponentList.brakesComponentMap.get(key);
 //						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-						Main.getInstance().setFrontBrakes(value);
-						Main.getInstance().setRearBrakes(value);
+//						Main.getInstance().setFrontBrakes(value);
+//						Main.getInstance().setRearBrakes(value);
+						instalComponent(value);
 					}else if (komponentList.engineComponentMap.containsKey(key)){
 						Engine value = komponentList.engineComponentMap.get(key);
 //						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
-						Main.getInstance().setEngine(value);
+//						Main.getInstance().setEngine(value);
+						instalComponent(value);
 					}
 
 					instalComponent(new Transmission(5, false));
