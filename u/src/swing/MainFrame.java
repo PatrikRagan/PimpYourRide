@@ -31,7 +31,7 @@ public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JTextField nameField;
 	private JPasswordField passField;
-	private String loggerText = "";
+	public static String loggerText = "";
 	private DefaultMutableTreeNode node;
 	private JTree treeComponents;
 	private final ComponentsLists componentsList = new ComponentsLists();
@@ -46,6 +46,7 @@ public class MainFrame extends JFrame {
 	private JTextField textFieldHandling;
 	private JTextField textFieldStyle;
 	private JTextField budgetField;
+	
 
 	public JTextField getTextFieldAcceleration() {
 		return textFieldAcceleration;
@@ -53,6 +54,10 @@ public class MainFrame extends JFrame {
 
 	public JTextField getTextFieldTopSpeed() {
 		return textFieldTopSpeed;
+	}
+	
+	public JTextArea getLogArea(){
+		return this.logArea;
 	}
 
 	public JTextField getTextFieldTorque() {
@@ -670,10 +675,11 @@ public class MainFrame extends JFrame {
 	}
 
 	public void addLog(String text) {
-		this.loggerText += text;
-		logArea.setText(loggerText);
-
+		loggerText += text;
+		
 	}
+	
+	
 
 	public JTextField getBudgetField() {
 		return budgetField;

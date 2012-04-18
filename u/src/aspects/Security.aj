@@ -40,6 +40,8 @@ public aspect Security {
 			System.out.println("worker: " + emp.getJob());
 			
 			proceed(frame, component);
+		} else {
+			frame.addLog("Wrong name or pass\n");
 		}
 		
 	}

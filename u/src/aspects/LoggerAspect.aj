@@ -2,7 +2,7 @@ package aspects;
 
 import swing.MainFrame;
 
-public aspect Logger {
+public aspect LoggerAspect {
 
 	/*LOGGING:	- Select from combo box {2}
 				- Install new component
@@ -10,8 +10,8 @@ public aspect Logger {
 				- not Enough money
 				- 
 	*/		
-	after (MainFrame frame): execution(* MainFrame.setLoggerText(..)) && target(frame){
-	
+	after (MainFrame frame): execution(* MainFrame.addLog(..)) && target(frame){
+		frame.getLogArea().setText(MainFrame.loggerText);
 	}
 	
 }
