@@ -7,6 +7,7 @@ import components.*;
 
 public aspect CompatibilityAspect {
 	private Car car;
+	private Brakes oldbrake;
 	
 	//pointcut rear(Brakes brake): execution(void Car.setRearBrakes(Brakes)) && args(brake);
 	pointcut front(Brakes brake): call(void Car.setBrakes(Brakes)) && args(brake) && within(MainFrame);
@@ -16,10 +17,21 @@ public aspect CompatibilityAspect {
 	}
 	
 	before(Brakes brake): front(brake){
+		oldbrake = car.getBrakes();
+		System.out.println("........................."+oldbrake.getDiameter());
 		try{
-			if(brake.getDiameter() > car.getWheels().getDisc().getDiameter()*2.54){
+			if(brake.getDiameter() > (car.getWheels().getDisc().getDiameter()*2.54)){
 				JOptionPane.showMessageDialog(null, "Brake doesn't fit disc");
-				brake.setDiameter(car.getBrakes().getDiameter());
+			}
+		}catch(NullPointerException e){
+			//
+		}
+	}
+	
+	after(Brakes brake): front(brake){
+		try{
+			if(brake.getDiameter() > (car.getWheels().getDisc().getDiameter()*2.54)){
+				car.setBrakes(oldbrake);
 			}
 		}catch(NullPointerException e){
 			//

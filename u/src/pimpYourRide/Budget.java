@@ -38,32 +38,32 @@ public class Budget {
 	public static void actualizeBudget(IComponent component) {
 		Car car = Main.getInstance();
 		if (component instanceof Engine) {
-			car.setEngine((Engine) component);
+			//car.setEngine((Engine) component);
 			int novy = ((Engine) component).getPrice();
 			int old = car.getEngine().getPrice();
 			recaunt(old, novy);
 		} else if (component instanceof Brakes) {
-			car.setBrakes((Brakes) component);
+			//car.setBrakes((Brakes) component);
 			int old = car.getBrakes().getPrice();
 			int novy = ((Brakes) component).getPrice();
 			recaunt(old, novy);
 		} else if (component instanceof BodyKit) {
-			car.setBodyKit((BodyKit) component);
+			//car.setBodyKit((BodyKit) component);
 			int old = car.getBodyKit().getPrice();
 			int novy = ((BodyKit) component).getPrice();
 			recaunt(old, novy);
 		} else if (component instanceof Transmission) {
-			car.setTransmission((Transmission) component);
+			//car.setTransmission((Transmission) component);
 			int old = car.getTransmission().getPrice();
 			int novy = ((Transmission) component).getPrice();
 			recaunt(old, novy);
 		} else if (component instanceof Tire) {
-			car.getWheels().setTire((Tire) component);
+			//car.getWheels().setTire((Tire) component);
 			int old = car.getWheels().getTire().getPrice();
 			int novy = ((Wheel.Tire) component).getPrice();
 			recaunt(old, novy);
 		} else if (component instanceof Disc) {
-			car.getWheels().setDisc((Disc) component);
+			//car.getWheels().setDisc((Disc) component);
 			int old = car.getWheels().getDisc().getPrice();
 			int novy = ((Wheel.Disc) component).getPrice();
 			recaunt(old, novy);
