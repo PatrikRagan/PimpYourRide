@@ -66,19 +66,19 @@ public aspect UpdateAspect {
 			list.setUserObject("chasis.........." + car.getChasis());
 		}
 		else if(string.contains("f-diameter")){
-			list.setUserObject("f-diameter........." + car.getFrontBrakes().getDiameter());
+			list.setUserObject("f-diameter........." + car.getBrakes().getDiameter());
 		}
 		else if(string.contains("f-brake type")){
-			if(car.getFrontBrakes().isDiscBrake())
+			if(car.getBrakes().isDiscBrake())
 				list.setUserObject("f-brake type.......DISC");
 			else
 				list.setUserObject("f-brake type.......DRUM");
 		}
 		else if(string.contains("r-diameter")){
-			list.setUserObject("r-diameter........." + car.getRearBrakes().getDiameter());
+			list.setUserObject("r-diameter........." + car.getBrakes().getDiameter());
 		}
 		else if(string.contains("r-brake type")){
-			if(car.getRearBrakes().isDiscBrake())
+			if(car.getBrakes().isDiscBrake())
 				list.setUserObject("r-brake type.......DISC");
 			else
 				list.setUserObject("r-brake type.......DRUM");

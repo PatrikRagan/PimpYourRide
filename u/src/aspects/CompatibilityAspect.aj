@@ -8,7 +8,7 @@ public aspect CompatibilityAspect {
 	private Car car;
 	
 	//pointcut rear(Brakes brake): execution(void Car.setRearBrakes(Brakes)) && args(brake);
-	pointcut front(Brakes brake): execution(void Car.setFrontBrakes(Brakes)) && args(brake);
+	pointcut front(Brakes brake): execution(void Car.setBrakes(Brakes)) && args(brake);
 	
 	after(Car car): execution(Car.new(..)) && target(car){
 		this.car = car;
@@ -18,7 +18,7 @@ public aspect CompatibilityAspect {
 		try{
 			if(brake.getDiameter() > car.getWheels().getDisc().getDiameter()*2.54){
 				JOptionPane.showMessageDialog(null, "Brake doesn't fit disc");
-				brake.setDiameter(car.getFrontBrakes().getDiameter());
+				brake.setDiameter(car.getBrakes().getDiameter());
 			}
 		}catch(NullPointerException e){
 			//
@@ -27,7 +27,7 @@ public aspect CompatibilityAspect {
 	
 	before(Wheel.Disc disc): execution(void Wheel.setDisc(..)) && args(disc){
 		try{
-			if(disc.getDiameter()*2.54 < car.getFrontBrakes().getDiameter()){
+			if(disc.getDiameter()*2.54 < car.getBrakes().getDiameter()){
 				JOptionPane.showMessageDialog(null, "Disc too small - big brakes");
 				disc.setDiameter(car.getWheels().getDisc().getDiameter());
 			}

@@ -352,8 +352,7 @@ public class MainFrame extends JFrame {
 			car.setEngine((Engine)component);
 			
 		} else if (component instanceof Brakes){
-			car.setFrontBrakes((Brakes)component);
-			car.setRearBrakes((Brakes)component);
+			car.setBrakes((Brakes)component);
 			
 		}
 		//dovolil som si to dat sem

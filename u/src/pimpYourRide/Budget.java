@@ -33,9 +33,8 @@ public class Budget {
 			int old = car.getEngine().getPrice();
 			recaunt(old, novy);
 		} else if (component instanceof Brakes) {
-			car.setFrontBrakes((Brakes) component);
-			car.setRearBrakes((Brakes) component);
-			int old = car.getFrontBrakes().getPrice();
+			car.setBrakes((Brakes) component);
+			int old = car.getBrakes().getPrice();
 			int novy = ((Brakes) component).getPrice();
 			recaunt(old, novy);
 		}

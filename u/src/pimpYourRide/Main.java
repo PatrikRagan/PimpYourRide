@@ -34,8 +34,7 @@ public class Main {
 							100));
 					wheels.setDisc(wheels.new Disc(18, true, false, 100));
 					Engine engine = new Engine(2000, 4, true, Fuel.DIESEL, 100);
-					Brakes front = new Brakes(30, true, 100);
-					Brakes rear = new Brakes(26, false, 100);
+					Brakes brakes = new Brakes(30, true, 100);
 					Interior interior = new Interior(Color.LIGHT_GRAY,
 							Materials.ALCANTARA, 100);
 					Seats seats = interior.new Seats(TypeOfSeats.CLASSIC,
@@ -47,8 +46,8 @@ public class Main {
 					features.add(Features.DVD);
 					features.add(Features.AUDIO);
 
-					car = new Car(wheels, Chasis.NORMAL, engine, 50, front,
-							rear, CarRoof.HARDTOP, interior, clutch, body,
+					car = new Car(wheels, Chasis.NORMAL, engine, 50, brakes,
+							CarRoof.HARDTOP, interior, clutch, body,
 							Color.BLACK, features);
 					// End creating car
 					new Budget(4000);
