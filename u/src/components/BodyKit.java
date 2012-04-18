@@ -5,10 +5,10 @@ public class BodyKit implements IComponent{
 	
 
 	private int style;
-	private double downforce;
+	private int downforce;
 	private int price;
 
-	public BodyKit(int style, double downforce, int price) {
+	public BodyKit(int style, int downforce, int price) {
 		this.setStyle(style);
 		this.downforce = downforce;
 		this.price = price;
