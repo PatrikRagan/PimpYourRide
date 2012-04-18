@@ -31,7 +31,7 @@ public class Main {
 
 					// Create car
 					Wheel wheels = new Wheel();
-					wheels.setTire(wheels.new Tire(18, 220, 100));
+					wheels.setTire(wheels.new Tire(18, 22, 100));
 					wheels.setDisc(wheels.new Disc(18, true, false, 100));
 					Engine engine = new Engine(2000, 4, true, Fuel.DIESEL, 100);
 					Brakes brakes = new Brakes(30, true, 100);

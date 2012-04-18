@@ -7,8 +7,6 @@ import pimpYourRide.Main;
 
 import components.Car;
 import components.IComponent;
-import components.*;
-
 import swing.MainFrame;
 
 public aspect UpdateAspect {
@@ -25,6 +23,7 @@ public aspect UpdateAspect {
 		frame.getTextFieldTopSpeed().setText(Integer.toString(car.topSpeed()));
 		frame.getTextFieldAcceleration().setText(Double.toString(car.acceleration()).substring(0, 4));
 		frame.getTextFieldBrakes().setText(Integer.toString(car.brakesEffectivity()));
+		frame.getTextFieldHandling().setText(Integer.toString(car.handling()));
 	}
 	
 	
@@ -57,6 +56,7 @@ public aspect UpdateAspect {
 		frame.getTextFieldTopSpeed().setText(Integer.toString(Main.car.topSpeed()));
 		frame.getTextFieldAcceleration().setText(Double.toString(Main.car.acceleration()).substring(0, 4));
 		frame.getTextFieldBrakes().setText(Integer.toString(Main.car.brakesEffectivity()));
+		frame.getTextFieldHandling().setText(Integer.toString(Main.car.handling()));
 	}
 	
 //	after(Car car): execution(void Car.*(..)) && target(car){

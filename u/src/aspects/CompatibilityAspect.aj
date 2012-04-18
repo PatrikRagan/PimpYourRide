@@ -41,6 +41,7 @@ public aspect CompatibilityAspect {
 			if(tire.getDiameter() != car.getWheels().getDisc().getDiameter()){
 				JOptionPane.showMessageDialog(null, "Tire doesn't fit disc");
 				tire.setDiameter(car.getWheels().getTire().getDiameter());
+				tire.setTireWidth(car.getWheels().getTire().getTireWidth());
 			}
 		}catch(NullPointerException e){
 			//

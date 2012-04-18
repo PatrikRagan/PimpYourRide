@@ -162,6 +162,13 @@ public class Car implements Serializable{
 				((double)4+(double)this.getTransmission().getGears())/(double)8);
 		return (double)accel;
 	}
+	
+	public int handling(){
+		int handling = (int)(brakesEffectivity()*acceleration()/(topSpeed()/100));
+		if(handling>100)
+			handling = 100;
+		return handling;
+	}
 
 	public void setBrakes(Brakes brakes) {
 		this.brakes = brakes;

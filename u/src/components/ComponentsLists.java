@@ -155,9 +155,9 @@ public class ComponentsLists {
 		this.tireComponentMap.put("14 30 100", new Wheel().new Tire(14, 30, 200));
 		this.tireComponentMap.put("15 15 100", new Wheel().new Tire(15, 15, 300));
 		this.tireComponentMap.put("15 30 100", new Wheel().new Tire(15, 30, 400));
-		this.tireComponentMap.put("17 20 100", new Wheel().new Tire(17, 15, 500));
-		this.tireComponentMap.put("17 35 100", new Wheel().new Tire(17, 30, 600));
-		this.tireComponentMap.put("17 50 100", new Wheel().new Tire(17, 45, 800));
+		this.tireComponentMap.put("17 20 100", new Wheel().new Tire(17, 20, 500));
+		this.tireComponentMap.put("17 35 100", new Wheel().new Tire(17, 35, 600));
+		this.tireComponentMap.put("17 50 100", new Wheel().new Tire(17, 50, 800));
 		
 		this.transmissionComponentMap.put("5 1 200", new Transmission(5, true, 200));
 		this.transmissionComponentMap.put("5 0 200", new Transmission(5, false, 200));
