@@ -1,7 +1,5 @@
 package components;
 
-import enums.TireBrands;
-
 
 public class Wheel implements IComponent{
 	private Disc disc;
@@ -79,11 +77,9 @@ public class Wheel implements IComponent{
 		private int diameter;
 		private int tireWidth;
 		protected int price;
-		private TireBrands tireBrand;
 
-		public Tire(int diameter, int tireWidth, TireBrands tireBrand, int price) {
+		public Tire(int diameter, int tireWidth, int price) {
 			this.setDiameter(diameter);
-			this.setTireBrand(tireBrand);
 			this.setTireWidth(tireWidth);
 			this.price = price;
 		}
@@ -94,14 +90,6 @@ public class Wheel implements IComponent{
 
 		public void setDiameter(int diameter) {
 			this.diameter = diameter;
-		}
-
-		public TireBrands getTireBrand() {
-			return tireBrand;
-		}
-
-		public void setTireBrand(TireBrands tireBrand) {
-			this.tireBrand = tireBrand;
 		}
 
 		public int getTireWidth() {

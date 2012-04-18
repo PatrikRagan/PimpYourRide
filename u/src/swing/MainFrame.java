@@ -1,8 +1,5 @@
 package swing;
 
-import java.awt.Color;
-import java.awt.EventQueue;
-
 import javax.swing.*;
 import java.awt.BorderLayout;
 import javax.swing.border.EtchedBorder;
@@ -16,13 +13,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import components.*;
-import components.Interior.Seats;
 import employees.Employees;
-import enums.*;
 
 public class MainFrame extends JFrame {
 //	public static Car car;
@@ -253,28 +247,26 @@ public class MainFrame extends JFrame {
 		// Wheels
 		DefaultMutableTreeNode wheel = new DefaultMutableTreeNode("Wheels");
 		node.add(wheel);
-		DefaultMutableTreeNode tire = new DefaultMutableTreeNode("tire");
-		DefaultMutableTreeNode disc = new DefaultMutableTreeNode("disc");
+		DefaultMutableTreeNode tire = new DefaultMutableTreeNode("tire <->");
+		DefaultMutableTreeNode tireWidth = new DefaultMutableTreeNode("tire width");
+		DefaultMutableTreeNode disc = new DefaultMutableTreeNode("disc <->");
+		DefaultMutableTreeNode discElectron = new DefaultMutableTreeNode("disc type");
+		DefaultMutableTreeNode discHubCup = new DefaultMutableTreeNode("hubCup");
 		DefaultMutableTreeNode chasis = new DefaultMutableTreeNode("chasis");
 		wheel.add(tire);
+		wheel.add(tireWidth);
 		wheel.add(disc);
+		wheel.add(discElectron);
+		wheel.add(discHubCup);
 		wheel.add(chasis);
 
 		// Brakes
 		DefaultMutableTreeNode brakes = new DefaultMutableTreeNode("Brakes");
 		node.add(brakes);
-		DefaultMutableTreeNode fdiameter = new DefaultMutableTreeNode(
-				"f-diameter");
-		DefaultMutableTreeNode fisDisc = new DefaultMutableTreeNode(
-				"f-brake type");
-		DefaultMutableTreeNode rdiameter = new DefaultMutableTreeNode(
-				"r-diameter");
-		DefaultMutableTreeNode risDisc = new DefaultMutableTreeNode(
-				"r-brake type");
-		brakes.add(fdiameter);
-		brakes.add(fisDisc);
-		brakes.add(rdiameter);
-		brakes.add(risDisc);
+		DefaultMutableTreeNode diameter = new DefaultMutableTreeNode("diameter");
+		DefaultMutableTreeNode isDisc = new DefaultMutableTreeNode("brake type");
+		brakes.add(diameter);
+		brakes.add(isDisc);
 
 		// Clutch
 		DefaultMutableTreeNode clutch = new DefaultMutableTreeNode("Clutch");
@@ -287,8 +279,7 @@ public class MainFrame extends JFrame {
 		// BodyKit
 		DefaultMutableTreeNode body = new DefaultMutableTreeNode("Bodyshell");
 		node.add(body);
-		DefaultMutableTreeNode downforce = new DefaultMutableTreeNode(
-				"downforce");
+		DefaultMutableTreeNode downforce = new DefaultMutableTreeNode("downforce");
 		DefaultMutableTreeNode carRoof = new DefaultMutableTreeNode("roof");
 		body.add(downforce);
 		body.add(carRoof);
@@ -296,17 +287,12 @@ public class MainFrame extends JFrame {
 		// Interior
 		DefaultMutableTreeNode interior = new DefaultMutableTreeNode("Interior");
 		node.add(interior);
-		DefaultMutableTreeNode interiorColor = new DefaultMutableTreeNode(
-				"color");
-		DefaultMutableTreeNode interiorMat = new DefaultMutableTreeNode(
-				"material");
+		DefaultMutableTreeNode interiorColor = new DefaultMutableTreeNode("color");
+		DefaultMutableTreeNode interiorMat = new DefaultMutableTreeNode("material");
 		DefaultMutableTreeNode seats = new DefaultMutableTreeNode("seat type");
-		DefaultMutableTreeNode seatsMat = new DefaultMutableTreeNode(
-				"seat material");
-		DefaultMutableTreeNode seatsHeated = new DefaultMutableTreeNode(
-				"heated seat");
-		DefaultMutableTreeNode seatsMassage = new DefaultMutableTreeNode(
-				"massage seat");
+		DefaultMutableTreeNode seatsMat = new DefaultMutableTreeNode("seat material");
+		DefaultMutableTreeNode seatsHeated = new DefaultMutableTreeNode("heated seat");
+		DefaultMutableTreeNode seatsMassage = new DefaultMutableTreeNode("massage seat");
 		interior.add(interiorColor);
 		interior.add(interiorMat);
 		interior.add(seats);
@@ -352,8 +338,7 @@ public class MainFrame extends JFrame {
 			car.setEngine((Engine)component);
 			
 		} else if (component instanceof Brakes){
-			car.setFrontBrakes((Brakes)component);
-			car.setRearBrakes((Brakes)component);
+			car.setBrakes((Brakes)component);
 			
 		}
 		//dovolil som si to dat sem

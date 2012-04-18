@@ -11,8 +11,7 @@ public class Car {
 
 	private Wheel wheels;
 	private Engine engine;
-	private Brakes frontBrakes;
-	private Brakes rearBrakes;
+	private Brakes brakes;
 	private int exhaust;
 	private Chasis chasis;
 	private CarRoof roof;
@@ -25,13 +24,11 @@ public class Car {
 	private ArrayList<Features> list = new ArrayList<Features>();
 
 	public Car(Wheel wheels, Chasis chasis, Engine engine, int exhaust,
-			Brakes frontBrakes, Brakes rearBrakes, CarRoof roof,
-			Interior interior, Transmission clutch, BodyKit kit,
-			Color color, ArrayList<Features> features) {
+			Brakes brakes, CarRoof roof, Interior interior, Transmission clutch, 
+			BodyKit kit, Color color, ArrayList<Features> features) {
 		this.setWheels(wheels);
 		this.setEngine(engine);
-		this.setFrontBrakes(frontBrakes);
-		this.setRearBrakes(rearBrakes);
+		this.setBrakes(brakes);
 		this.setExhaust(exhaust);
 		this.setChasis(chasis);
 		this.setRoof(roof);
@@ -56,22 +53,6 @@ public class Car {
 
 	public Engine getEngine() {
 		return engine;
-	}
-
-	public void setFrontBrakes(Brakes frontBrakes) {
-		this.frontBrakes = frontBrakes;
-	}
-
-	public Brakes getFrontBrakes() {
-		return frontBrakes;
-	}
-
-	public void setRearBrakes(Brakes rearBrakes) {
-		this.rearBrakes = rearBrakes;
-	}
-
-	public Brakes getRearBrakes() {
-		return rearBrakes;
 	}
 
 	public void setExhaust(int exhaust) {
@@ -149,8 +130,8 @@ public class Car {
 	}
 	
 	public int brakesEffectivity() {
-		double brakeEffectivity = (1.2 * frontBrakes.getEffectivity(wheels
-				.getTire()) + rearBrakes.getEffectivity(wheels.getTire())) / 2;
+		double brakeEffectivity = (1.2 * brakes.getEffectivity(wheels
+				.getTire()) + brakes.getEffectivity(wheels.getTire())) / 2;
 		brakeEffectivity = (brakeEffectivity / 3300) * 100;
 		return (int) brakeEffectivity;
 	}
@@ -178,6 +159,14 @@ public class Car {
 			gear = 1.2;
 		acceleration = (((1500/topSpeed())/nitro)*gear)/(8/(4+this.getClutch().getGears()));
 		return acceleration;
+	}
+
+	public void setBrakes(Brakes brakes) {
+		this.brakes = brakes;
+	}
+
+	public Brakes getBrakes() {
+		return brakes;
 	}
 
 }
