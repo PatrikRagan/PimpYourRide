@@ -4,58 +4,50 @@ import javax.swing.JOptionPane;
 import swing.MainFrame;
 
 import components.*;
+import components.Wheel.Disc;
+import components.Wheel.Tire;
 
 public aspect CompatibilityAspect {
 	private Car car;
 	private Brakes oldbrake;
-	
-	//pointcut rear(Brakes brake): execution(void Car.setRearBrakes(Brakes)) && args(brake);
-	pointcut front(Brakes brake): call(void Car.setBrakes(Brakes)) && args(brake) && within(MainFrame);
+	private Disc olddisc;
+	private Tire oldtire;
 	
 	after(Car car): execution(Car.new(..)) && target(car){
 		this.car = car;
 	}
 	
-	before(Brakes brake): front(brake){
+	void around(Brakes brake): call(void Car.setBrakes(Brakes)) && args(brake) && within(MainFrame){
 		oldbrake = car.getBrakes();
-		System.out.println("........................."+oldbrake.getDiameter());
 		try{
 			if(brake.getDiameter() > (car.getWheels().getDisc().getDiameter()*2.54)){
 				JOptionPane.showMessageDialog(null, "Brake doesn't fit disc");
-			}
+				proceed(oldbrake);
+			}else proceed(brake);
 		}catch(NullPointerException e){
 			//
 		}
 	}
 	
-	after(Brakes brake): front(brake){
+	void around(Wheel.Disc disc): call(void Wheel.setDisc(..)) && args(disc) && within(MainFrame){
+		olddisc = car.getWheels().getDisc();
 		try{
-			if(brake.getDiameter() > (car.getWheels().getDisc().getDiameter()*2.54)){
-				car.setBrakes(oldbrake);
-			}
-		}catch(NullPointerException e){
-			//
-		}
-	}
-	
-	before(Wheel.Disc disc): call(void Wheel.setDisc(..)) && args(disc) && within(MainFrame){
-		try{
-			if(disc.getDiameter()*2.54 < car.getBrakes().getDiameter()){
+			if((disc.getDiameter()*2.54) < car.getBrakes().getDiameter()){
 				JOptionPane.showMessageDialog(null, "Disc too small - big brakes");
-				disc.setDiameter(car.getWheels().getDisc().getDiameter());
-			}
+				proceed(olddisc);
+			}else proceed(disc);
 		}catch(NullPointerException e){
 			//
 		}
 	}
 	
-	before(Wheel.Tire tire): call(void Wheel.setTire(..)) && args(tire) && within(MainFrame){
+	void around(Wheel.Tire tire): call(void Wheel.setTire(..)) && args(tire) && within(MainFrame){
+		oldtire = car.getWheels().getTire();
 		try{
 			if(tire.getDiameter() != car.getWheels().getDisc().getDiameter()){
 				JOptionPane.showMessageDialog(null, "Tire doesn't fit disc");
-				tire.setDiameter(car.getWheels().getTire().getDiameter());
-				tire.setTireWidth(car.getWheels().getTire().getTireWidth());
-			}
+				proceed(oldtire);
+			}else proceed(tire);
 		}catch(NullPointerException e){
 			//
 		}
