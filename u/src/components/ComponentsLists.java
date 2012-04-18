@@ -146,9 +146,9 @@ public class ComponentsLists {
 				false, 800));
 		this.discComponentMap.put("19 1 0", new Wheel().new Disc(19, true,
 				false, 1000));
-		this.discComponentMap.put("15 1 0", new Wheel().new Disc(15, false,
+		this.discComponentMap.put("15 0 0", new Wheel().new Disc(15, false,
 				true, 300));
-		this.discComponentMap.put("17 1 0", new Wheel().new Disc(17, false,
+		this.discComponentMap.put("17 0 0", new Wheel().new Disc(17, false,
 				true, 600));
 		
 		this.tireComponentMap.put("14 15 100", new Wheel().new Tire(14, 15, 100));

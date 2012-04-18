@@ -16,7 +16,7 @@ public aspect Shop {
 
 	}
 
-	after(Integer old, Integer never) : control(old,never){
-
-	}
+//	after(Integer old, Integer never) : control(old,never){
+//
+//	}
 }

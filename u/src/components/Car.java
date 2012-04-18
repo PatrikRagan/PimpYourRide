@@ -33,7 +33,7 @@ public class Car {
 		this.setChasis(chasis);
 		this.setRoof(roof);
 		this.setInterior(interior);
-		this.setClutch(clutch);
+		this.setTransmission(clutch);
 		this.setBodyKit(kit);
 		this.setCarColor(color);
 		this.list = features;
@@ -87,11 +87,11 @@ public class Car {
 		return interior;
 	}
 
-	public void setClutch(Transmission clutch) {
+	public void setTransmission(Transmission clutch) {
 		this.clutch = clutch;
 	}
 
-	public Transmission getClutch() {
+	public Transmission getTransmission() {
 		return clutch;
 	}
 
@@ -155,9 +155,9 @@ public class Car {
 			nitro = 1.25;
 		if(list.contains(Features.NITRO3))
 			nitro = 1.4;
-		if(this.getClutch().isManual())
+		if(this.getTransmission().isManual())
 			gear = 1.2;
-		acceleration = (((1500/topSpeed())/nitro)*gear)/(8/(4+this.getClutch().getGears()));
+		acceleration = (((1500/topSpeed())/nitro)*gear)/(8/(4+this.getTransmission().getGears()));
 		return acceleration;
 	}
 

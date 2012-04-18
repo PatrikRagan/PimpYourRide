@@ -16,6 +16,8 @@ import java.awt.event.KeyListener;
 import java.util.Iterator;
 
 import components.*;
+import components.Wheel.Disc;
+import components.Wheel.Tire;
 import employees.Employees;
 
 public class MainFrame extends JFrame {
@@ -151,13 +153,45 @@ public class MainFrame extends JFrame {
 						String key = (String) iterator.next();
 						componentComboBox.addItem(key);
 					}
+				}else if (compTypeComboBox.getSelectedItem().equals("BODY_KIT")) {
+					componentComboBox.removeAllItems();
+					Iterator iterator = componentsList.bodyKitComponentMap
+							.keySet().iterator();
+					while (iterator.hasNext()) {
+						String key = (String) iterator.next();
+						componentComboBox.addItem(key);
+					}
+				}else if (compTypeComboBox.getSelectedItem().equals("TRANSMISSION")) {
+					componentComboBox.removeAllItems();
+					Iterator iterator = componentsList.transmissionComponentMap
+							.keySet().iterator();
+					while (iterator.hasNext()) {
+						String key = (String) iterator.next();
+						componentComboBox.addItem(key);
+					}
+				}else if (compTypeComboBox.getSelectedItem().equals("TIRE")) {
+					componentComboBox.removeAllItems();
+					Iterator iterator = componentsList.tireComponentMap
+							.keySet().iterator();
+					while (iterator.hasNext()) {
+						String key = (String) iterator.next();
+						componentComboBox.addItem(key);
+					}
+				}else if (compTypeComboBox.getSelectedItem().equals("DISC")) {
+					componentComboBox.removeAllItems();
+					Iterator iterator = componentsList.discComponentMap
+							.keySet().iterator();
+					while (iterator.hasNext()) {
+						String key = (String) iterator.next();
+						componentComboBox.addItem(key);
+					}
 				}
 				addLog(compTypeComboBox.getSelectedItem().toString() + " was selected"
 						+ "\n");
 
 			}
 		});
-		compTypeComboBox.setModel(new DefaultComboBoxModel(new String[] {  "ENGINE" ,"BRAKES"}));
+		compTypeComboBox.setModel(new DefaultComboBoxModel(new String[] {  "ENGINE" ,"BRAKES ", "BODY_KIT", "TRANSMISSION", "TIRE", "DISC"}));
 		compTypeComboBox.setBounds(10, 11, 190, 20);
 		leftPanel.add(compTypeComboBox);
 
@@ -184,6 +218,26 @@ public class MainFrame extends JFrame {
 //					Main.getInstance().setRearBrakes(value);
 				}else if (komponentList.engineComponentMap.containsKey(key)){
 					Engine value = komponentList.engineComponentMap.get(key);
+					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+//					Main.getInstance().setEngine(value);
+					instalComponent(value);
+				}else if (komponentList.bodyKitComponentMap.containsKey(key)){
+					BodyKit value = komponentList.bodyKitComponentMap.get(key);
+					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+//					Main.getInstance().setEngine(value);
+					instalComponent(value);
+				}else if (komponentList.transmissionComponentMap.containsKey(key)){
+					Transmission value = komponentList.transmissionComponentMap.get(key);
+					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+//					Main.getInstance().setEngine(value);
+					instalComponent(value);
+				}else if (komponentList.tireComponentMap.containsKey(key)){
+					Tire value = komponentList.tireComponentMap.get(key);
+					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+//					Main.getInstance().setEngine(value);
+					instalComponent(value);
+				}else if (komponentList.discComponentMap.containsKey(key)){
+					Disc value = komponentList.discComponentMap.get(key);
 					System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
 //					Main.getInstance().setEngine(value);
 					instalComponent(value);
@@ -235,6 +289,26 @@ public class MainFrame extends JFrame {
 					}else if (komponentList.engineComponentMap.containsKey(key)){
 						Engine value = komponentList.engineComponentMap.get(key);
 //						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+//						Main.getInstance().setEngine(value);
+						instalComponent(value);
+					}else if (komponentList.bodyKitComponentMap.containsKey(key)){
+						BodyKit value = komponentList.bodyKitComponentMap.get(key);
+						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+//						Main.getInstance().setEngine(value);
+						instalComponent(value);
+					}else if (komponentList.transmissionComponentMap.containsKey(key)){
+						Transmission value = komponentList.transmissionComponentMap.get(key);
+						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+//						Main.getInstance().setEngine(value);
+						instalComponent(value);
+					}else if (komponentList.tireComponentMap.containsKey(key)){
+						Tire value = komponentList.tireComponentMap.get(key);
+						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
+//						Main.getInstance().setEngine(value);
+						instalComponent(value);
+					}else if (komponentList.discComponentMap.containsKey(key)){
+						Disc value = komponentList.discComponentMap.get(key);
+						System.out.println(">VALUE>"+value);//kontrolny vypis VALUE
 //						Main.getInstance().setEngine(value);
 						instalComponent(value);
 					}
@@ -452,6 +526,17 @@ public class MainFrame extends JFrame {
 		} else if (component instanceof Brakes){
 			car.setBrakes((Brakes)component);
 			
+		}else if (component instanceof BodyKit){
+			car.setBodyKit((BodyKit) component);
+			
+		}else if (component instanceof Transmission){
+			car.setTransmission((Transmission) component);
+			
+		}else if (component instanceof Wheel.Tire){
+			car.getWheels().setTire((Tire) component);
+			
+		}else if (component instanceof Wheel.Disc){
+			car.getWheels().setDisc((Disc) component);
 		}
 		//dovolil som si to dat sem
 		Budget.actualizeBudget(component);
