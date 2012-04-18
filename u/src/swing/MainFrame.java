@@ -140,7 +140,7 @@ public class MainFrame extends JFrame {
 		btnInstal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				instalComponent(new Transmission(5, false));
+				
 
 				//code here vytahuje objekt s udajmi o instalovanom komponente
 				Object key = componentComboBox.getSelectedItem();
@@ -209,7 +209,7 @@ public class MainFrame extends JFrame {
 						instalComponent(value);
 					}
 
-					instalComponent(new Transmission(5, false));
+	
 				}
 			}
 		});
@@ -345,6 +345,15 @@ public class MainFrame extends JFrame {
 
 	private void instalComponent(IComponent component) {
 
+		Car car = Main.getInstance();
+		
+		if (component instanceof Engine){
+			car.setEngine((Engine)component);
+		} else if (component instanceof Brakes){
+			car.setFrontBrakes((Brakes)component);
+			car.setRearBrakes((Brakes)component);
+		}
+		
 		addLog(compTypeComboBox.getSelectedItem().toString() + " instaled type: "+componentComboBox.getSelectedItem().toString() + "\n");
 
 	}

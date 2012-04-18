@@ -28,8 +28,11 @@ public aspect Security {
 					System.out.println("component: " + component);
 					System.out.println("worker: " + emp.getJob());
 					proceed(frame, component);
+				} else {
+					frame.addLog("BAD WORKER\n");
 				}
-
+			} else {
+				frame.addLog("BAD LOGIN\n");
 			}
 		}
 	}
