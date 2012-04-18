@@ -13,6 +13,7 @@ import swing.MainFrame;
 public class Main {
 	public static Car car;
 
+
 	public static Car getInstance() {
 		return car;
 	}
@@ -50,7 +51,8 @@ public class Main {
 							rear, CarRoof.HARDTOP, interior, clutch, body,
 							Color.BLACK, features);
 					// End creating car
-
+					new Budget(4000);
+					System.out.println(Budget.getBudget());
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 					e.printStackTrace();
