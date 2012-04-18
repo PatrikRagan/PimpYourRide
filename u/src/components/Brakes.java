@@ -45,11 +45,11 @@ public class Brakes implements IComponent{
 		return effectivity;
 	}
 
-	private int getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	private void setPrice(int price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
