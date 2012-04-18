@@ -24,6 +24,7 @@ public aspect UpdateAspect {
 		frame.getTextFieldAcceleration().setText(Double.toString(car.acceleration()).substring(0, 4));
 		frame.getTextFieldBrakes().setText(Integer.toString(car.brakesEffectivity()));
 		frame.getTextFieldHandling().setText(Integer.toString(car.handling()));
+		frame.getTextFieldStyle().setText(Integer.toString(car.style()));
 	}
 	
 	
@@ -57,6 +58,7 @@ public aspect UpdateAspect {
 		frame.getTextFieldAcceleration().setText(Double.toString(Main.car.acceleration()).substring(0, 4));
 		frame.getTextFieldBrakes().setText(Integer.toString(Main.car.brakesEffectivity()));
 		frame.getTextFieldHandling().setText(Integer.toString(Main.car.handling()));
+		frame.getTextFieldStyle().setText(Integer.toString(Main.car.style()));
 	}
 	
 //	after(Car car): execution(void Car.*(..)) && target(car){
@@ -80,13 +82,13 @@ public aspect UpdateAspect {
 			list.setUserObject("fuel................" + car.getEngine().getFuelType());
 		}
 		else if(string.contains("tire <->")){
-			list.setUserObject("tire <->......" + car.getWheels().getTire().getDiameter());
+			list.setUserObject("tire <->........." + car.getWheels().getTire().getDiameter());
 		}
 		else if(string.contains("tire width")){
 			list.setUserObject("tire width......" + car.getWheels().getTire().getTireWidth());
 		}
 		else if(string.contains("disc <->")){
-			list.setUserObject("disc <->......" + car.getWheels().getDisc().getDiameter());
+			list.setUserObject("disc <->......." + car.getWheels().getDisc().getDiameter());
 		}
 		else if(string.contains("disc type")){
 			if(car.getWheels().getDisc().isElectron())
@@ -96,9 +98,9 @@ public aspect UpdateAspect {
 		}
 		else if(string.contains("hubCup")){
 			if(car.getWheels().getDisc().isHaveHubCup())
-				list.setUserObject("hubCup......YES");
+				list.setUserObject("hubCup.......YES");
 			else
-				list.setUserObject("hubCup......NO");
+				list.setUserObject("hubCup.......NO");
 		}
 		else if(string.contains("chasis")){
 			list.setUserObject("chasis.........." + car.getChasis());
@@ -110,10 +112,10 @@ public aspect UpdateAspect {
 			if(car.getBrakes().isDiscBrake())
 				list.setUserObject("brake type.......DISC");
 			else
-				list.setUserObject("f-brake type.......DRUM");
+				list.setUserObject("brake type.......DRUM");
 		}
 		else if(string.contains("gears")){
-			list.setUserObject("gears........." + car.getTransmission().getGears());
+			list.setUserObject("gears............." + car.getTransmission().getGears());
 		}
 		else if(string.contains("clutch type")){
 			if(car.getTransmission().isManual())
@@ -122,34 +124,34 @@ public aspect UpdateAspect {
 				list.setUserObject("clutch type.....AUTO");
 		}
 		else if(string.contains("downforce")){
-			list.setUserObject("downforce......" + car.getBodyKit().getDownforce());
+			list.setUserObject("downforce...." + car.getBodyKit().getDownforce());
 		}
 		else if(string.contains("roof")){
-			list.setUserObject("roof............" + car.getRoof());
+			list.setUserObject("roof.............." + car.getRoof());
 		}
 		else if(string.contains("color")){
-			list.setUserObject("color........." + car.getInterior().getInteriorColor());
+			list.setUserObject("color......................." + car.getInterior().getInteriorColor());
 		}
-		else if(string.contains("material")){
-			list.setUserObject("material........." + car.getInterior().getInteriorMaterial());
+		else if(string.contains("i-material")){
+			list.setUserObject("i-material..............." + car.getInterior().getInteriorMaterial());
 		}
 		else if(string.contains("seat type")){
-			list.setUserObject("seat type........." + car.getInterior().getSeats().getSeats());
+			list.setUserObject("seat type................" + car.getInterior().getSeats().getSeats());
 		}
 		else if(string.contains("seat material")){
-			list.setUserObject("seat material........." + car.getInterior().getSeats().getSeatsMaterial());
+			list.setUserObject("seat material........" + car.getInterior().getSeats().getSeatsMaterial());
 		}
 		else if(string.contains("heated seat")){
 			if(car.getInterior().getSeats().isHaveHeatedSeats())
-				list.setUserObject("heated seat.........YES");
+				list.setUserObject("heated seat...........YES");
 			else
-				list.setUserObject("heated seat.........NO");
+				list.setUserObject("heated seat...........NO");
 		}
 		else if(string.contains("massage seat")){
 			if(car.getInterior().getSeats().isHaveMassageSeats())
-				list.setUserObject("massage seat.........YES");
+				list.setUserObject("massage seat......YES");
 			else
-				list.setUserObject("massage seat.........NO");
+				list.setUserObject("massage seat......NO");
 		}
 		else UpdateFeatures(car, list);
 	}

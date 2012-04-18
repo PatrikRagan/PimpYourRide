@@ -130,6 +130,14 @@ public class Car implements Serializable{
 		localList.remove(features);
 	}
 	
+	public void setBrakes(Brakes brakes) {
+		this.brakes = brakes;
+	}
+
+	public Brakes getBrakes() {
+		return brakes;
+	}
+	
 	public int brakesEffectivity() {
 		double brakeEffectivity = (1.2 * brakes.getEffectivity(wheels
 				.getTire()) + brakes.getEffectivity(wheels.getTire())) / 2;
@@ -170,12 +178,11 @@ public class Car implements Serializable{
 		return handling;
 	}
 
-	public void setBrakes(Brakes brakes) {
-		this.brakes = brakes;
-	}
-
-	public Brakes getBrakes() {
-		return brakes;
+	public int style(){
+		int style = (int)(list.size()*4 + getBodyKit().getStyle()*4);
+		if(style > 100)
+			style = 100;
+		return style;
 	}
 
 }

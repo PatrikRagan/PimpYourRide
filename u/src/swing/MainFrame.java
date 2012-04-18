@@ -413,7 +413,7 @@ public class MainFrame extends JFrame {
 		DefaultMutableTreeNode interior = new DefaultMutableTreeNode("Interior");
 		node.add(interior);
 		DefaultMutableTreeNode interiorColor = new DefaultMutableTreeNode("color");
-		DefaultMutableTreeNode interiorMat = new DefaultMutableTreeNode("material");
+		DefaultMutableTreeNode interiorMat = new DefaultMutableTreeNode("i-material");
 		DefaultMutableTreeNode seats = new DefaultMutableTreeNode("seat type");
 		DefaultMutableTreeNode seatsMat = new DefaultMutableTreeNode("seat material");
 		DefaultMutableTreeNode seatsHeated = new DefaultMutableTreeNode("heated seat");

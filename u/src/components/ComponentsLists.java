@@ -124,11 +124,11 @@ public class ComponentsLists {
 		// BODY KIT
 		// V pøíruèce jsem se doèetl, že doporuèená hodnota je 990-2200 mBaru.
 		// //guess this is right
-		this.bodyKitComponentMap.put("1 30 300", new BodyKit(1, 30, 300));
-		this.bodyKitComponentMap.put("1 40 400", new BodyKit(1, 40, 400));
-		this.bodyKitComponentMap.put("1 50 500", new BodyKit(1, 50, 500));
-		this.bodyKitComponentMap.put("1 60 600", new BodyKit(1, 60, 600));
-		this.bodyKitComponentMap.put("1 100 1000", new BodyKit(1, 100, 1000));
+		this.bodyKitComponentMap.put("1 30 300", new BodyKit(3, 30, 300));
+		this.bodyKitComponentMap.put("1 40 400", new BodyKit(3, 40, 400));
+		this.bodyKitComponentMap.put("1 50 500", new BodyKit(5, 50, 500));
+		this.bodyKitComponentMap.put("1 60 600", new BodyKit(5, 60, 600));
+		this.bodyKitComponentMap.put("1 100 1000", new BodyKit(8, 100, 1000));
 		// this.bodyKitList.add("1 0.9");
 		// this.bodyKitList.add("1 1.3");
 		// this.bodyKitList.add("1 1.7");
