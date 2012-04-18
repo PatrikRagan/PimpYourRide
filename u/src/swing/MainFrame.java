@@ -313,17 +313,15 @@ public class MainFrame extends JFrame {
 						// code here vytahuje objekt s udajmi o instalovanom
 						// komponente
 						Object key = componentComboBox.getSelectedItem();
-						int index = componentComboBox.getSelectedIndex();
 						System.out.println("SELECTED STRING: "
 								+ componentComboBox.getSelectedItem()
 										.toString());
 						// System.out.println(">KEY>"+key);//kontrolny vypis KEY
-						ComponentsLists komponentList = new ComponentsLists();
 
 						System.out.println("ITEM COUNT: "
 								+ componentComboBox.getItemCount());
-						if (komponentList.brakesComponentMap.containsKey(key)) {
-							Brakes value = komponentList.brakesComponentMap
+						if (componentsList.brakesComponentMap.containsKey(key)) {
+							Brakes value = componentsList.brakesComponentMap
 									.get(key);
 							// System.out.println(">VALUE>"+value);//kontrolny
 							// vypis
@@ -331,45 +329,45 @@ public class MainFrame extends JFrame {
 							// Main.getInstance().setFrontBrakes(value);
 							// Main.getInstance().setRearBrakes(value);
 							instalComponent(value);
-						} else if (komponentList.engineComponentMap
+						} else if (componentsList.engineComponentMap
 								.containsKey(key)) {
-							Engine value = komponentList.engineComponentMap
+							Engine value = componentsList.engineComponentMap
 									.get(key);
 							// System.out.println(">VALUE>"+value);//kontrolny
 							// vypis
 							// VALUE
 							// Main.getInstance().setEngine(value);
 							instalComponent(value);
-						} else if (komponentList.bodyKitComponentMap
+						} else if (componentsList.bodyKitComponentMap
 								.containsKey(key)) {
-							BodyKit value = komponentList.bodyKitComponentMap
+							BodyKit value = componentsList.bodyKitComponentMap
 									.get(key);
 							System.out.println(">VALUE>" + value);// kontrolny
 																	// vypis
 																	// VALUE
 							// Main.getInstance().setEngine(value);
 							instalComponent(value);
-						} else if (komponentList.transmissionComponentMap
+						} else if (componentsList.transmissionComponentMap
 								.containsKey(key)) {
-							Transmission value = komponentList.transmissionComponentMap
+							Transmission value = componentsList.transmissionComponentMap
 									.get(key);
 							System.out.println(">VALUE>" + value);// kontrolny
 																	// vypis
 																	// VALUE
 							// Main.getInstance().setEngine(value);
 							instalComponent(value);
-						} else if (komponentList.tireComponentMap
+						} else if (componentsList.tireComponentMap
 								.containsKey(key)) {
-							Tire value = komponentList.tireComponentMap
+							Tire value = componentsList.tireComponentMap
 									.get(key);
 							System.out.println(">VALUE>" + value);// kontrolny
 																	// vypis
 																	// VALUE
 							// Main.getInstance().setEngine(value);
 							instalComponent(value);
-						} else if (komponentList.discComponentMap
+						} else if (componentsList.discComponentMap
 								.containsKey(key)) {
-							Disc value = komponentList.discComponentMap
+							Disc value = componentsList.discComponentMap
 									.get(key);
 							System.out.println(">VALUE>" + value);// kontrolny
 																	// vypis
