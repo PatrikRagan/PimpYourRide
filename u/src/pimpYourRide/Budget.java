@@ -21,7 +21,7 @@ public class Budget {
 	}
 
 	public static void recaunt(Integer old, Integer novy) {
-		Budget.setBudget(Budget.getBudget() + (old/2));
+		Budget.setBudget(Budget.getBudget() + (old/4));
 		Budget.setBudget(Budget.getBudget() - novy);
 		System.out.println("budget : "+Budget.getBudget());
 	}

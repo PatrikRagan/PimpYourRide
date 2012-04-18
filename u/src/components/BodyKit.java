@@ -5,12 +5,12 @@ public class BodyKit implements IComponent{
 	
 
 	private int style;
-	private int downforce;
+	private double downforce;
 	private int price;
 
-	public BodyKit(int style, int downforce, int price) {
+	public BodyKit(int style, double downforce, int price) {
 		this.setStyle(style);
-		this.setDownforce(downforce);
+		this.downforce = downforce;
 		this.price = price;
 	}
 
@@ -26,15 +26,15 @@ public class BodyKit implements IComponent{
 		this.downforce = downforce;
 	}
 
-	public int getDownforce() {
+	public double getDownforce() {
 		return downforce;
 	}
 
-	private int getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	private void setPrice(int price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
