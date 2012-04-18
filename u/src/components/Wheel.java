@@ -62,11 +62,11 @@ public class Wheel implements IComponent{
 			this.isElectron = isElectron;
 		}
 
-		protected int getPrice() {
+		public int getPrice() {
 			return price;
 		}
 
-		protected void setPrice(int price) {
+		public void setPrice(int price) {
 			this.price = price;
 		}
 	}
@@ -100,11 +100,11 @@ public class Wheel implements IComponent{
 			this.tireWidth = tireWidth;
 		}
 
-		protected int getPrice() {
+		public int getPrice() {
 			return price;
 		}
 
-		protected void setPrice(int price) {
+		public void setPrice(int price) {
 			this.price = price;
 		}
 
