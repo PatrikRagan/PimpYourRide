@@ -8,6 +8,8 @@ import components.Wheel.Disc;
 import components.Wheel.Tire;
 
 public aspect CompatibilityAspect {
+	declare precedence: Security, CompatibilityAspect;
+	
 	private Car car;
 	private Brakes oldbrake;
 	private Disc olddisc;
@@ -51,6 +53,28 @@ public aspect CompatibilityAspect {
 		}catch(NullPointerException e){
 			//
 		}
+	}
+	
+	void around(MainFrame frame, IComponent component): execution(* MainFrame.instalComponent(..)) && target(frame) && args(component){
+		if (component instanceof Engine && car.getEngine().equals((Engine)component)) {
+			frame.addLog("This Engine already installed!\n");
+			return;
+		} else if (component instanceof Brakes && car.getBrakes().equals((Brakes)component)) {
+			frame.addLog("This Brakes already installed!\n");
+			return;
+		} else if (component instanceof BodyKit && car.getBodyKit().equals((BodyKit)component)) {
+			frame.addLog("This Body Kit already installed!\n");
+			return;
+		} else if (component instanceof Transmission && car.getTransmission().equals((Transmission)component)) {
+			frame.addLog("This Transmission already installed!\n");
+			return;
+		} else if (component instanceof Wheel.Tire && car.getWheels().getTire().equals((Tire)component)) {
+			frame.addLog("This Tire already installed!\n");
+			return;
+		} else if (component instanceof Wheel.Disc && car.getWheels().getDisc().equals((Disc)component)) {
+			frame.addLog("This Disc already installed!\n");
+			return;
+		} else proceed(frame, component);
 	}
 
 }
